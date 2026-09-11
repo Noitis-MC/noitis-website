@@ -97,17 +97,48 @@ async function verifyDesktop(page, label) {
   assert((await page.locator('html').getAttribute('data-theme')) === 'dark', `${label}: theme preference did not persist after reload.`)
 }
 
+async function verifyGreekHeroLayout(page, label) {
+  const layout = await page.evaluate(() => {
+    const heading = document.querySelector('.hero h1')
+    const copy = document.querySelector('.hero__copy')
+    const visual = document.querySelector('.hero__visual')
+    if (!heading || !copy || !visual) return null
+
+    const headingRect = heading.getBoundingClientRect()
+    const copyRect = copy.getBoundingClientRect()
+    const visualRect = visual.getBoundingClientRect()
+
+    return {
+      headingLeft: headingRect.left,
+      headingRight: headingRect.right,
+      copyLeft: copyRect.left,
+      copyRight: copyRect.right,
+      visualLeft: visualRect.left,
+      headingScrollWidth: heading.scrollWidth,
+      headingClientWidth: heading.clientWidth,
+    }
+  })
+
+  assert(layout, `${label}: Greek hero layout elements are missing.`)
+  assert(layout.headingLeft >= layout.copyLeft - 1, `${label}: Greek hero heading escapes the left edge of its copy column.`)
+  assert(layout.headingRight <= layout.copyRight + 1, `${label}: Greek hero heading escapes the right edge of its copy column.`)
+  assert(layout.headingScrollWidth <= layout.headingClientWidth + 1, `${label}: Greek hero heading text overflows its own box.`)
+  assert(layout.copyRight < layout.visualLeft, `${label}: Greek hero copy collides with the logo column.`)
+}
+
 async function verifyLanguage(page, label) {
   const selector = page.locator('.language-switcher select').first()
   assert(await selector.count() === 1, `${label}: language selector is missing on the home page.`)
 
   await selector.selectOption('el')
   assert((await page.locator('html').getAttribute('lang')) === 'el', `${label}: selecting Greek did not update the document language.`)
-  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν.', `${label}: Greek hero copy did not render.`)
+  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που εμπνέει εμπιστοσύνη.', `${label}: Greek hero copy did not render.`)
+  await verifyGreekHeroLayout(page, label)
 
   await page.reload({ waitUntil: 'networkidle' })
   assert((await page.locator('.language-switcher select').first().inputValue()) === 'el', `${label}: Greek language preference did not persist after reload.`)
-  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν.', `${label}: Greek content did not persist after reload.`)
+  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που εμπνέει εμπιστοσύνη.', `${label}: Greek content did not persist after reload.`)
+  await verifyGreekHeroLayout(page, `${label}/reload`)
 
   await reviewPage(page, 'privacy.html', `${label}/greek`)
   assert((await page.locator('html').getAttribute('lang')) === 'el', `${label}: Greek language did not persist on the privacy page.`)
@@ -170,4 +201,4 @@ try {
   await browser.close()
 }
 
-console.log(`Phase 6 live desktop/mobile browser smoke passed for ${siteUrl.toString()}, including English/Greek switching and persistence.`)
+console.log(`Phase 6 live desktop/mobile browser smoke passed for ${siteUrl.toString()}, including English/Greek switching, Greek hero fit, and persistence.`)

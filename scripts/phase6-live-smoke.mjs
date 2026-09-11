@@ -97,10 +97,35 @@ async function verifyDesktop(page, label) {
   assert((await page.locator('html').getAttribute('data-theme')) === 'dark', `${label}: theme preference did not persist after reload.`)
 }
 
+async function verifyLanguage(page, label) {
+  const selector = page.locator('.language-switcher select').first()
+  assert(await selector.count() === 1, `${label}: language selector is missing on the home page.`)
+
+  await selector.selectOption('el')
+  assert((await page.locator('html').getAttribute('lang')) === 'el', `${label}: selecting Greek did not update the document language.`)
+  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν.', `${label}: Greek hero copy did not render.`)
+
+  await page.reload({ waitUntil: 'networkidle' })
+  assert((await page.locator('.language-switcher select').first().inputValue()) === 'el', `${label}: Greek language preference did not persist after reload.`)
+  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν.', `${label}: Greek content did not persist after reload.`)
+
+  await reviewPage(page, 'privacy.html', `${label}/greek`)
+  assert((await page.locator('html').getAttribute('lang')) === 'el', `${label}: Greek language did not persist on the privacy page.`)
+  assert((await page.locator('h1').textContent())?.trim() === 'Το απόρρητο πρέπει να είναι κατανοητό.', `${label}: Greek privacy copy did not render.`)
+
+  await page.locator('.language-switcher select').first().selectOption('en')
+  assert((await page.locator('html').getAttribute('lang')) === 'en', `${label}: selecting English did not restore the document language.`)
+
+  await page.goto(siteUrl.toString(), { waitUntil: 'networkidle' })
+  assert((await page.locator('.language-switcher select').first().inputValue()) === 'en', `${label}: English language preference did not persist when returning home.`)
+  assert((await page.locator('h1').textContent())?.trim() === 'Technology people can trust.', `${label}: English hero copy did not return.`)
+}
+
 async function verifyMobile(page, label) {
   const menuButton = page.getByRole('button', { name: 'Open navigation' })
   await menuButton.click()
   assert(await page.getByRole('navigation', { name: 'Main navigation' }).isVisible(), `${label}: mobile navigation did not open.`)
+  assert(await page.locator('.language-switcher select').first().isVisible(), `${label}: language selector is not visible inside mobile navigation.`)
   await page.keyboard.press('Escape')
   assert(!(await page.getByRole('navigation', { name: 'Main navigation' }).isVisible()), `${label}: Escape did not close mobile navigation.`)
 }
@@ -115,6 +140,7 @@ try {
       viewport: { width: viewport.width, height: viewport.height },
       colorScheme: 'light',
       reducedMotion: 'reduce',
+      locale: 'en-US',
     })
     const page = await context.newPage()
     const label = `chromium/${viewport.name}`
@@ -128,7 +154,10 @@ try {
     await reviewPage(page, '', label)
     await verifyHome(page, label)
     if (viewport.name === 'mobile') await verifyMobile(page, label)
-    if (viewport.name === 'desktop') await verifyDesktop(page, label)
+    if (viewport.name === 'desktop') {
+      await verifyDesktop(page, label)
+      await verifyLanguage(page, label)
+    }
 
     for (const route of ['privacy.html', 'terms.html', 'trademark.html']) {
       await reviewPage(page, route, label)
@@ -141,4 +170,4 @@ try {
   await browser.close()
 }
 
-console.log(`Phase 6 live desktop/mobile browser smoke passed for ${siteUrl.toString()}.`)
+console.log(`Phase 6 live desktop/mobile browser smoke passed for ${siteUrl.toString()}, including English/Greek switching and persistence.`)

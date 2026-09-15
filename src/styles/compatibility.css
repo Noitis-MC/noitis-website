@@ -25,14 +25,6 @@ html[data-theme='dark'] .future__icon {
   padding: 6px;
 }
 
-/* Product cards use the dedicated small product logos. Keep each mark fully visible. */
-.product-card__logo .theme-logo {
-  object-fit: contain;
-  object-position: center;
-  transform: none;
-  padding: 7px;
-}
-
 @media (max-width: 280px) {
   .site-header {
     padding-left: 10px;

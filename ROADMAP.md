@@ -2,7 +2,7 @@
 
 This roadmap is the implementation sequence for the public Noitis company website. The site remains static-first unless a real website requirement justifies additional infrastructure. The final phase is the official Noitis website launch at the configured public production URL; a branded custom domain may be added later without reopening the accepted launch milestone.
 
-## Implementation audit — 2026-09-08
+## Implementation audit — 2026-09-15
 
 - **Phases 1–5 are complete and accepted.** The website has the static-first React/TypeScript/Vite foundation, reviewed publication content, product catalogue, legal/publication controls, accessibility/SEO/quality checks, cross-browser smoke coverage, production operations contract, and accepted launch candidate required for publication.
 - **The Noitis PNG logo remains the approved browser-tab favicon.** The accepted site uses `media/Noitis Logo - Light.png` as the Vite source asset for the public-page favicon rather than substituting the lightweight manifest SVG mark.
@@ -10,6 +10,7 @@ This roadmap is the implementation sequence for the public Noitis company websit
 - **The repository was intentionally made public to enable GitHub Pages on the current GitHub plan.** This publication decision applies only to the Noitis company website repository; it does not change the visibility or release policy of the product application repositories.
 - **The current launch uses the GitHub Pages default production URL by deliberate owner decision.** Purchasing, verifying, and activating a branded Noitis custom domain is deferred until the owner is ready and is no longer a Phase-6 closure gate for the accepted current launch. When a custom domain is introduced, the existing DNS/domain/TLS/canonical checks and `npm run check:phase6` gate must be rerun against that address.
 - **Phase 6 launch tooling remains maintained.** `scripts/phase6-live-smoke.mjs`, `scripts/verify-publication-health.mjs`, `npm run check:phase6`, `.github/workflows/phase6-live-acceptance.yml`, `.github/workflows/site-health.yml`, and `docs/PHASE-6-LAUNCH.md` remain the publication verification and monitoring surfaces for the current site and any later domain migration.
+- **Phase 7 is now in progress on the exact accepted Phase-6 baseline.** The phase adds repository-local cross-OS and mobile UI compatibility verification without making GitHub Actions a Phase-7 acceptance dependency. The local development surface remains `http://localhost:5173/`, while the post-merge production acceptance surface remains `https://noitis-mc.github.io/noitis-website/`.
 - Production builds continue to enforce public-safe product destinations and publication metadata. Permanent local product links remain a development concern rather than leaking into production output.
 - Phase branches are milestone branches. Once a phase is accepted and merged, its branch is kept at that completed phase and is not advanced with later-phase implementation.
 
@@ -89,5 +90,22 @@ This roadmap is the implementation sequence for the public Noitis company websit
 
 **Deferred post-launch custom-domain upgrade — not a Phase-6 closure gate:** When the owner chooses to purchase a Noitis domain, verify the domain with GitHub, configure the Pages custom domain and DNS, wait for certificate provisioning, enforce HTTPS, configure canonical/apex-or-www redirects as appropriate, update `NOITIS_SITE_URL` / `NOITIS_CUSTOM_DOMAIN`, and rerun the full Phase-6 live acceptance gate. This future domain migration must not change the accepted Noitis visual identity or product-publication safety rules.
 
-## Phase 7 — Production hardening and release candidate — Not started
-- [ ] Check for Windows/Linux or any OS's issues on the UI of the Application.
+## Phase 7 — Production hardening and cross-platform release readiness — In progress
+- [x] Start Phase 7 from the exact accepted Phase-6 milestone branch.
+- [x] Keep Phase 7 acceptance independent of GitHub Actions by providing repository-local commands.
+- [x] Preserve the normal local website contract at `http://localhost:5173/` with strict port 5173.
+- [x] Add a portable Phase-7 compatibility runner for Windows, Linux, and macOS host execution.
+- [x] Cover Chromium, Firefox, and WebKit/Safari-family browser engines.
+- [x] Add Android Chrome portrait/landscape, Samsung Internet, Android Firefox, HarmonyOS, iOS Safari-family, iPadOS Safari-family, and KaiOS layout/device profiles.
+- [x] Verify English/Greek switching, light/dark themes, responsive overflow, clipping, images, navigation, touch targets, legal pages, resource failures, and browser errors.
+- [x] Save failure screenshots under an ignored `artifacts/phase7/` path when possible.
+- [x] Preserve a separate public-site Phase 7 command for `https://noitis-mc.github.io/noitis-website/` after the accepted Phase-7 tree reaches `main`.
+- [ ] Run `npm run check:phase7` on a real Windows host and record the result.
+- [ ] Run `npm run check:phase7` on a real Linux host and record the result.
+- [ ] Run `npm run check:phase7` on a real macOS host and record the result.
+- [ ] Complete the required real Android and iPhone spot checks, plus iPad/HarmonyOS/KaiOS checks where the relevant support claim/device is available.
+- [ ] Fix any compatibility defects found by the automated or real-device checks without changing the approved Noitis identity unnecessarily.
+- [ ] After owner approval and eventual merge to `main`, run `npm run check:phase7:release` against the deployed GitHub Pages site.
+- [ ] Mark Phase 7 complete only when local, cross-OS, mobile-device, and post-merge public acceptance evidence agree.
+
+**Phase 7 implementation evidence:** `scripts/phase7-compatibility.mjs` provides the cross-platform/device compatibility runner; `npm run check:phase7` combines existing production/build/browser checks with the new localhost:5173 compatibility gate; `npm run check:phase7:public` targets the current GitHub Pages site; `npm run check:phase7:release` preserves the Phase-6 live publication gate and adds the Phase-7 public compatibility pass; and `docs/PHASE-7-COMPATIBILITY.md` defines the real-OS/device acceptance contract. GitHub Actions remains available for existing CI/deployment, but it is not required to perform the Phase-7 compatibility acceptance locally.

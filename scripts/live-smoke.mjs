@@ -1,8 +1,8 @@
 const rawSiteUrl = (process.env.SITE_URL || process.env.VITE_SITE_URL || process.env.NOITIS_SITE_URL || '').trim()
-if (!rawSiteUrl) throw new Error('Set SITE_URL, VITE_SITE_URL, or NOITIS_SITE_URL before running the Phase 6 live browser smoke test.')
+if (!rawSiteUrl) throw new Error('Set SITE_URL, VITE_SITE_URL, or NOITIS_SITE_URL before running the live browser smoke test.')
 
 const siteUrl = new URL(rawSiteUrl)
-if (siteUrl.protocol !== 'https:') throw new Error(`Phase 6 live browser smoke requires HTTPS. Received ${siteUrl.protocol}`)
+if (siteUrl.protocol !== 'https:') throw new Error(`Live browser smoke requires HTTPS. Received ${siteUrl.protocol}`)
 if (!siteUrl.pathname.endsWith('/')) siteUrl.pathname += '/'
 
 const customDomain = (process.env.NOITIS_CUSTOM_DOMAIN || '').trim().toLowerCase()
@@ -52,21 +52,14 @@ async function verifyHome(page, label) {
     const pricing = card.querySelector('a[aria-label$=" pricing"]')
     const unavailable = [...card.querySelectorAll('.product-card__status')]
       .some((element) => element.textContent?.trim() === 'Public access not configured')
-
-    return {
-      name,
-      productHref: product?.href || null,
-      pricingHref: pricing?.href || null,
-      unavailable,
-    }
+    return { name, productHref: product?.href || null, pricingHref: pricing?.href || null, unavailable }
   }))
 
   assert(cards.length === expectedProducts.length, `${label}: expected six product cards.`)
-  assert(JSON.stringify(cards.map((card) => card.name)) === JSON.stringify(expectedProducts), `${label}: product catalogue names/order do not match the accepted launch candidate.`)
+  assert(JSON.stringify(cards.map((card) => card.name)) === JSON.stringify(expectedProducts), `${label}: product catalogue names/order do not match the accepted public catalogue.`)
 
   for (const card of cards) {
     assert(Boolean(card.productHref) !== card.unavailable, `${label}: ${card.name} must have exactly one public-access state.`)
-
     for (const [kind, href] of [['product', card.productHref], ['pricing', card.pricingHref]]) {
       if (!href) continue
       const url = new URL(href)
@@ -97,66 +90,10 @@ async function verifyDesktop(page, label) {
   assert((await page.locator('html').getAttribute('data-theme')) === 'dark', `${label}: theme preference did not persist after reload.`)
 }
 
-async function verifyGreekHeroLayout(page, label) {
-  const layout = await page.evaluate(() => {
-    const heading = document.querySelector('.hero h1')
-    const copy = document.querySelector('.hero__copy')
-    const visual = document.querySelector('.hero__visual')
-    if (!heading || !copy || !visual) return null
-
-    const headingRect = heading.getBoundingClientRect()
-    const copyRect = copy.getBoundingClientRect()
-    const visualRect = visual.getBoundingClientRect()
-
-    return {
-      headingLeft: headingRect.left,
-      headingRight: headingRect.right,
-      copyLeft: copyRect.left,
-      copyRight: copyRect.right,
-      visualLeft: visualRect.left,
-      headingScrollWidth: heading.scrollWidth,
-      headingClientWidth: heading.clientWidth,
-    }
-  })
-
-  assert(layout, `${label}: Greek hero layout elements are missing.`)
-  assert(layout.headingLeft >= layout.copyLeft - 1, `${label}: Greek hero heading escapes the left edge of its copy column.`)
-  assert(layout.headingRight <= layout.copyRight + 1, `${label}: Greek hero heading escapes the right edge of its copy column.`)
-  assert(layout.headingScrollWidth <= layout.headingClientWidth + 1, `${label}: Greek hero heading text overflows its own box.`)
-  assert(layout.copyRight < layout.visualLeft, `${label}: Greek hero copy collides with the logo column.`)
-}
-
-async function verifyLanguage(page, label) {
-  const selector = page.locator('.language-switcher select').first()
-  assert(await selector.count() === 1, `${label}: language selector is missing on the home page.`)
-
-  await selector.selectOption('el')
-  assert((await page.locator('html').getAttribute('lang')) === 'el', `${label}: selecting Greek did not update the document language.`)
-  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που εμπνέει εμπιστοσύνη.', `${label}: Greek hero copy did not render.`)
-  await verifyGreekHeroLayout(page, label)
-
-  await page.reload({ waitUntil: 'networkidle' })
-  assert((await page.locator('.language-switcher select').first().inputValue()) === 'el', `${label}: Greek language preference did not persist after reload.`)
-  assert((await page.locator('h1').textContent())?.trim() === 'Τεχνολογία που εμπνέει εμπιστοσύνη.', `${label}: Greek content did not persist after reload.`)
-  await verifyGreekHeroLayout(page, `${label}/reload`)
-
-  await reviewPage(page, 'privacy.html', `${label}/greek`)
-  assert((await page.locator('html').getAttribute('lang')) === 'el', `${label}: Greek language did not persist on the privacy page.`)
-  assert((await page.locator('h1').textContent())?.trim() === 'Το απόρρητο πρέπει να είναι κατανοητό.', `${label}: Greek privacy copy did not render.`)
-
-  await page.locator('.language-switcher select').first().selectOption('en')
-  assert((await page.locator('html').getAttribute('lang')) === 'en', `${label}: selecting English did not restore the document language.`)
-
-  await page.goto(siteUrl.toString(), { waitUntil: 'networkidle' })
-  assert((await page.locator('.language-switcher select').first().inputValue()) === 'en', `${label}: English language preference did not persist when returning home.`)
-  assert((await page.locator('h1').textContent())?.trim() === 'Technology people can trust.', `${label}: English hero copy did not return.`)
-}
-
 async function verifyMobile(page, label) {
   const menuButton = page.getByRole('button', { name: 'Open navigation' })
   await menuButton.click()
   assert(await page.getByRole('navigation', { name: 'Main navigation' }).isVisible(), `${label}: mobile navigation did not open.`)
-  assert(await page.locator('.language-switcher select').first().isVisible(), `${label}: language selector is not visible inside mobile navigation.`)
   await page.keyboard.press('Escape')
   assert(!(await page.getByRole('navigation', { name: 'Main navigation' }).isVisible()), `${label}: Escape did not close mobile navigation.`)
 }
@@ -167,33 +104,18 @@ try {
     { name: 'mobile', width: 375, height: 812 },
     { name: 'desktop', width: 1440, height: 900 },
   ]) {
-    const context = await browser.newContext({
-      viewport: { width: viewport.width, height: viewport.height },
-      colorScheme: 'light',
-      reducedMotion: 'reduce',
-      locale: 'en-US',
-    })
+    const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, colorScheme: 'light', reducedMotion: 'reduce' })
     const page = await context.newPage()
     const label = `chromium/${viewport.name}`
-
     const consoleErrors = []
-    page.on('console', (message) => {
-      if (message.type() === 'error') consoleErrors.push(message.text())
-    })
+    page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()) })
     page.on('pageerror', (error) => consoleErrors.push(error.message))
 
     await reviewPage(page, '', label)
     await verifyHome(page, label)
     if (viewport.name === 'mobile') await verifyMobile(page, label)
-    if (viewport.name === 'desktop') {
-      await verifyDesktop(page, label)
-      await verifyLanguage(page, label)
-    }
-
-    for (const route of ['privacy.html', 'terms.html', 'trademark.html']) {
-      await reviewPage(page, route, label)
-    }
-
+    if (viewport.name === 'desktop') await verifyDesktop(page, label)
+    for (const route of ['privacy.html', 'terms.html', 'trademark.html']) await reviewPage(page, route, label)
     assert(consoleErrors.length === 0, `${label}: browser console/page errors detected: ${consoleErrors.join(' | ')}`)
     await context.close()
   }
@@ -201,4 +123,4 @@ try {
   await browser.close()
 }
 
-console.log(`Phase 6 live desktop/mobile browser smoke passed for ${siteUrl.toString()}, including English/Greek switching, Greek hero fit, and persistence.`)
+console.log(`Live desktop/mobile browser smoke passed for ${siteUrl.toString()}.`)

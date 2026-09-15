@@ -313,7 +313,24 @@ async function assertTouchTargets(page, label) {
   assert(undersized.length === 0, `${label}: touch targets below 44x44 CSS pixels: ${undersized.join(', ')}`)
 }
 
-async function verifyLanguagesAndThemes(page, label) {
+async function ensureHeaderControlsVisible(page, label, mobileLike) {
+  if (!mobileLike) return
+
+  const switcher = page.locator('.language-switcher select').first()
+  const themeButton = page.locator('.theme-button').first()
+  if (await switcher.isVisible() && await themeButton.isVisible()) return
+
+  const menuButton = page.locator('.menu-button').first()
+  assert(await menuButton.isVisible(), `${label}: mobile menu button is not visible while header controls are collapsed.`)
+  await menuButton.click()
+  await page.locator('#site-navigation').waitFor({ state: 'visible' })
+  assert(await switcher.isVisible(), `${label}: language switcher did not become visible after opening mobile navigation.`)
+  assert(await themeButton.isVisible(), `${label}: theme switcher did not become visible after opening mobile navigation.`)
+}
+
+async function verifyLanguagesAndThemes(page, label, mobileLike) {
+  await ensureHeaderControlsVisible(page, label, mobileLike)
+
   const switcher = page.locator('.language-switcher select').first()
   assert(await switcher.count() === 1, `${label}: language switcher is missing.`)
 
@@ -340,6 +357,7 @@ async function verifyLanguagesAndThemes(page, label) {
   }))
   assert(persistedState.lang === 'el' && persistedState.theme === 'dark', `${label}: language/theme preferences did not survive reload.`)
 
+  await ensureHeaderControlsVisible(page, `${label}/after-reload`, mobileLike)
   await page.locator('.language-switcher select').first().selectOption('en')
   await page.waitForFunction(() => document.documentElement.lang === 'en')
   await page.locator('.theme-button').first().click()
@@ -410,7 +428,7 @@ async function verifyProfile(profile) {
     await verifyNavigation(page, label, mobileLike)
 
     await page.goto(baseUrl, { waitUntil: 'networkidle' })
-    await verifyLanguagesAndThemes(page, label)
+    await verifyLanguagesAndThemes(page, label, mobileLike)
     await verifyLegalRoutes(page, label)
 
     assert(browserErrors.length === 0, `${label}: browser page errors: ${browserErrors.join(' | ')}`)

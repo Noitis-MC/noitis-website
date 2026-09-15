@@ -1,4 +1,4 @@
-/* Phase 7 compatibility hardening. Keep these rules narrowly scoped. */
+/* Compatibility hardening. Keep these rules narrowly scoped. */
 
 body {
   min-width: 240px;

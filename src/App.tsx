@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FiArrowRight, FiCheckCircle, FiCompass, FiExternalLink, FiMail, FiMenu, FiX } from 'react-icons/fi'
+import { FiArrowRight, FiCheckCircle, FiExternalLink, FiMail, FiMenu, FiX } from 'react-icons/fi'
 import { BrandMark } from './BrandMark'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { useLanguage } from './i18n/LanguageContext'
@@ -172,7 +172,9 @@ export function App() {
         </section>
 
         <section className="future" aria-labelledby="future-title">
-          <div className="future__icon" aria-hidden="true"><FiCompass /></div>
+          <div className="future__icon" aria-hidden="true">
+            <img className="future__logo" src={heroLogo} alt="" loading="lazy" decoding="async" />
+          </div>
           <p className="eyebrow">{copy.future.eyebrow}</p>
           <h2 id="future-title">{copy.future.title}</h2>
           <p>{copy.future.text}</p>

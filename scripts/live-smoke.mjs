@@ -1,5 +1,5 @@
 const rawSiteUrl = (process.env.SITE_URL || process.env.VITE_SITE_URL || process.env.NOITIS_SITE_URL || '').trim()
-if (!rawSiteUrl) throw new Error('Set SITE_URL, VITE_SITE_URL, or NOITIS_SITE_URL before running the live browser smoke test.')
+if (!rawSiteUrl) throw new Error('Set SITE_URL, VITE_SITE_URL, or NOITIS_SITE_URL before running the live browser smoke check.')
 
 const siteUrl = new URL(rawSiteUrl)
 if (siteUrl.protocol !== 'https:') throw new Error(`Live browser smoke requires HTTPS. Received ${siteUrl.protocol}`)

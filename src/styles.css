@@ -1,2 +1,5 @@
 @import './styles/site.css';
 @import './styles/quality.css';
+@import './styles/language.css';
+@import './styles/i18n.css';
+@import './styles/compatibility.css';

@@ -20,6 +20,7 @@ The Noitis company website is **publicly launched and accepted** for its current
 - [x] Windows-host compatibility acceptance completed on 2026-09-15
 - [x] Approved small product-logo presentation preserved across local and public builds
 - [x] Permanent runtime verification command names with no numbered internal milestone labels
+- [x] Static-site security and availability boundary documented for hostile-traffic resilience
 
 ## Cross-platform hardening
 
@@ -38,6 +39,21 @@ Automated mobile profiles are emulations. Real Linux/macOS host runs and physica
 
 See `docs/COMPATIBILITY.md` for the permanent compatibility runbook and evidence boundary.
 
+## Security and attack-resilience boundary
+
+The current Noitis website is a **static public GitHub Pages site**. It has no trusted application API, customer authentication/session store, payment execution, tenant database, or server-side governance surface to which the AgentGate application-layer attack suite can be meaningfully applied.
+
+For the current static scope:
+
+- production builds must not leak localhost/private product destinations, secrets, or unpublished configuration;
+- public pages, legal pages, assets, language/theme behavior, metadata, and product links remain covered by release checks;
+- availability and volumetric DDoS resistance are primarily properties of the GitHub Pages hosting/network edge rather than repository application code;
+- the repository must not claim a measured application RPS/DDoS capacity that a static localhost build cannot prove.
+
+If the Noitis website later adds forms, authentication, APIs, server-side persistence, billing, webhooks, or other dynamic endpoints, the corresponding release phase must adopt the same hardening principles proven in AgentGate: traffic-class isolation, rate/concurrency limits, bounded bodies/headers/connection time, Host/Origin/CORS protections, safe request correlation, Slowloris resistance, malformed/request-smuggling probes, authentication abuse testing, post-attack recovery checks, and a localhost/synthetic application-layer resilience gate.
+
+Network-edge WAF/CDN/load-balancer/DDoS controls remain a hosting/infrastructure responsibility and must be reviewed whenever hosting moves away from or materially changes beyond GitHub Pages.
+
 ## Ongoing roadmap
 
 - Run the complete verification set on additional real desktop operating systems when available.
@@ -48,7 +64,7 @@ See `docs/COMPATIBILITY.md` for the permanent compatibility runbook and evidence
 - Keep product descriptions synchronized with material changes in the product repositories without presenting planned work as current capability.
 - Keep privacy, legal, trademark, and operator information synchronized with actual website behavior and company status.
 - Continue dependency review, build validation, browser coverage, compatibility coverage, and live availability monitoring.
-- Reconsider analytics, forms, CMS capability, or other infrastructure only when a concrete business requirement justifies the added privacy and operational complexity.
+- Reconsider analytics, forms, CMS capability, APIs, or other dynamic infrastructure only when a concrete business requirement justifies the added privacy, security, and operational complexity.
 
 ## Publication principles
 

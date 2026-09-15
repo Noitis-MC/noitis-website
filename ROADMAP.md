@@ -88,3 +88,6 @@ This roadmap is the implementation sequence for the public Noitis company websit
 **Phase 6 acceptance evidence:** The accepted Phase-6 branch provides `scripts/phase6-live-smoke.mjs`, strengthened `scripts/verify-publication-health.mjs`, `npm run check:phase6`, `.github/workflows/phase6-live-acceptance.yml`, and `docs/PHASE-6-LAUNCH.md`. The final accepted tree was aligned into `main`; the GitHub Pages deployment for the aligned `main` state completed successfully; the owner confirmed the public site is reachable and accepted the temporary GitHub Pages address as the current launch URL. The website remains available independently of the owner's local development machine.
 
 **Deferred post-launch custom-domain upgrade — not a Phase-6 closure gate:** When the owner chooses to purchase a Noitis domain, verify the domain with GitHub, configure the Pages custom domain and DNS, wait for certificate provisioning, enforce HTTPS, configure canonical/apex-or-www redirects as appropriate, update `NOITIS_SITE_URL` / `NOITIS_CUSTOM_DOMAIN`, and rerun the full Phase-6 live acceptance gate. This future domain migration must not change the accepted Noitis visual identity or product-publication safety rules.
+
+## Phase 7 — Production hardening and release candidate — Not started
+- [ ] Check for Windows/Linux or any OS's issues on the UI of the Application.

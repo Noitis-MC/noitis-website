@@ -43,6 +43,16 @@ html[data-theme='dark'] .future__icon {
     padding-right: 12px;
   }
 
+  .hero,
+  .hero__copy,
+  .section-heading,
+  .section-heading > *,
+  .origin,
+  .origin > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .product-card,
   .principle-card {
     min-width: 0;
@@ -74,17 +84,26 @@ html[data-theme='dark'] .future__icon {
   }
 
   .hero__actions {
-    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
     min-width: 0;
+  }
+
+  .product-card .hero__actions {
+    width: 100%;
+    max-width: 100%;
   }
 
   .button,
   .hero__actions .button {
+    box-sizing: border-box;
     width: 100%;
     min-width: 0;
     max-width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;

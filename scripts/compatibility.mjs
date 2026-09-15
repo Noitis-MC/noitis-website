@@ -9,10 +9,10 @@ const argvUrl = process.argv.find((argument) => argument.startsWith('--url='))?.
 const requestedUrl = argvUrl || LOCAL_URL
 const baseUrl = new URL(requestedUrl.endsWith('/') ? requestedUrl : `${requestedUrl}/`).toString()
 const isLocalTarget = ['127.0.0.1', 'localhost'].includes(new URL(baseUrl).hostname)
-const artifactRoot = 'artifacts/phase7'
+const artifactRoot = 'artifacts/compatibility'
 const viteCli = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url))
 
-if (!existsSync('package.json')) throw new Error('Run Phase 7 checks from the repository root.')
+if (!existsSync('package.json')) throw new Error('Run compatibility checks from the repository root.')
 
 let playwright
 try {
@@ -49,7 +49,7 @@ async function waitForTarget(url, attempts = 60) {
     if (await canReach(url)) return
     await new Promise((resolve) => setTimeout(resolve, 200))
   }
-  throw new Error(`Phase 7 target did not become reachable: ${url}${devServerErrors ? `\n${devServerErrors}` : ''}`)
+  throw new Error(`Compatibility target did not become reachable: ${url}${devServerErrors ? `\n${devServerErrors}` : ''}`)
 }
 
 async function startLocalTargetIfNeeded() {
@@ -454,7 +454,7 @@ try {
   await startLocalTargetIfNeeded()
   await waitForTarget(baseUrl, isLocalTarget ? 60 : 15)
 
-  console.log(`Noitis Phase 7 compatibility check`)
+  console.log('Noitis compatibility check')
   console.log(`Host OS: ${hostOs}`)
   console.log(`Target: ${baseUrl}`)
   console.log(`Started: ${startedAt}`)
@@ -467,7 +467,7 @@ try {
   }
 
   console.log(`Verified cross-browser desktop UI plus Android, Samsung Internet, HarmonyOS standards-profile, iOS, iPadOS, mobile Firefox and KaiOS layout coverage on ${hostOs}.`)
-  console.log('Important: mobile OS/browser profiles are automated compatibility emulations. Final Phase 7 acceptance still requires the documented real-device spot checks.')
+  console.log('Important: mobile OS/browser profiles are automated compatibility emulations. Final acceptance still requires the documented real-device spot checks.')
 } finally {
   if (devServer) devServer.kill('SIGTERM')
 }

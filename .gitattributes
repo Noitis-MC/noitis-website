@@ -1,0 +1,3 @@
+# Keep deterministic generated publication files byte-stable on Windows, Linux, and macOS.
+public/robots.txt text eol=lf
+public/sitemap.xml text eol=lf

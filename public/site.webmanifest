@@ -1,12 +1,18 @@
 {
   "name": "Noitis",
   "short_name": "Noitis",
-  "description": "Intelligence, engineered.",
+  "description": "Noitis — Intelligence, engineered.",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0B1020",
   "theme_color": "#0B1020",
   "icons": [
-    { "src": "./noitis-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    {
+      "src": "./noitis-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
   ]
 }

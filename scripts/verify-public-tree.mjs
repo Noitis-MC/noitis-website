@@ -3,6 +3,7 @@ import { extname, join, relative } from 'node:path'
 
 const ignoredDirectories = new Set(['.git', 'node_modules', 'dist', 'media'])
 const binaryExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.ico', '.woff', '.woff2', '.ttf', '.pdf'])
+const lifecycleDocumentation = new Set(['ROADMAP.md'])
 const forbiddenPatterns = [
   new RegExp('ph' + 'ase[- _]?[0-9]+', 'i'),
   new RegExp('te' + 'st[- _]?[0-9]+', 'i'),
@@ -27,6 +28,7 @@ for (const file of filesUnder('.')) {
   }
 
   if (binaryExtensions.has(extname(file).toLowerCase())) continue
+  if (lifecycleDocumentation.has(normalizedPath)) continue
 
   let content
   try {
@@ -44,4 +46,4 @@ if (violations.length > 0) {
   throw new Error(`Public repository cleanliness check failed:\n${violations.join('\n')}`)
 }
 
-console.log('Verified the public repository tree is free of numbered internal milestone/test labels.')
+console.log('Verified public implementation files are free of numbered internal milestone/test labels; ROADMAP.md remains the authoritative lifecycle record.')

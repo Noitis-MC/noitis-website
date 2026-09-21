@@ -305,3 +305,151 @@ html[data-theme='dark'] .home-shell {
   }
 }
 
+/* =========================================================
+   REFINED HOME COMPOSITION
+   Preserve contrast while replacing heavy stacked panels with
+   more deliberate whitespace, fine accents, and lighter depth.
+========================================================= */
+
+.home-shell .hero__copy {
+  padding-left: 20px;
+  border-left-width: 3px;
+}
+
+.home-shell .eyebrow {
+  gap: 10px;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--home-accent-deep);
+}
+
+.home-shell .eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--home-accent-strong), var(--home-violet-strong));
+}
+
+.home-shell .section--statement {
+  max-width: 900px;
+  margin: clamp(44px, 6vw, 76px) auto 0;
+  padding: clamp(42px, 6vw, 64px) clamp(34px, 6vw, 62px);
+  border: 1px solid color-mix(in srgb, var(--home-accent-strong) 18%, var(--border));
+  border-left: 3px solid var(--home-accent-strong);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--home-accent-soft) 24%, var(--surface) 76%),
+      var(--surface-raised));
+  box-shadow: 0 14px 38px rgba(30, 58, 138, .07);
+}
+
+.home-shell .section--statement h2,
+.home-shell .section-heading h2,
+.home-shell .origin h2,
+.home-shell .future h2 {
+  padding-bottom: 14px;
+}
+
+.home-shell .section--statement h2::after,
+.home-shell .section-heading h2::after,
+.home-shell .origin h2::after,
+.home-shell .future h2::after {
+  width: 56px;
+  height: 3px;
+}
+
+.home-shell #products {
+  position: relative;
+  margin: clamp(92px, 11vw, 150px) 0 0;
+  padding: clamp(78px, 9vw, 118px) 0 clamp(82px, 10vw, 126px);
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--home-accent-strong) 20%, var(--border));
+  border-radius: 0;
+  background: transparent;
+}
+
+.home-shell #products::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: clamp(72px, 10vw, 120px);
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--home-accent-strong), var(--home-violet-strong));
+}
+
+.home-shell #products .section-heading {
+  margin-bottom: 54px;
+}
+
+.home-shell .product-card {
+  border-top-width: 2px;
+  box-shadow: 0 12px 30px rgba(30, 58, 138, .08);
+}
+
+.home-shell .product-card__logo {
+  box-shadow: 0 10px 24px rgba(30, 58, 138, .08);
+}
+
+.home-shell .principle-card {
+  box-shadow: 0 10px 26px rgba(30, 58, 138, .07);
+}
+
+.home-shell .origin {
+  border-left-width: 3px;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--surface-soft) 40%, var(--surface) 60%),
+      var(--surface));
+}
+
+.home-shell .future {
+  box-shadow: 0 16px 42px rgba(30, 58, 138, .08);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-shell .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(30, 58, 138, .12);
+  }
+}
+
+@media (max-width: 900px) {
+  .home-shell #products {
+    margin-top: clamp(72px, 10vw, 110px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-shell .hero__copy {
+    padding-left: 12px;
+    border-left-width: 2px;
+  }
+
+  .home-shell .section--statement {
+    margin-top: 48px;
+    padding: 30px 24px;
+    border-left-width: 2px;
+    border-radius: 20px;
+  }
+
+  .home-shell #products {
+    margin-top: 76px;
+    padding: 64px 0 86px;
+    border-radius: 0;
+  }
+
+  .home-shell #products .section-heading {
+    margin-bottom: 40px;
+  }
+}
+

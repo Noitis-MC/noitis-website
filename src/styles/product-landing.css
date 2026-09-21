@@ -1,0 +1,214 @@
+.product-landing-shell main {
+  padding-bottom: 80px;
+}
+
+.product-landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  gap: 64px;
+  align-items: center;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 92px 0 64px;
+}
+
+.product-landing-hero__copy {
+  min-width: 0;
+}
+
+.product-landing__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.product-landing__back:hover {
+  color: var(--text);
+}
+
+.product-landing-hero h1 {
+  margin-bottom: 14px;
+}
+
+.product-landing-hero__headline {
+  max-width: 760px;
+  margin: 0 0 14px;
+  color: var(--text);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.35;
+  font-weight: 750;
+}
+
+.product-landing-hero__intro {
+  max-width: 760px;
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.product-landing__status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.product-landing-hero__visual {
+  display: grid;
+  place-items: center;
+  min-height: 330px;
+  padding: 42px;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow);
+}
+
+.product-landing-hero__visual img {
+  width: min(100%, 300px);
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.product-landing-access,
+.product-landing-problem,
+.product-landing-boundary {
+  display: grid;
+  grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.product-landing-access {
+  margin-top: 24px;
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface-soft);
+}
+
+.product-landing-access h2,
+.product-landing-boundary h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+}
+
+.product-landing-access p:last-child,
+.product-landing-boundary p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.product-landing-capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-landing-capability {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface-raised);
+}
+
+.product-landing-capability svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 20px;
+  color: var(--accent-text);
+}
+
+.product-landing-capability h3 {
+  margin: 0 0 10px;
+}
+
+.product-landing-capability p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.product-landing-boundary {
+  padding: 38px;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow);
+}
+
+.product-landing-cta .hero__actions {
+  justify-content: center;
+  margin-top: 26px;
+}
+
+@media (max-width: 900px) {
+  .product-landing-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 64px;
+  }
+
+  .product-landing-hero__visual {
+    min-height: 240px;
+  }
+
+  .product-landing-access,
+  .product-landing-problem,
+  .product-landing-boundary {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 620px) {
+  .product-landing-hero {
+    width: min(100% - 32px, 1180px);
+    padding: 48px 0 40px;
+  }
+
+  .product-landing-hero__visual {
+    min-height: 200px;
+    padding: 28px;
+    border-radius: 24px;
+  }
+
+  .product-landing-capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .product-landing-access,
+  .product-landing-boundary {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 280px) {
+  .product-landing-hero {
+    width: calc(100% - 24px);
+  }
+
+  .product-landing-hero h1,
+  .product-landing-hero p,
+  .product-landing-capability h3,
+  .product-landing-capability p,
+  .product-landing-access h2,
+  .product-landing-access p,
+  .product-landing-boundary h2,
+  .product-landing-boundary p {
+    overflow-wrap: anywhere;
+  }
+}

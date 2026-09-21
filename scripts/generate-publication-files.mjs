@@ -13,7 +13,18 @@ function normalizeSiteUrl(rawValue) {
 }
 
 const siteUrl = normalizeSiteUrl(process.env.VITE_SITE_URL || process.env.SITE_URL)
-const publicPages = ['', 'privacy.html', 'terms.html', 'trademark.html']
+const publicPages = [
+  '',
+  'agentgate.html',
+  'autopaylot.html',
+  'business-resource-scheduler.html',
+  'earnlogic.html',
+  'familyos.html',
+  'legacyci.html',
+  'privacy.html',
+  'terms.html',
+  'trademark.html',
+]
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

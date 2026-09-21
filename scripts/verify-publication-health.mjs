@@ -10,7 +10,7 @@ if (customDomain && siteUrl.hostname.toLowerCase() !== customDomain) {
   throw new Error(`NOITIS_CUSTOM_DOMAIN (${customDomain}) does not match live site host (${siteUrl.hostname}).`)
 }
 
-const publicPages = ['', 'privacy.html', 'terms.html', 'trademark.html']
+const publicPages = ['', 'agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html', 'privacy.html', 'terms.html', 'trademark.html']
 const textAssets = ['robots.txt', 'sitemap.xml', 'site.webmanifest']
 const binaryAssets = [
   { path: 'social-preview.png', contentType: 'image/png' },

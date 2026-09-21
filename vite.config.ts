@@ -35,6 +35,12 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: fileURLToPath(new URL('./index.html', import.meta.url)),
+          agentgate: fileURLToPath(new URL('./agentgate.html', import.meta.url)),
+          autopaylot: fileURLToPath(new URL('./autopaylot.html', import.meta.url)),
+          businessResourceScheduler: fileURLToPath(new URL('./business-resource-scheduler.html', import.meta.url)),
+          earnlogic: fileURLToPath(new URL('./earnlogic.html', import.meta.url)),
+          familyos: fileURLToPath(new URL('./familyos.html', import.meta.url)),
+          legacyci: fileURLToPath(new URL('./legacyci.html', import.meta.url)),
           privacy: fileURLToPath(new URL('./privacy.html', import.meta.url)),
           terms: fileURLToPath(new URL('./terms.html', import.meta.url)),
           trademark: fileURLToPath(new URL('./trademark.html', import.meta.url)),

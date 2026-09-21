@@ -13,6 +13,8 @@ try {
 
 const { chromium, firefox, webkit } = playwright
 const baseUrl = 'http://127.0.0.1:4173'
+const productRoutes = ['agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html']
+const secondaryRoutes = [...productRoutes, 'privacy.html', 'terms.html', 'trademark.html']
 const viteCli = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url))
 const preview = spawn(process.execPath, [viteCli, 'preview', '--host', '127.0.0.1', '--port', '4173'], {
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -124,14 +126,25 @@ async function verifyHomeContract(page, label) {
   assert(contract.productCards.length === contract.expectedProducts.length, `${label}: expected six product cards.`)
   assert(JSON.stringify(contract.productCards.map((card) => card.name)) === JSON.stringify(contract.expectedProducts), `${label}: product catalogue order/names do not match the launch candidate.`)
 
-  for (const card of contract.productCards) {
-    assert(Boolean(card.productHref) !== card.unavailable, `${label}: ${card.name} must have exactly one product-access state: reviewed link or Public access not configured.`)
+  const expectedProductPaths = {
+    AgentGate: '/agentgate.html',
+    AutoPaylot: '/autopaylot.html',
+    'Business Resource Scheduler': '/business-resource-scheduler.html',
+    EarnLogic: '/earnlogic.html',
+    FamilyOS: '/familyos.html',
+    LegacyCI: '/legacyci.html',
+  }
 
-    for (const [kind, href] of [['product', card.productHref], ['pricing', card.pricingHref]]) {
-      if (!href) continue
-      const url = new URL(href, baseUrl)
-      assert(url.protocol === 'https:', `${label}: ${card.name} ${kind} link must use HTTPS.`)
-      assert(!['localhost', '127.0.0.1', '::1'].includes(url.hostname), `${label}: ${card.name} ${kind} link must not target a local address.`)
+  for (const card of contract.productCards) {
+    assert(Boolean(card.productHref) && !card.unavailable, `${label}: ${card.name} must link to its Noitis landing page.`)
+    const productUrl = new URL(card.productHref, baseUrl)
+    assert(productUrl.origin === new URL(baseUrl).origin, `${label}: ${card.name} product link must remain on the Noitis site.`)
+    assert(productUrl.pathname === expectedProductPaths[card.name], `${label}: ${card.name} points to unexpected landing path ${productUrl.pathname}.`)
+
+    if (card.pricingHref) {
+      const pricingUrl = new URL(card.pricingHref, baseUrl)
+      assert(pricingUrl.protocol === 'https:', `${label}: ${card.name} pricing link must use HTTPS.`)
+      assert(!['localhost', '127.0.0.1', '::1'].includes(pricingUrl.hostname), `${label}: ${card.name} pricing link must not target a local address.`)
     }
   }
 
@@ -228,7 +241,7 @@ async function reviewBrowser(name, browserType) {
         assert((await page.locator('html').getAttribute('data-theme')) === 'dark', `${label}: theme preference did not persist after reload.`)
       }
 
-      for (const route of ['privacy.html', 'terms.html', 'trademark.html']) {
+      for (const route of secondaryRoutes) {
         await reviewPage(page, route, label)
       }
 

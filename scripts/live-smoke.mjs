@@ -19,6 +19,7 @@ try {
 
 const { chromium } = playwright
 const expectedProducts = ['AgentGate', 'AutoPaylot', 'Business Resource Scheduler', 'EarnLogic', 'FamilyOS', 'LegacyCI']
+const secondaryRoutes = ['agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html', 'privacy.html', 'terms.html', 'trademark.html']
 
 function assert(condition, message) {
   if (!condition) throw new Error(message)
@@ -115,7 +116,7 @@ try {
     await verifyHome(page, label)
     if (viewport.name === 'mobile') await verifyMobile(page, label)
     if (viewport.name === 'desktop') await verifyDesktop(page, label)
-    for (const route of ['privacy.html', 'terms.html', 'trademark.html']) await reviewPage(page, route, label)
+    for (const route of secondaryRoutes) await reviewPage(page, route, label)
     assert(consoleErrors.length === 0, `${label}: browser console/page errors detected: ${consoleErrors.join(' | ')}`)
     await context.close()
   }

@@ -107,7 +107,7 @@ const english: SiteCopy = {
   },
   hero: {
     eyebrow: 'From Greece. Built for the world.',
-    title: 'Technology people can trust.',
+    title: 'Technology people can trust',
     lead: 'Noitis builds focused software for difficult operational problems where clarity, control, and trustworthy decisions matter.',
     support: 'Our products are in active development. We describe current capability conservatively and keep future work separate from what is available today.',
     discover: 'Discover our products',
@@ -115,12 +115,12 @@ const english: SiteCopy = {
   },
   purpose: {
     eyebrow: 'Our purpose',
-    title: 'Make advanced technology feel dependable.',
+    title: 'Make advanced technology feel dependable',
     text: 'We look for places where people lose time, control, or confidence because important work is fragmented across tools and manual processes. Then we engineer a clearer system around the real decision.',
   },
   products: {
     eyebrow: 'What we build',
-    title: 'A family of focused products.',
+    title: 'A family of focused products',
     intro: 'Each product solves a different problem, but all of them share the same standard: intelligence should be understandable, controlled, and useful in the real workflow.',
     open: 'Open product',
     pricing: 'Pricing',
@@ -168,7 +168,7 @@ const english: SiteCopy = {
   },
   principles: {
     eyebrow: 'How we build',
-    title: 'Simple on the surface. Serious underneath.',
+    title: 'Simple on the surface. Serious underneath',
     items: [
       { title: 'Trust first', text: 'Security, transparency, reliability, and user control are part of the product—not finishing touches.' },
       { title: 'Useful intelligence', text: 'Advanced technology should remove real work and uncertainty, not create complexity for its own sake.' },
@@ -178,7 +178,7 @@ const english: SiteCopy = {
   },
   about: {
     eyebrow: 'Our roots',
-    title: 'Greek foundations. Global ambition.',
+    title: 'Greek foundations. Global ambition',
     paragraphs: [
       'Noitis is a technology brand being built in Greece with an international horizon. Our name is inspired by the Greek intellectual tradition around nous and noesis: mind, thought, understanding, and the conception of an idea.',
       'For us, Noitis is the one who sees what could exist before it exists—and engineers it into reality. That becomes a practical standard: technology should help people understand better, decide with confidence, and act with greater control.',
@@ -187,13 +187,13 @@ const english: SiteCopy = {
   },
   contact: {
     eyebrow: 'Contact',
-    title: 'Talk to Noitis.',
+    title: 'Talk to Noitis',
     text: 'For company, product, privacy, legal, or brand enquiries, use the contact address below. The public website does not use a contact form or marketing tracker.',
     email: 'Email Noitis',
   },
   future: {
     eyebrow: 'Where we are going',
-    title: 'Between human intention and machine capability.',
+    title: 'Between human intention and machine capability',
     text: 'As software becomes more capable of reasoning, coordinating, and acting, trust will matter more—not less. Noitis is building toward systems that make that capability understandable, useful, and safe to rely on.',
   },
   footer: {
@@ -225,7 +225,7 @@ const greek: SiteCopy = {
   },
   hero: {
     eyebrow: 'Από την Ελλάδα. Για όλο τον κόσμο.',
-    title: 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν.',
+    title: 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν',
     lead: 'Η Noitis δημιουργεί στοχευμένο λογισμικό για δύσκολα επιχειρησιακά προβλήματα, όπου η σαφήνεια, ο έλεγχος και οι αξιόπιστες αποφάσεις έχουν σημασία.',
     support: 'Τα προϊόντα μας βρίσκονται σε ενεργή ανάπτυξη. Περιγράφουμε συντηρητικά τις σημερινές δυνατότητες και ξεχωρίζουμε καθαρά τη μελλοντική εργασία από ό,τι είναι διαθέσιμο σήμερα.',
     discover: 'Ανακαλύψτε τα προϊόντα μας',
@@ -233,12 +233,12 @@ const greek: SiteCopy = {
   },
   purpose: {
     eyebrow: 'Ο σκοπός μας',
-    title: 'Να κάνουμε την προηγμένη τεχνολογία να εμπνέει σιγουριά.',
+    title: 'Να κάνουμε την προηγμένη τεχνολογία να εμπνέει σιγουριά',
     text: 'Αναζητούμε σημεία όπου άνθρωποι και επιχειρήσεις χάνουν χρόνο, έλεγχο ή εμπιστοσύνη επειδή σημαντική εργασία είναι κατακερματισμένη σε εργαλεία και χειροκίνητες διαδικασίες. Έπειτα σχεδιάζουμε ένα καθαρότερο σύστημα γύρω από την πραγματική απόφαση.',
   },
   products: {
     eyebrow: 'Τι δημιουργούμε',
-    title: 'Μια οικογένεια στοχευμένων προϊόντων.',
+    title: 'Μια οικογένεια στοχευμένων προϊόντων',
     intro: 'Κάθε προϊόν λύνει διαφορετικό πρόβλημα, αλλά όλα μοιράζονται το ίδιο πρότυπο: η ευφυΐα πρέπει να είναι κατανοητή, ελεγχόμενη και χρήσιμη στην πραγματική ροή εργασίας.',
     open: 'Άνοιγμα προϊόντος',
     pricing: 'Τιμολόγηση',
@@ -286,7 +286,7 @@ const greek: SiteCopy = {
   },
   principles: {
     eyebrow: 'Πώς δημιουργούμε',
-    title: 'Απλό στην επιφάνεια. Σοβαρό από κάτω.',
+    title: 'Απλό στην επιφάνεια. Σοβαρό από κάτω',
     items: [
       { title: 'Πρώτα η εμπιστοσύνη', text: 'Η ασφάλεια, η διαφάνεια, η αξιοπιστία και ο έλεγχος από τον χρήστη είναι μέρος του προϊόντος — όχι τελευταίες πινελιές.' },
       { title: 'Χρήσιμη ευφυΐα', text: 'Η προηγμένη τεχνολογία πρέπει να αφαιρεί πραγματική δουλειά και αβεβαιότητα, όχι να δημιουργεί πολυπλοκότητα για χάρη της πολυπλοκότητας.' },
@@ -296,7 +296,7 @@ const greek: SiteCopy = {
   },
   about: {
     eyebrow: 'Οι ρίζες μας',
-    title: 'Ελληνικές βάσεις. Παγκόσμια φιλοδοξία.',
+    title: 'Ελληνικές βάσεις. Παγκόσμια φιλοδοξία',
     paragraphs: [
       'Η Noitis είναι ένα τεχνολογικό brand που χτίζεται στην Ελλάδα με διεθνή ορίζοντα. Το όνομά μας αντλεί έμπνευση από την ελληνική πνευματική παράδοση γύρω από τον νου και τη νόηση: σκέψη, κατανόηση και σύλληψη μιας ιδέας.',
       'Για εμάς, Noitis είναι εκείνος που βλέπει τι θα μπορούσε να υπάρξει πριν υπάρξει — και το μετατρέπει με μηχανική σε πραγματικότητα. Αυτό γίνεται πρακτικό πρότυπο: η τεχνολογία πρέπει να βοηθά τους ανθρώπους να κατανοούν καλύτερα, να αποφασίζουν με σιγουριά και να ενεργούν με περισσότερο έλεγχο.',
@@ -305,13 +305,13 @@ const greek: SiteCopy = {
   },
   contact: {
     eyebrow: 'Επικοινωνία',
-    title: 'Μιλήστε με τη Noitis.',
+    title: 'Μιλήστε με τη Noitis',
     text: 'Για θέματα εταιρείας, προϊόντων, απορρήτου, νομικά ζητήματα ή θέματα brand, χρησιμοποιήστε την παρακάτω διεύθυνση επικοινωνίας. Ο δημόσιος ιστότοπος δεν χρησιμοποιεί φόρμα επικοινωνίας ή marketing tracker.',
     email: 'Email στη Noitis',
   },
   future: {
     eyebrow: 'Πού κατευθυνόμαστε',
-    title: 'Ανάμεσα στην ανθρώπινη πρόθεση και τη δυνατότητα της μηχανής.',
+    title: 'Ανάμεσα στην ανθρώπινη πρόθεση και τη δυνατότητα της μηχανής',
     text: 'Καθώς το λογισμικό αποκτά μεγαλύτερη ικανότητα συλλογισμού, συντονισμού και δράσης, η εμπιστοσύνη θα έχει περισσότερη — όχι λιγότερη — σημασία. Η Noitis χτίζει συστήματα που κάνουν αυτή τη δυνατότητα κατανοητή, χρήσιμη και ασφαλή για να μπορεί κανείς να βασίζεται σε αυτή.',
   },
   footer: {

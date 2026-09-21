@@ -43,7 +43,7 @@ export function App() {
   const heroLogo = theme === 'dark' ? noitisLogoDark : noitisLogoLight
 
   return (
-    <div className="site-shell">
+    <div className="site-shell home-shell">
       <a className="skip-link" href="#main">{copy.skip}</a>
 
       <header className="site-header">

@@ -95,28 +95,30 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
           </div>
         </section>
 
-        <section className="section product-landing-access" aria-labelledby="access-title">
-          <div>
-            <p className="eyebrow">{ui.accessEyebrow}</p>
-            <h2 id="access-title">{ui.accessTitle}</h2>
-          </div>
-          <p>{ui.accessText}</p>
-        </section>
+        <div className="product-landing-context-grid">
+          <section className="section product-landing-access" aria-labelledby="access-title">
+            <div>
+              <p className="eyebrow">{ui.accessEyebrow}</p>
+              <h2 id="access-title">{ui.accessTitle}</h2>
+            </div>
+            <p>{ui.accessText}</p>
+          </section>
 
-        <section className="section product-landing-problem" aria-labelledby="problem-title">
-          <div>
-            <p className="eyebrow">{ui.problemEyebrow}</p>
-            <h2 id="problem-title">{ui.problemTitle}</h2>
-          </div>
-          <p className="section__lead">{content.problem}</p>
-        </section>
+          <section className="section product-landing-problem" aria-labelledby="problem-title">
+            <div>
+              <p className="eyebrow">{ui.problemEyebrow}</p>
+              <h2 id="problem-title">{ui.problemTitle}</h2>
+            </div>
+            <p className="section__lead">{content.problem}</p>
+          </section>
+        </div>
 
         <section className="section" aria-labelledby="capabilities-title">
           <div className="section-heading">
             <div><p className="eyebrow">{ui.capabilityEyebrow}</p><h2 id="capabilities-title">{ui.capabilityTitle}</h2></div>
             <p>{content.value}</p>
           </div>
-          <div className="product-landing-capabilities">
+          <div className="product-landing-capabilities swipe-track" role="region" aria-label={ui.capabilityTitle} tabIndex={0}>
             {content.capabilities.map((capability) => (
               <article className="product-landing-capability" key={capability.title}>
                 <FiCheckCircle aria-hidden="true" />
@@ -127,23 +129,25 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
           </div>
         </section>
 
-        <section className="section product-landing-boundary" aria-labelledby="boundary-title">
-          <div>
-            <p className="eyebrow">{ui.boundaryEyebrow}</p>
-            <h2 id="boundary-title">{ui.boundaryTitle}</h2>
-          </div>
-          <p>{content.boundary}</p>
-        </section>
+        <div className="product-landing-lower-grid">
+          <section className="section product-landing-boundary" aria-labelledby="boundary-title">
+            <div>
+              <p className="eyebrow">{ui.boundaryEyebrow}</p>
+              <h2 id="boundary-title">{ui.boundaryTitle}</h2>
+            </div>
+            <p>{content.boundary}</p>
+          </section>
 
-        <section className="future product-landing-cta" aria-labelledby="contact-title">
-          <p className="eyebrow">{ui.valueEyebrow}</p>
-          <h2 id="contact-title">{ui.valueTitle}</h2>
-          <p>{ui.valueText}</p>
-          <div className="hero__actions">
-            <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{ui.email} <FiMail aria-hidden="true" /></a>
-            <a className="button button--secondary" href="./index.html#products">{ui.products}</a>
-          </div>
-        </section>
+          <section className="section product-landing-cta" aria-labelledby="contact-title">
+            <p className="eyebrow">{ui.valueEyebrow}</p>
+            <h2 id="contact-title">{ui.valueTitle}</h2>
+            <p>{ui.valueText}</p>
+            <div className="hero__actions">
+              <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{ui.email} <FiMail aria-hidden="true" /></a>
+              <a className="button button--secondary" href="./index.html#products">{ui.products}</a>
+            </div>
+          </section>
+        </div>
       </main>
 
       <footer className="site-footer">

@@ -57,16 +57,16 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
     dark: 'Dark',
     status: 'In development',
     accessEyebrow: 'Public access',
-    accessTitle: 'The application itself is not public yet.',
+    accessTitle: 'The application itself is not public yet',
     accessText: 'Noitis is keeping operational product access on hold while pre-production infrastructure is prepared. This page is an informational product landing page only.',
     problemEyebrow: 'Why it exists',
-    problemTitle: 'Built around a real operational problem.',
+    problemTitle: 'Built around a real operational problem',
     capabilityEyebrow: 'What it does',
-    capabilityTitle: 'Focused capabilities, designed as one system.',
+    capabilityTitle: 'Focused capabilities, designed as one system',
     boundaryEyebrow: 'Public boundary',
-    boundaryTitle: 'Landing page outside. Operational data inside.',
+    boundaryTitle: 'Landing page outside. Operational data inside',
     valueEyebrow: 'Interested?',
-    valueTitle: 'Talk to Noitis about the product.',
+    valueTitle: 'Talk to Noitis about the product',
     valueText: 'For product, pilot, partnership, or commercial enquiries, contact Noitis directly. Public application access will be introduced only when the corresponding environment is ready.',
     email: 'Email Noitis',
     footerTagline: 'Built in Greece. Designed for a global future.',
@@ -87,16 +87,16 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
     dark: 'Σκούρο',
     status: 'Υπό ανάπτυξη',
     accessEyebrow: 'Δημόσια πρόσβαση',
-    accessTitle: 'Η ίδια η εφαρμογή δεν είναι ακόμη δημόσια.',
+    accessTitle: 'Η ίδια η εφαρμογή δεν είναι ακόμη δημόσια',
     accessText: 'Η Noitis διατηρεί την πρόσβαση στις λειτουργικές εφαρμογές σε αναμονή μέχρι να ολοκληρωθεί η υποδομή pre-production. Η συγκεκριμένη σελίδα είναι αποκλειστικά ενημερωτική παρουσίαση του προϊόντος.',
     problemEyebrow: 'Γιατί υπάρχει',
-    problemTitle: 'Σχεδιασμένο γύρω από ένα πραγματικό λειτουργικό πρόβλημα.',
+    problemTitle: 'Σχεδιασμένο γύρω από ένα πραγματικό λειτουργικό πρόβλημα',
     capabilityEyebrow: 'Τι κάνει',
-    capabilityTitle: 'Στοχευμένες δυνατότητες, σχεδιασμένες ως ένα ενιαίο σύστημα.',
+    capabilityTitle: 'Στοχευμένες δυνατότητες, σχεδιασμένες ως ένα ενιαίο σύστημα',
     boundaryEyebrow: 'Δημόσιο όριο',
-    boundaryTitle: 'Η παρουσίαση είναι δημόσια. Τα λειτουργικά δεδομένα παραμένουν ιδιωτικά.',
+    boundaryTitle: 'Η παρουσίαση είναι δημόσια. Τα λειτουργικά δεδομένα παραμένουν ιδιωτικά',
     valueEyebrow: 'Ενδιαφέρεστε;',
-    valueTitle: 'Μιλήστε με τη Noitis για το προϊόν.',
+    valueTitle: 'Μιλήστε με τη Noitis για το προϊόν',
     valueText: 'Για θέματα προϊόντος, πιλοτικής χρήσης, συνεργασίας ή εμπορικού ενδιαφέροντος, επικοινωνήστε απευθείας με τη Noitis. Η δημόσια πρόσβαση στην εφαρμογή θα ενεργοποιηθεί μόνο όταν το αντίστοιχο περιβάλλον είναι έτοιμο.',
     email: 'Στείλτε email στη Noitis',
     footerTagline: 'Χτίζεται στην Ελλάδα. Σχεδιάζεται για ένα παγκόσμιο μέλλον.',
@@ -107,7 +107,7 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
 export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, ProductLandingContent>> = {
   agentgate: {
     en: {
-      headline: 'Human control for AI-agent actions.',
+      headline: 'Human control for AI-agent actions',
       intro: 'AgentGate gives organizations a control plane between autonomous software and sensitive actions, so policy, approval, identity, and evidence can travel with the decision.',
       problem: 'AI agents can move faster than the governance processes around them. AgentGate is designed for the point where an action needs a clear answer: allow it, require a human decision, or block it.',
       capabilities: [
@@ -120,7 +120,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
       value: 'AgentGate is for teams that want capable automation without surrendering organizational control over sensitive actions.',
     },
     el: {
-      headline: 'Ανθρώπινος έλεγχος στις ενέργειες AI agents.',
+      headline: 'Ανθρώπινος έλεγχος στις ενέργειες AI agents',
       intro: 'Το AgentGate λειτουργεί ως επίπεδο ελέγχου ανάμεσα σε αυτόνομο λογισμικό και ευαίσθητες ενέργειες, ώστε πολιτικές, εγκρίσεις, ταυτότητα και τεκμήρια να ακολουθούν κάθε απόφαση.',
       problem: 'Οι AI agents μπορούν να κινούνται ταχύτερα από τις διαδικασίες διακυβέρνησης μιας εταιρείας. Το AgentGate εστιάζει στο κρίσιμο σημείο: επιτρέπεται η ενέργεια, χρειάζεται ανθρώπινη έγκριση ή πρέπει να αποκλειστεί;',
       capabilities: [
@@ -135,7 +135,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
   },
   autopaylot: {
     en: {
-      headline: 'Know what should be paid before money moves.',
+      headline: 'Know what should be paid before money moves',
       intro: 'AutoPaylot organizes recurring financial obligations, timing, account visibility, and payment-readiness decisions so household finances can be managed with clearer priorities and stronger control.',
       problem: 'Bills, subscriptions, debt payments, savings goals, and everyday spending compete for the same income. AutoPaylot is designed to turn that fragmented picture into an explicit plan before any payment is executed.',
       capabilities: [
@@ -148,7 +148,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
       value: 'AutoPaylot is designed for people who want recurring financial life to become deliberate and understandable instead of a sequence of disconnected due dates.',
     },
     el: {
-      headline: 'Να ξέρεις τι πρέπει να πληρωθεί πριν κινηθούν χρήματα.',
+      headline: 'Να ξέρεις τι πρέπει να πληρωθεί πριν κινηθούν χρήματα',
       intro: 'Το AutoPaylot οργανώνει επαναλαμβανόμενες οικονομικές υποχρεώσεις, χρονισμό, εικόνα λογαριασμών και αποφάσεις ετοιμότητας πληρωμής, ώστε τα οικονομικά ενός νοικοκυριού να διαχειρίζονται με καθαρότερες προτεραιότητες και περισσότερο έλεγχο.',
       problem: 'Λογαριασμοί, συνδρομές, δόσεις, στόχοι αποταμίευσης και καθημερινά έξοδα ανταγωνίζονται το ίδιο εισόδημα. Το AutoPaylot μετατρέπει αυτή την κατακερματισμένη εικόνα σε σαφές πλάνο πριν εκτελεστεί οποιαδήποτε πληρωμή.',
       capabilities: [
@@ -163,7 +163,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
   },
   'business-resource-scheduler': {
     en: {
-      headline: 'Schedule the work, resources, and constraints that make operations possible.',
+      headline: 'Schedule the work, resources, and constraints that make operations possible',
       intro: 'Business Resource Scheduler coordinates demand with the people, skills, equipment, spaces, locations, availability, and rules required to deliver real work.',
       problem: 'A free time slot is not enough when a booking also needs the right employee, skill, room, station, equipment, duration, sequence, and operating rule. BRS treats scheduling as an operational constraint problem rather than a simple calendar.',
       capabilities: [
@@ -176,7 +176,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
       value: 'BRS is built for service and operational businesses where the cost of a bad schedule is measured in delays, idle capacity, conflicts, and disappointed customers.',
     },
     el: {
-      headline: 'Προγραμματισμός εργασίας, πόρων και περιορισμών που κάνουν τη λειτουργία εφικτή.',
+      headline: 'Προγραμματισμός εργασίας, πόρων και περιορισμών που κάνουν τη λειτουργία εφικτή',
       intro: 'Το Business Resource Scheduler συντονίζει τη ζήτηση με ανθρώπους, δεξιότητες, εξοπλισμό, χώρους, τοποθεσίες, διαθεσιμότητα και κανόνες που απαιτούνται για να εκτελεστεί πραγματική εργασία.',
       problem: 'Μία κενή ώρα δεν αρκεί όταν μια κράτηση απαιτεί ταυτόχρονα τον σωστό εργαζόμενο, δεξιότητα, χώρο, station, εξοπλισμό, διάρκεια, σειρά και επιχειρησιακό κανόνα. Το BRS αντιμετωπίζει το scheduling ως πρόβλημα λειτουργικών περιορισμών και όχι ως απλό ημερολόγιο.',
       capabilities: [
@@ -191,7 +191,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
   },
   earnlogic: {
     en: {
-      headline: 'Explain how commercial performance becomes compensation.',
+      headline: 'Explain how commercial performance becomes compensation',
       intro: 'EarnLogic connects source activity, governed rules, calculations, statements, and evidence so organizations can understand not only what someone earned, but how the result was produced.',
       problem: 'Variable compensation becomes difficult to trust when plans, source data, adjustments, calculations, and exports live in separate places. EarnLogic is designed to preserve a governed calculation story from input to result.',
       capabilities: [
@@ -204,7 +204,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
       value: 'EarnLogic is built for organizations that need compensation to be explainable, reproducible, governed, and connected to the commercial activity behind it.',
     },
     el: {
-      headline: 'Εξηγεί πώς η εμπορική απόδοση μετατρέπεται σε αμοιβή.',
+      headline: 'Εξηγεί πώς η εμπορική απόδοση μετατρέπεται σε αμοιβή',
       intro: 'Το EarnLogic συνδέει source activity, ελεγχόμενους κανόνες, υπολογισμούς, statements και τεκμήρια, ώστε ένας οργανισμός να κατανοεί όχι μόνο τι κέρδισε κάποιος αλλά και πώς προέκυψε το αποτέλεσμα.',
       problem: 'Οι μεταβλητές αμοιβές δυσκολεύονται να εμπνεύσουν εμπιστοσύνη όταν plans, source data, adjustments, calculations και exports βρίσκονται σε διαφορετικά σημεία. Το EarnLogic διατηρεί μια ελεγχόμενη ιστορία υπολογισμού από την είσοδο μέχρι το αποτέλεσμα.',
       capabilities: [
@@ -219,7 +219,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
   },
   familyos: {
     en: {
-      headline: 'One place to coordinate the moving parts of family life.',
+      headline: 'One place to coordinate the moving parts of family life',
       intro: 'FamilyOS brings discovery, bookings, schedules, saved items, family roles, and everyday coordination into a parent-first, child-centred operating experience.',
       problem: 'Family responsibilities are usually scattered across messages, calendars, provider pages, reminders, notes, and memory. FamilyOS is designed to give a household one clearer place to see what matters now and what is coming next.',
       capabilities: [
@@ -232,7 +232,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
       value: 'FamilyOS is designed for families that want less coordination overhead and a more reliable shared view of everyday responsibilities.',
     },
     el: {
-      headline: 'Ένα μέρος για να συντονίζονται όλα όσα κινούν την οικογενειακή καθημερινότητα.',
+      headline: 'Ένα μέρος για να συντονίζονται όλα όσα κινούν την οικογενειακή καθημερινότητα',
       intro: 'Το FamilyOS συγκεντρώνει discovery, bookings, προγράμματα, αποθηκευμένα στοιχεία, οικογενειακούς ρόλους και καθημερινό συντονισμό σε μια parent-first, child-centred εμπειρία.',
       problem: 'Οι οικογενειακές υποχρεώσεις είναι συνήθως διασκορπισμένες σε μηνύματα, ημερολόγια, σελίδες παρόχων, reminders, σημειώσεις και μνήμη. Το FamilyOS δημιουργείται για να δίνει στο νοικοκυριό ένα καθαρότερο σημείο αναφοράς για το τι έχει σημασία τώρα και τι έρχεται μετά.',
       capabilities: [
@@ -247,7 +247,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
   },
   legacyci: {
     en: {
-      headline: 'Understand database dependencies before a change becomes an incident.',
+      headline: 'Understand database dependencies before a change becomes an incident',
       intro: 'LegacyCI builds an evidence-backed view of database structure, lineage, proposed changes, and downstream impact while keeping uncertainty visible and source systems read-only.',
       problem: 'In complex database estates, a DDL change can affect objects and consumers far beyond the edited statement. LegacyCI is designed to show the dependency path, the evidence behind it, and what remains unresolved before engineering teams deploy the change.',
       capabilities: [
@@ -260,7 +260,7 @@ export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, P
       value: 'LegacyCI is built for engineering teams that need to change complex database systems with more evidence, less guesswork, and a clearly visible read-only safety boundary.',
     },
     el: {
-      headline: 'Κατανόηση των database dependencies πριν μία αλλαγή γίνει incident.',
+      headline: 'Κατανόηση των database dependencies πριν μία αλλαγή γίνει incident',
       intro: 'Το LegacyCI δημιουργεί evidence-backed εικόνα για database structure, lineage, προτεινόμενες αλλαγές και downstream impact, κρατώντας ορατή την αβεβαιότητα και τα source systems σε read-only όριο.',
       problem: 'Σε σύνθετα database estates, μία αλλαγή DDL μπορεί να επηρεάσει objects και consumers πολύ πέρα από το statement που τροποποιείται. Το LegacyCI δείχνει dependency paths, τα τεκμήρια πίσω από αυτά και τι παραμένει unresolved πριν η engineering ομάδα κάνει deployment.',
       capabilities: [

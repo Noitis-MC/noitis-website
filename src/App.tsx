@@ -106,7 +106,7 @@ export function App() {
             <div><p className="eyebrow">{copy.products.eyebrow}</p><h2 id="products-title">{copy.products.title}</h2></div>
             <p>{copy.products.intro}</p>
           </div>
-          <div className="product-grid">
+          <div className="product-grid swipe-track" role="region" aria-label={copy.products.title} tabIndex={0}>
             {products.map((product) => {
               const productLogo = theme === 'dark' ? product.logoDark : product.logoLight
               const productCopy = copy.productCopy[product.name] ?? product
@@ -120,7 +120,6 @@ export function App() {
                   <h3>{product.name}</h3>
                   <p>{productCopy.description}</p>
                   <span className="product-card__status">{productCopy.status}</span>
-                  <p style={{ fontSize: '.88rem', marginTop: '14px' }}>{productCopy.note}</p>
                   <div className="hero__actions" style={{ marginTop: '22px' }}>
                     {product.href ? (
                       <a className="button button--secondary" href={product.href} target="_blank" rel="noreferrer" aria-label={replaceName(copy.products.openAria, product.name)}>
@@ -143,7 +142,7 @@ export function App() {
 
         <section className="section" id="principles" aria-labelledby="principles-title">
           <div className="section-heading section-heading--stacked"><p className="eyebrow">{copy.principles.eyebrow}</p><h2 id="principles-title">{copy.principles.title}</h2></div>
-          <div className="principle-grid">
+          <div className="principle-grid swipe-track" role="region" aria-label={copy.principles.title} tabIndex={0}>
             {copy.principles.items.map((principle, index) => (
               <article className="principle-card" key={principle.title}>
                 <span className="principle-card__number">0{index + 1}</span><FiCheckCircle aria-hidden="true" /><h3>{principle.title}</h3><p>{principle.text}</p>
@@ -152,24 +151,26 @@ export function App() {
           </div>
         </section>
 
-        <section className="section origin" id="about" aria-labelledby="about-title">
-          <div className="origin__intro"><p className="eyebrow">{copy.about.eyebrow}</p><h2 id="about-title">{copy.about.title}</h2></div>
-          <div className="origin__copy">
-            {copy.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          </div>
-        </section>
+        <div className="home-lower-grid">
+          <section className="section origin" id="about" aria-labelledby="about-title">
+            <div className="origin__intro"><p className="eyebrow">{copy.about.eyebrow}</p><h2 id="about-title">{copy.about.title}</h2></div>
+            <div className="origin__copy">
+              {copy.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          </section>
 
-        <section className="section" id="contact" aria-labelledby="contact-title">
-          <div className="section-heading">
-            <div><p className="eyebrow">{copy.contact.eyebrow}</p><h2 id="contact-title">{copy.contact.title}</h2></div>
-            <div>
-              <p>{copy.contact.text}</p>
-              <div className="hero__actions" style={{ marginTop: '22px' }}>
-                <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{copy.contact.email} <FiMail aria-hidden="true" /></a>
+          <section className="section home-contact" id="contact" aria-labelledby="contact-title">
+            <div className="section-heading">
+              <div><p className="eyebrow">{copy.contact.eyebrow}</p><h2 id="contact-title">{copy.contact.title}</h2></div>
+              <div>
+                <p>{copy.contact.text}</p>
+                <div className="hero__actions">
+                  <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{copy.contact.email} <FiMail aria-hidden="true" /></a>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <section className="future" aria-labelledby="future-title">
           <div className="future__icon" aria-hidden="true">

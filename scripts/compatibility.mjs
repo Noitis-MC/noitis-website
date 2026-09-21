@@ -249,8 +249,16 @@ async function collectVisualState(page) {
       return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0
     }
 
+    const insideIntentionalHorizontalScroller = (element) => {
+      const scroller = element.closest('.swipe-track')
+      if (!scroller) return false
+      const style = getComputedStyle(scroller)
+      return ['auto', 'scroll'].includes(style.overflowX)
+    }
+
     const outsideViewport = [...document.querySelectorAll('a, button, select, .product-card, .site-header, .site-footer')]
       .filter(visible)
+      .filter((element) => !insideIntentionalHorizontalScroller(element))
       .filter((element) => {
         const rect = element.getBoundingClientRect()
         return rect.left < -2 || rect.right > window.innerWidth + 2

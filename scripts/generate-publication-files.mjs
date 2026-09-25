@@ -15,6 +15,10 @@ function normalizeSiteUrl(rawValue) {
 const siteUrl = normalizeSiteUrl(process.env.VITE_SITE_URL || process.env.SITE_URL)
 const publicPages = [
   '',
+  'products.html',
+  'how-we-build.html',
+  'about.html',
+  'contact.html',
   'agentgate.html',
   'autopaylot.html',
   'business-resource-scheduler.html',

@@ -605,3 +605,30 @@ html[data-theme='dark'] .home-shell {
   .brand__long-logo { width: 96px; flex-basis: 96px; }
   .privacy-nav a { padding: 0 2px; font-size: .72rem; }
 }
+
+
+/* Noitis editorial hierarchy — problem first, detail second. */
+.home-shell h1 { font-size: clamp(3rem, 5.4vw, 4.9rem); }
+.home-shell .hero__lead { max-width: 760px; }
+.home-shell .product-card__problem {
+  color: var(--text) !important;
+  font-weight: 640;
+  line-height: 1.5;
+}
+.home-shell .section-heading > div:last-child > p { margin: 0; color: var(--muted); }
+.home-shell .section-heading .text-link { margin-top: 12px; }
+.home-shell .principle-grid--compact { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.home-shell .principle-grid--compact .principle-card { min-height: 185px; }
+.home-shell .origin__copy .text-link { margin-top: 8px; }
+@media (max-width: 900px) {
+  .home-shell .principle-grid--compact {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 46%);
+  }
+}
+@media (max-width: 720px) {
+  .home-shell h1 { font-size: clamp(2.7rem, 12vw, 3.8rem); }
+  .home-shell .principle-grid--compact { grid-auto-columns: minmax(260px, 82%); }
+}

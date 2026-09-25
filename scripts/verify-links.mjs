@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, normalize } from 'node:path'
 
-const htmlFiles = ['index.html', 'agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html', 'privacy.html', 'terms.html', 'trademark.html']
+const htmlFiles = ['index.html', 'products.html', 'how-we-build.html', 'about.html', 'contact.html', 'agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html', 'privacy.html', 'terms.html', 'trademark.html']
 const skippedSchemes = /^(?:https?:|mailto:|tel:|data:|javascript:)/i
 
 if (!existsSync('dist')) throw new Error('dist/ does not exist. Run npm run build first.')

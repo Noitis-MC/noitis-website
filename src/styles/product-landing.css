@@ -443,3 +443,80 @@ html[data-theme='dark'] .product-landing-shell {
     overflow-wrap: anywhere;
   }
 }
+
+
+/* Product pages: make the costly problem the first strong section after the hero. */
+.product-landing-shell .product-landing-hero h1 {
+  font-size: clamp(2.9rem, 5.4vw, 5rem);
+}
+.product-landing-problem--featured {
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(34px, 6vw, 82px);
+  margin-top: 34px;
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+  border: 1px solid var(--border) !important;
+  border-left: 4px solid var(--landing-accent-strong) !important;
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+.product-landing-section-heading h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+.product-landing-problem__copy p {
+  margin: 0 0 14px;
+  color: var(--text);
+  font-size: 1.04rem;
+}
+.product-landing-problem__copy p:last-child { margin-bottom: 0; }
+.product-landing-capabilities {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.product-landing-capability { min-height: 175px; }
+.product-landing-value {
+  max-width: 900px;
+  padding-top: 42px !important;
+  padding-bottom: 54px !important;
+}
+.product-landing-value h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+.product-landing-value > p:last-child {
+  max-width: 820px;
+  margin: 0;
+  color: var(--text);
+  font-size: 1.12rem;
+  font-weight: 620;
+}
+.product-landing-context-grid--secondary {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.product-landing-context-grid--secondary .section { padding-top: 38px; padding-bottom: 38px; }
+.product-landing-context-grid--secondary h2 { font-size: clamp(1.35rem, 2.3vw, 1.9rem); }
+.product-landing-cta {
+  max-width: 820px;
+  padding-left: 0 !important;
+  border-left: 0;
+  border-top: 0;
+}
+@media (max-width: 900px) {
+  .product-landing-problem--featured { grid-template-columns: 1fr; gap: 18px; }
+  .product-landing-capabilities {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(270px, 46%);
+  }
+}
+@media (max-width: 720px) {
+  .product-landing-shell .product-landing-hero h1 { font-size: clamp(2.6rem, 12vw, 3.9rem); }
+  .product-landing-problem--featured {
+    margin-top: 22px;
+    padding: 28px 18px !important;
+  }
+  .product-landing-capabilities { grid-auto-columns: minmax(250px, 84%); }
+}

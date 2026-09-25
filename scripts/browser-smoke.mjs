@@ -13,8 +13,9 @@ try {
 
 const { chromium, firefox, webkit } = playwright
 const baseUrl = 'http://127.0.0.1:4173'
+const companyRoutes = ['products.html', 'how-we-build.html', 'about.html', 'contact.html']
 const productRoutes = ['agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html']
-const secondaryRoutes = [...productRoutes, 'privacy.html', 'terms.html', 'trademark.html']
+const secondaryRoutes = [...companyRoutes, ...productRoutes, 'privacy.html', 'terms.html', 'trademark.html']
 const viteCli = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url))
 const preview = spawn(process.execPath, [viteCli, 'preview', '--host', '127.0.0.1', '--port', '4173'], {
   stdio: ['ignore', 'pipe', 'pipe'],
@@ -148,19 +149,18 @@ async function verifyHomeContract(page, label) {
     }
   }
 
-  for (const href of ['#products', '#principles', '#about', '#contact', './privacy.html']) {
+  for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html', './privacy.html']) {
     assert(contract.navigation.includes(href), `${label}: main navigation is missing ${href}.`)
   }
 
-  for (const href of ['#products', '#principles', '#about', '#contact', './privacy.html', './terms.html', './trademark.html']) {
+  for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html', './privacy.html', './terms.html', './trademark.html']) {
     assert(contract.footer.includes(href), `${label}: footer navigation is missing ${href}.`)
   }
 }
 
 async function verifyDesktopNavigation(page, label) {
-  for (const hash of ['#products', '#principles', '#about', '#contact']) {
-    await page.locator(`#site-navigation a[href="${hash}"]`).click()
-    assert((await page.evaluate(() => window.location.hash)) === hash, `${label}: navigation did not reach ${hash}.`)
+  for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html']) {
+    assert(await page.locator(`#site-navigation a[href="${href}"]`).count() === 1, `${label}: navigation is missing ${href}.`)
   }
 }
 

@@ -1,0 +1,218 @@
+.company-page-shell {
+  --company-accent: #1D4ED8;
+  --company-accent-soft: #EAF2FF;
+  --company-violet: #6D28D9;
+}
+
+html[data-theme='dark'] .company-page-shell {
+  --company-accent: #93C5FD;
+  --company-accent-soft: #111A2F;
+  --company-violet: #C4B5FD;
+}
+
+.company-page-shell .site-nav { gap: 22px; }
+.company-page-shell .theme-button,
+.company-page-shell .menu-button,
+.company-page-shell .button { border-radius: 5px; }
+
+.company-page {
+  padding-bottom: 72px;
+}
+
+.company-hero {
+  max-width: 980px;
+  padding: clamp(54px, 8vw, 92px) 0 clamp(48px, 7vw, 78px) 18px;
+  border-left: 2px solid var(--company-accent);
+  border-bottom: 1px solid var(--border);
+}
+
+.company-hero h1 {
+  max-width: 900px;
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+}
+
+.company-hero__lead {
+  max-width: 820px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
+}
+
+.company-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 54px 0 24px;
+}
+
+.company-product {
+  display: flex;
+  flex-direction: column;
+  min-height: 470px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--company-accent);
+  border-radius: 8px;
+  background: var(--surface-raised);
+}
+
+.company-product:nth-child(2n) { border-top-color: var(--company-violet); }
+
+.company-product__top {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.company-product__logo {
+  flex: 0 0 68px;
+  width: 68px;
+  height: 68px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.company-product h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.company-product__intro {
+  margin: 0 0 22px;
+  color: var(--text);
+  font-weight: 620;
+}
+
+.company-product__problem {
+  margin: 0 0 24px;
+  padding: 18px;
+  border-left: 3px solid var(--company-accent);
+  background: var(--surface-soft);
+}
+
+.company-product__problem strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--company-accent);
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.company-product__problem p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.company-product .text-link { margin-top: auto; }
+
+.company-section-list {
+  max-width: 980px;
+  padding-top: 20px;
+}
+
+.company-page-section {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 28px;
+  padding: 54px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.company-page-section__index {
+  padding-top: 7px;
+  color: var(--company-accent);
+  font-size: .8rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.company-page-section h2 {
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+}
+
+.company-page-section p {
+  max-width: 780px;
+  color: var(--muted);
+}
+
+.company-question-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 22px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.company-question-list li {
+  padding: 12px 0 12px 16px;
+  border-left: 2px solid var(--company-accent);
+  color: var(--text);
+  font-weight: 620;
+}
+
+.company-contact-card {
+  max-width: 760px;
+  margin: 54px 0 0;
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--company-accent);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.company-contact-card p {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--accent-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.text-link:hover { text-decoration: underline; }
+
+@media (max-width: 800px) {
+  .company-products { grid-template-columns: 1fr; }
+  .company-product { min-height: auto; }
+  .company-question-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .company-page-shell .site-nav { border-radius: 6px; }
+  .company-hero {
+    padding-top: 42px;
+    padding-bottom: 48px;
+    padding-left: 12px;
+  }
+  .company-hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .company-products { padding-top: 36px; }
+  .company-product { padding: 22px; }
+  .company-page-section {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 42px 0;
+  }
+  .company-contact-card { margin-top: 36px; padding: 24px; }
+}
+
+.company-product__logo .theme-logo {
+  object-fit: contain;
+  transform: scale(1.14);
+}
+
+html[data-theme='dark'] .company-product__logo {
+  background: #0B1020;
+}

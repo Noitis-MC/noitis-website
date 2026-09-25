@@ -48,6 +48,10 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: fileURLToPath(new URL('./index.html', import.meta.url)),
+          products: fileURLToPath(new URL('./products.html', import.meta.url)),
+          howWeBuild: fileURLToPath(new URL('./how-we-build.html', import.meta.url)),
+          about: fileURLToPath(new URL('./about.html', import.meta.url)),
+          contact: fileURLToPath(new URL('./contact.html', import.meta.url)),
           agentgate: fileURLToPath(new URL('./agentgate.html', import.meta.url)),
           autopaylot: fileURLToPath(new URL('./autopaylot.html', import.meta.url)),
           businessResourceScheduler: fileURLToPath(new URL('./business-resource-scheduler.html', import.meta.url)),

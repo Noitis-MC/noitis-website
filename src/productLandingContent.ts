@@ -2,9 +2,10 @@ import type { NoitisLanguage } from './i18n/LanguageContext'
 import type { ProductSlug } from './productCatalog'
 
 export type ProductLandingContent = {
+  category: string
   headline: string
   intro: string
-  problem: string
+  problem: string[]
   capabilities: Array<{ title: string; text: string }>
   boundary: string
   value: string
@@ -13,6 +14,7 @@ export type ProductLandingContent = {
 export type ProductLandingUiCopy = {
   back: string
   products: string
+  how: string
   about: string
   contact: string
   privacy: string
@@ -35,6 +37,8 @@ export type ProductLandingUiCopy = {
   boundaryTitle: string
   valueEyebrow: string
   valueTitle: string
+  contactEyebrow: string
+  contactTitle: string
   valueText: string
   email: string
   footerTagline: string
@@ -45,6 +49,7 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
   en: {
     back: 'Back to Noitis products',
     products: 'Products',
+    how: 'How we build',
     about: 'About Noitis',
     contact: 'Contact',
     privacy: 'Privacy',
@@ -56,25 +61,28 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
     light: 'Light',
     dark: 'Dark',
     status: 'In development',
-    accessEyebrow: 'Public access',
-    accessTitle: 'The application itself is not public yet',
-    accessText: 'Noitis is keeping operational product access on hold while pre-production infrastructure is prepared. This page is an informational product landing page only.',
-    problemEyebrow: 'Why it exists',
-    problemTitle: 'Built around a real operational problem',
+    accessEyebrow: 'Current availability',
+    accessTitle: 'The application is not public yet',
+    accessText: 'The product is under active development. This page explains the problem, the current product direction, and the public boundary without exposing operational customer data.',
+    problemEyebrow: 'The problem',
+    problemTitle: 'Why we are building it',
     capabilityEyebrow: 'What it does',
-    capabilityTitle: 'Focused capabilities, designed as one system',
+    capabilityTitle: 'The product, in practical terms',
     boundaryEyebrow: 'Public boundary',
-    boundaryTitle: 'Landing page outside. Operational data inside',
-    valueEyebrow: 'Interested?',
-    valueTitle: 'Talk to Noitis about the product',
-    valueText: 'For product, pilot, partnership, or commercial enquiries, contact Noitis directly. Public application access will be introduced only when the corresponding environment is ready.',
+    boundaryTitle: 'What this website does not expose',
+    valueEyebrow: 'Why it matters',
+    valueTitle: 'What we want the product to change',
+    contactEyebrow: 'Interested?',
+    contactTitle: 'Talk to Noitis about the product',
+    valueText: 'For a use case, pilot, partnership, or product discussion, contact Noitis directly.',
     email: 'Email Noitis',
-    footerTagline: 'Built in Greece. Designed for a global future.',
+    footerTagline: 'Built in Greece. Designed for a wider world.',
     rights: 'All rights reserved.',
   },
   el: {
     back: 'Πίσω στα προϊόντα της Noitis',
     products: 'Προϊόντα',
+    how: 'Πώς δημιουργούμε',
     about: 'Η Noitis',
     contact: 'Επικοινωνία',
     privacy: 'Απόρρητο',
@@ -86,20 +94,22 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
     light: 'Φωτεινό',
     dark: 'Σκούρο',
     status: 'Υπό ανάπτυξη',
-    accessEyebrow: 'Δημόσια πρόσβαση',
-    accessTitle: 'Η ίδια η εφαρμογή δεν είναι ακόμη δημόσια',
-    accessText: 'Η Noitis διατηρεί την πρόσβαση στις λειτουργικές εφαρμογές σε αναμονή μέχρι να ολοκληρωθεί η υποδομή pre-production. Η συγκεκριμένη σελίδα είναι αποκλειστικά ενημερωτική παρουσίαση του προϊόντος.',
-    problemEyebrow: 'Γιατί υπάρχει',
-    problemTitle: 'Σχεδιασμένο γύρω από ένα πραγματικό λειτουργικό πρόβλημα',
+    accessEyebrow: 'Σημερινή διαθεσιμότητα',
+    accessTitle: 'Η εφαρμογή δεν είναι ακόμη δημόσια',
+    accessText: 'Το προϊόν βρίσκεται σε ενεργή ανάπτυξη. Η σελίδα εξηγεί το πρόβλημα, την κατεύθυνση του προϊόντος και το δημόσιο όριο χωρίς να εκθέτει λειτουργικά δεδομένα πελατών.',
+    problemEyebrow: 'Το πρόβλημα',
+    problemTitle: 'Γιατί το δημιουργούμε',
     capabilityEyebrow: 'Τι κάνει',
-    capabilityTitle: 'Στοχευμένες δυνατότητες, σχεδιασμένες ως ένα ενιαίο σύστημα',
+    capabilityTitle: 'Το προϊόν, στην πράξη',
     boundaryEyebrow: 'Δημόσιο όριο',
-    boundaryTitle: 'Η παρουσίαση είναι δημόσια. Τα λειτουργικά δεδομένα παραμένουν ιδιωτικά',
-    valueEyebrow: 'Ενδιαφέρεστε;',
-    valueTitle: 'Μιλήστε με τη Noitis για το προϊόν',
-    valueText: 'Για θέματα προϊόντος, πιλοτικής χρήσης, συνεργασίας ή εμπορικού ενδιαφέροντος, επικοινωνήστε απευθείας με τη Noitis. Η δημόσια πρόσβαση στην εφαρμογή θα ενεργοποιηθεί μόνο όταν το αντίστοιχο περιβάλλον είναι έτοιμο.',
-    email: 'Στείλτε email στη Noitis',
-    footerTagline: 'Χτίζεται στην Ελλάδα. Σχεδιάζεται για ένα παγκόσμιο μέλλον.',
+    boundaryTitle: 'Τι δεν εκθέτει αυτή η ιστοσελίδα',
+    valueEyebrow: 'Γιατί έχει σημασία',
+    valueTitle: 'Τι θέλουμε να αλλάξει το προϊόν',
+    contactEyebrow: 'Σας ενδιαφέρει;',
+    contactTitle: 'Μιλήστε με τη Noitis για το προϊόν',
+    valueText: 'Για use case, πιλοτική εφαρμογή, συνεργασία ή συζήτηση γύρω από το προϊόν, επικοινωνήστε απευθείας με τη Noitis.',
+    email: 'Email στη Noitis',
+    footerTagline: 'Χτίζεται στην Ελλάδα. Σχεδιάζεται για έναν ευρύτερο κόσμο.',
     rights: 'Με επιφύλαξη παντός δικαιώματος.',
   },
 }
@@ -107,170 +117,230 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
 export const productLandingContent: Record<ProductSlug, Record<NoitisLanguage, ProductLandingContent>> = {
   agentgate: {
     en: {
-      headline: 'Human control for AI-agent actions',
-      intro: 'AgentGate gives organizations a control plane between autonomous software and sensitive actions, so policy, approval, identity, and evidence can travel with the decision.',
-      problem: 'AI agents can move faster than the governance processes around them. AgentGate is designed for the point where an action needs a clear answer: allow it, require a human decision, or block it.',
-      capabilities: [
-        { title: 'Policy decisioning', text: 'Apply organization, project, agent, environment, and risk-aware rules with deterministic decision precedence.' },
-        { title: 'Human approvals', text: 'Route governed actions into review workflows with explicit approval, denial, escalation, delegation, expiry, and audit history.' },
-        { title: 'Trusted identities', text: 'Separate human sessions from scoped agent/service credentials and keep authorization tied to trusted server-side context.' },
-        { title: 'Operational evidence', text: 'Retain governed activity, integration outcomes, callbacks, and administrative evidence so important decisions remain explainable.' },
+      category: 'AI governance',
+      headline: 'AI agents should be able to work without having unlimited authority.',
+      intro: 'AgentGate is a governance layer for actions performed by AI agents. It gives organisations a structured way to decide what can happen automatically, what needs human approval, and what should be rejected.',
+      problem: [
+        'The more useful an AI agent becomes, the more access it usually needs. That creates a real operational problem.',
+        'If the agent cannot perform meaningful actions, much of the value of automation disappears. If it can perform every action freely, the organisation may lose control over decisions that should remain governed.',
+        'Putting a person in front of every action is not a good solution either. It turns automation into another manual queue. AgentGate is being built for the space between those extremes.',
       ],
-      boundary: 'This public page does not expose AgentGate workspaces, demo tenants, credentials, policy data, approval queues, provider secrets, integrations, or operational activity.',
-      value: 'AgentGate is for teams that want capable automation without surrendering organizational control over sensitive actions.',
+      capabilities: [
+        { title: 'Policy-based decisions', text: 'Rules can determine what an agent may do according to the organisation, environment, type of action, and other relevant conditions.' },
+        { title: 'Human approval', text: 'Actions that should not happen automatically can be sent to the appropriate person for review.' },
+        { title: 'Identity and permissions', text: 'Human users, AI agents, and services can be treated as different identities with different levels of authority.' },
+        { title: 'Decision history', text: 'Important actions and approvals keep a record so the organisation can understand what happened afterwards.' },
+      ],
+      value: 'The purpose is not to put unnecessary friction in front of AI. It is to make it possible to give AI more useful responsibilities without removing the controls that an organisation still needs.',
+      boundary: 'This public page does not expose AgentGate workspaces, credentials, policy data, approval queues, provider secrets, integrations, or operational activity.',
     },
     el: {
-      headline: 'Ανθρώπινος έλεγχος στις ενέργειες AI agents',
-      intro: 'Το AgentGate λειτουργεί ως επίπεδο ελέγχου ανάμεσα σε αυτόνομο λογισμικό και ευαίσθητες ενέργειες, ώστε πολιτικές, εγκρίσεις, ταυτότητα και τεκμήρια να ακολουθούν κάθε απόφαση.',
-      problem: 'Οι AI agents μπορούν να κινούνται ταχύτερα από τις διαδικασίες διακυβέρνησης μιας εταιρείας. Το AgentGate εστιάζει στο κρίσιμο σημείο: επιτρέπεται η ενέργεια, χρειάζεται ανθρώπινη έγκριση ή πρέπει να αποκλειστεί;',
-      capabilities: [
-        { title: 'Αποφάσεις βάσει πολιτικής', text: 'Εφαρμόζει κανόνες οργανισμού, έργου, agent, περιβάλλοντος και κινδύνου με καθορισμένη σειρά προτεραιότητας.' },
-        { title: 'Ανθρώπινες εγκρίσεις', text: 'Δρομολογεί ελεγχόμενες ενέργειες σε ροές έγκρισης, απόρριψης, κλιμάκωσης, ανάθεσης, λήξης και audit history.' },
-        { title: 'Αξιόπιστες ταυτότητες', text: 'Διαχωρίζει τα ανθρώπινα sessions από scoped agent/service credentials και κρατά την εξουσιοδότηση στο έμπιστο server-side context.' },
-        { title: 'Λειτουργικά τεκμήρια', text: 'Διατηρεί δραστηριότητα, αποτελέσματα integrations, callbacks και διοικητικό ιστορικό ώστε οι σημαντικές αποφάσεις να παραμένουν εξηγήσιμες.' },
+      category: 'Διακυβέρνηση AI',
+      headline: 'Οι AI agents πρέπει να μπορούν να δουλεύουν χωρίς να αποκτούν απεριόριστη εξουσιοδότηση.',
+      intro: 'Το AgentGate είναι ένα επίπεδο διακυβέρνησης για ενέργειες που πραγματοποιούν AI agents. Δίνει στους οργανισμούς έναν οργανωμένο τρόπο να αποφασίζουν ποιες ενέργειες μπορούν να γίνουν αυτόματα, ποιες χρειάζονται ανθρώπινη έγκριση και ποιες πρέπει να απορριφθούν.',
+      problem: [
+        'Όσο πιο χρήσιμος γίνεται ένας AI agent, τόσο περισσότερη πρόσβαση χρειάζεται συνήθως. Εκεί δημιουργείται ένα πραγματικό επιχειρησιακό πρόβλημα.',
+        'Αν ο agent δεν μπορεί να κάνει ουσιαστικές ενέργειες, μεγάλο μέρος της αξίας του automation χάνεται. Αν μπορεί να κάνει τα πάντα ελεύθερα, ο οργανισμός μπορεί να χάσει τον έλεγχο αποφάσεων που πρέπει να παραμένουν ελεγχόμενες.',
+        'Το να εγκρίνει άνθρωπος κάθε ενέργεια δεν είναι επίσης καλή λύση. Μετατρέπει το automation σε άλλη μία χειροκίνητη ουρά εργασίας. Το AgentGate δημιουργείται για τον χώρο ανάμεσα σε αυτά τα δύο άκρα.',
       ],
-      boundary: 'Η δημόσια σελίδα δεν εκθέτει workspaces, demo tenants, credentials, πολιτικές, ουρές εγκρίσεων, provider secrets, integrations ή λειτουργική δραστηριότητα του AgentGate.',
-      value: 'Το AgentGate απευθύνεται σε ομάδες που θέλουν ισχυρό automation χωρίς να χάνουν τον οργανωτικό έλεγχο των ευαίσθητων ενεργειών.',
+      capabilities: [
+        { title: 'Αποφάσεις βάσει πολιτικών', text: 'Οι κανόνες μπορούν να καθορίζουν τι επιτρέπεται να κάνει ένας agent ανάλογα με τον οργανισμό, το περιβάλλον, το είδος της ενέργειας και άλλες σχετικές συνθήκες.' },
+        { title: 'Ανθρώπινη έγκριση', text: 'Ενέργειες που δεν πρέπει να γίνονται αυτόματα μπορούν να στέλνονται στον κατάλληλο άνθρωπο για έλεγχο.' },
+        { title: 'Ταυτότητα και δικαιώματα', text: 'Άνθρωποι, AI agents και services μπορούν να αντιμετωπίζονται ως διαφορετικές ταυτότητες με διαφορετικά επίπεδα εξουσιοδότησης.' },
+        { title: 'Ιστορικό αποφάσεων', text: 'Οι σημαντικές ενέργειες και εγκρίσεις κρατούν ιστορικό ώστε ο οργανισμός να μπορεί να καταλάβει τι συνέβη αργότερα.' },
+      ],
+      value: 'Ο σκοπός δεν είναι να βάλουμε περιττά εμπόδια μπροστά στο AI. Είναι να γίνει εφικτό να του δοθούν περισσότερες χρήσιμες ευθύνες χωρίς να χαθούν οι έλεγχοι που ένας οργανισμός εξακολουθεί να χρειάζεται.',
+      boundary: 'Η δημόσια σελίδα δεν εκθέτει AgentGate workspaces, credentials, πολιτικές, ουρές εγκρίσεων, provider secrets, integrations ή λειτουργική δραστηριότητα.',
     },
   },
   autopaylot: {
     en: {
-      headline: 'Know what should be paid before money moves',
-      intro: 'AutoPaylot organizes recurring financial obligations, timing, account visibility, and payment-readiness decisions so household finances can be managed with clearer priorities and stronger control.',
-      problem: 'Bills, subscriptions, debt payments, savings goals, and everyday spending compete for the same income. AutoPaylot is designed to turn that fragmented picture into an explicit plan before any payment is executed.',
-      capabilities: [
-        { title: 'Obligation control', text: 'Track recurring commitments, due dates, categories, amounts, status, and the history around what has or has not been handled.' },
-        { title: 'Planning and readiness', text: 'Evaluate upcoming responsibilities against available money, priorities, savings rules, and supported safety constraints.' },
-        { title: 'Financial visibility', text: 'Use controlled read-only connectivity patterns to understand accounts and balances without making visibility equivalent to payment authority.' },
-        { title: 'Payment safety', text: 'Keep consent, eligibility, provider outcome, reconciliation, and failure handling explicit before any future production money movement is enabled.' },
+      category: 'Financial obligations',
+      headline: 'Paying a bill is easy. Coordinating all of them is the difficult part.',
+      intro: 'AutoPaylot is designed to organise recurring financial obligations and help decide what should be paid before money moves.',
+      problem: [
+        'Most financial obligations are simple by themselves. A bill has an amount and a due date. The difficulty appears when all the obligations are viewed together.',
+        'Electricity, rent, subscriptions, loan payments, savings, and everyday expenses may all be valid and all be due, but they still compete for the same money.',
+        'When that information is spread across bank applications, emails, reminders, and memory, managing it becomes another recurring task. That can lead to late payments, poorly timed payments, and unnecessary stress.',
       ],
-      boundary: 'No real bank money movement is available from this website. It does not connect to customer bank accounts, collect banking credentials, expose financial profiles, or provide access to AutoPaylot operational workspaces.',
-      value: 'AutoPaylot is designed for people who want recurring financial life to become deliberate and understandable instead of a sequence of disconnected due dates.',
+      capabilities: [
+        { title: 'Obligations in one place', text: 'Recurring commitments, amounts, due dates, and status can be viewed together.' },
+        { title: 'Payment planning', text: 'Upcoming obligations can be considered against available money and other priorities before payment.' },
+        { title: 'Financial visibility', text: 'Account information can build a clearer picture without making read access equivalent to permission to move money.' },
+        { title: 'Controlled payment flow', text: 'Consent, readiness, provider results, and failures remain visible parts of the process.' },
+      ],
+      value: 'The objective is not to automate money blindly. It is to reduce the amount of recurring financial administration people have to carry in their heads.',
+      boundary: 'No real bank money movement is available from this website. It does not collect banking credentials, expose financial profiles, or provide access to operational customer workspaces.',
     },
     el: {
-      headline: 'Να ξέρεις τι πρέπει να πληρωθεί πριν κινηθούν χρήματα',
-      intro: 'Το AutoPaylot οργανώνει επαναλαμβανόμενες οικονομικές υποχρεώσεις, χρονισμό, εικόνα λογαριασμών και αποφάσεις ετοιμότητας πληρωμής, ώστε τα οικονομικά ενός νοικοκυριού να διαχειρίζονται με καθαρότερες προτεραιότητες και περισσότερο έλεγχο.',
-      problem: 'Λογαριασμοί, συνδρομές, δόσεις, στόχοι αποταμίευσης και καθημερινά έξοδα ανταγωνίζονται το ίδιο εισόδημα. Το AutoPaylot μετατρέπει αυτή την κατακερματισμένη εικόνα σε σαφές πλάνο πριν εκτελεστεί οποιαδήποτε πληρωμή.',
-      capabilities: [
-        { title: 'Έλεγχος υποχρεώσεων', text: 'Παρακολουθεί επαναλαμβανόμενες δεσμεύσεις, ημερομηνίες, κατηγορίες, ποσά, κατάσταση και ιστορικό διαχείρισης.' },
-        { title: 'Σχεδιασμός και ετοιμότητα', text: 'Αξιολογεί επερχόμενες υποχρεώσεις σε σχέση με διαθέσιμα χρήματα, προτεραιότητες, κανόνες αποταμίευσης και υποστηριζόμενους περιορισμούς ασφαλείας.' },
-        { title: 'Οικονομική ορατότητα', text: 'Χρησιμοποιεί ελεγχόμενα read-only πρότυπα σύνδεσης ώστε η εικόνα λογαριασμών και υπολοίπων να μην ισοδυναμεί με εξουσία πληρωμής.' },
-        { title: 'Ασφάλεια πληρωμών', text: 'Κρατά ρητά τη συναίνεση, την επιλεξιμότητα, το αποτέλεσμα παρόχου, το reconciliation και τη διαχείριση αποτυχίας πριν ενεργοποιηθεί μελλοντική πραγματική κίνηση χρημάτων.' },
+      category: 'Οικονομικές υποχρεώσεις',
+      headline: 'Το να πληρώσουμε έναν λογαριασμό είναι εύκολο. Το να συντονίσουμε όλους μαζί είναι το δύσκολο μέρος.',
+      intro: 'Το AutoPaylot έχει σχεδιαστεί για να οργανώνει επαναλαμβανόμενες οικονομικές υποχρεώσεις και να βοηθά στην απόφαση του τι πρέπει να πληρωθεί πριν μετακινηθούν χρήματα.',
+      problem: [
+        'Οι περισσότερες οικονομικές υποχρεώσεις είναι απλές από μόνες τους. Ένας λογαριασμός έχει ποσό και ημερομηνία λήξης. Η δυσκολία εμφανίζεται όταν δούμε όλες τις υποχρεώσεις μαζί.',
+        'Ρεύμα, ενοίκιο, συνδρομές, δόσεις, αποταμίευση και καθημερινά έξοδα μπορεί όλα να είναι σωστά και να πρέπει να πληρωθούν, αλλά εξακολουθούν να διεκδικούν τα ίδια χρήματα.',
+        'Όταν αυτές οι πληροφορίες βρίσκονται σκορπισμένες σε τραπεζικές εφαρμογές, emails, reminders και στη μνήμη μας, η διαχείρισή τους γίνεται ακόμη μία επαναλαμβανόμενη δουλειά. Αυτό μπορεί να οδηγήσει σε καθυστερημένες πληρωμές, κακό χρονισμό και περιττό άγχος.',
       ],
-      boundary: 'Από αυτόν τον ιστότοπο δεν είναι διαθέσιμη πραγματική τραπεζική κίνηση χρημάτων. Δεν συνδέεται με τραπεζικούς λογαριασμούς πελατών, δεν συλλέγει τραπεζικά credentials και δεν εκθέτει οικονομικά προφίλ ή λειτουργικά workspaces του AutoPaylot.',
-      value: 'Το AutoPaylot σχεδιάζεται για ανθρώπους που θέλουν η επαναλαμβανόμενη οικονομική καθημερινότητα να γίνει συνειδητή και κατανοητή αντί για μια σειρά ασύνδετων ημερομηνιών πληρωμής.',
+      capabilities: [
+        { title: 'Υποχρεώσεις σε ένα σημείο', text: 'Επαναλαμβανόμενες δεσμεύσεις, ποσά, ημερομηνίες λήξης και κατάσταση μπορούν να εμφανίζονται μαζί.' },
+        { title: 'Προγραμματισμός πληρωμών', text: 'Οι επερχόμενες υποχρεώσεις μπορούν να εξετάζονται μαζί με τα διαθέσιμα χρήματα και τις υπόλοιπες προτεραιότητες πριν γίνει πληρωμή.' },
+        { title: 'Οικονομική εικόνα', text: 'Τα δεδομένα λογαριασμών μπορούν να δίνουν καθαρότερη εικόνα χωρίς η πρόσβαση για ανάγνωση να σημαίνει αυτόματα και δικαίωμα μετακίνησης χρημάτων.' },
+        { title: 'Ελεγχόμενη διαδικασία πληρωμής', text: 'Η συναίνεση, η ετοιμότητα, το αποτέλεσμα του provider και οι αποτυχίες παραμένουν ορατά μέρη της διαδικασίας.' },
+      ],
+      value: 'Ο στόχος δεν είναι να αυτοματοποιήσουμε τα χρήματα χωρίς σκέψη. Είναι να μειώσουμε το κομμάτι της οικονομικής διαχείρισης που οι άνθρωποι αναγκάζονται σήμερα να κουβαλούν μέσα στο κεφάλι τους.',
+      boundary: 'Από αυτή την ιστοσελίδα δεν είναι διαθέσιμη πραγματική τραπεζική κίνηση χρημάτων. Δεν συλλέγονται τραπεζικά credentials και δεν εκτίθενται οικονομικά προφίλ ή λειτουργικά customer workspaces.',
     },
   },
   'business-resource-scheduler': {
     en: {
-      headline: 'Schedule the work, resources, and constraints that make operations possible',
-      intro: 'Business Resource Scheduler coordinates demand with the people, skills, equipment, spaces, locations, availability, and rules required to deliver real work.',
-      problem: 'A free time slot is not enough when a booking also needs the right employee, skill, room, station, equipment, duration, sequence, and operating rule. BRS treats scheduling as an operational constraint problem rather than a simple calendar.',
-      capabilities: [
-        { title: 'Multi-resource scheduling', text: 'Model work that depends on several resource types at once instead of assuming time is the only constraint.' },
-        { title: 'Feasibility rules', text: 'Protect skills, availability, operating hours, capacity, conflicts, and other supported rules before a booking becomes accepted work.' },
-        { title: 'Adaptive planning', text: 'Re-evaluate schedules when real operations change, while keeping deterministic feasibility and controlled exception handling.' },
-        { title: 'Operational visibility', text: 'Make active, completed, cancelled, constrained, and upcoming work understandable across the scheduling surface.' },
+      category: 'Operational scheduling',
+      headline: 'Scheduling work is not the same as finding an empty hour.',
+      intro: 'Business Resource Scheduler plans work around the resources that are actually required to perform it.',
+      problem: [
+        'Traditional calendars mostly understand time. Businesses operate with more constraints than that.',
+        'A booking may require a particular employee, skill, room, chair or station, machine, location, preparation time, or several of those at once.',
+        'The calendar can therefore say “available” while the business is not actually able to deliver the service. That is where delays, conflicts, and unnecessary rescheduling begin.',
       ],
-      boundary: 'This page does not expose customer calendars, bookings, staff rosters, resource inventories, demo tenants, scheduling APIs, or operational records from Business Resource Scheduler.',
-      value: 'BRS is built for service and operational businesses where the cost of a bad schedule is measured in delays, idle capacity, conflicts, and disappointed customers.',
+      capabilities: [
+        { title: 'Multi-resource scheduling', text: 'A booking can depend on several resources rather than time alone.' },
+        { title: 'Feasibility checks', text: 'The system can check whether the required conditions are actually available before accepting the booking.' },
+        { title: 'Recurring schedules and changes', text: 'Repeated work can be planned while individual exceptions are handled when reality changes.' },
+        { title: 'Operational visibility', text: 'Teams can see upcoming work, conflicts, and capacity more clearly.' },
+      ],
+      value: 'Poor scheduling wastes two valuable things at the same time: the customer’s time and the business’s capacity. BRS is designed to reduce both.',
+      boundary: 'This page does not expose customer calendars, bookings, staff rosters, resource inventories, scheduling APIs, or operational records.',
     },
     el: {
-      headline: 'Προγραμματισμός εργασίας, πόρων και περιορισμών που κάνουν τη λειτουργία εφικτή',
-      intro: 'Το Business Resource Scheduler συντονίζει τη ζήτηση με ανθρώπους, δεξιότητες, εξοπλισμό, χώρους, τοποθεσίες, διαθεσιμότητα και κανόνες που απαιτούνται για να εκτελεστεί πραγματική εργασία.',
-      problem: 'Μία κενή ώρα δεν αρκεί όταν μια κράτηση απαιτεί ταυτόχρονα τον σωστό εργαζόμενο, δεξιότητα, χώρο, station, εξοπλισμό, διάρκεια, σειρά και επιχειρησιακό κανόνα. Το BRS αντιμετωπίζει το scheduling ως πρόβλημα λειτουργικών περιορισμών και όχι ως απλό ημερολόγιο.',
-      capabilities: [
-        { title: 'Scheduling πολλαπλών πόρων', text: 'Μοντελοποιεί εργασία που εξαρτάται ταυτόχρονα από διαφορετικούς τύπους πόρων, χωρίς να θεωρεί τον χρόνο μοναδικό περιορισμό.' },
-        { title: 'Κανόνες εφικτότητας', text: 'Προστατεύει δεξιότητες, διαθεσιμότητα, ωράρια, capacity, conflicts και άλλους υποστηριζόμενους κανόνες πριν μία κράτηση γίνει αποδεκτή εργασία.' },
-        { title: 'Προσαρμοστικός σχεδιασμός', text: 'Επαναξιολογεί τα προγράμματα όταν αλλάζουν οι πραγματικές συνθήκες, διατηρώντας deterministic feasibility και ελεγχόμενη διαχείριση εξαιρέσεων.' },
-        { title: 'Λειτουργική εικόνα', text: 'Κάνει κατανοητή την ενεργή, ολοκληρωμένη, ακυρωμένη, περιορισμένη και επερχόμενη εργασία μέσα από το scheduling περιβάλλον.' },
+      category: 'Επιχειρησιακός προγραμματισμός',
+      headline: 'Ο προγραμματισμός εργασίας δεν είναι το ίδιο πράγμα με την εύρεση μιας κενής ώρας.',
+      intro: 'Το Business Resource Scheduler οργανώνει την εργασία γύρω από τους πόρους που απαιτούνται πραγματικά για να πραγματοποιηθεί.',
+      problem: [
+        'Τα παραδοσιακά ημερολόγια καταλαβαίνουν κυρίως τον χρόνο. Οι επιχειρήσεις έχουν περισσότερους περιορισμούς.',
+        'Μία κράτηση μπορεί να απαιτεί συγκεκριμένο εργαζόμενο, δεξιότητα, χώρο, καρέκλα ή station, μηχάνημα, τοποθεσία, χρόνο προετοιμασίας ή αρκετά από αυτά μαζί.',
+        'Το ημερολόγιο μπορεί λοιπόν να δείχνει «διαθέσιμο» ενώ η επιχείρηση στην πραγματικότητα δεν μπορεί να εκτελέσει την υπηρεσία. Εκεί ξεκινούν οι καθυστερήσεις, οι συγκρούσεις και οι συνεχείς αλλαγές.',
       ],
-      boundary: 'Η δημόσια σελίδα δεν εκθέτει ημερολόγια πελατών, bookings, βάρδιες προσωπικού, inventories πόρων, demo tenants, scheduling APIs ή λειτουργικά records του Business Resource Scheduler.',
-      value: 'Το BRS απευθύνεται σε service και operational επιχειρήσεις όπου ένα κακό πρόγραμμα μεταφράζεται σε καθυστερήσεις, ανεκμετάλλευτη δυναμικότητα, conflicts και δυσαρεστημένους πελάτες.',
+      capabilities: [
+        { title: 'Scheduling πολλαπλών πόρων', text: 'Μία κράτηση μπορεί να εξαρτάται από περισσότερους πόρους και όχι μόνο από την ώρα.' },
+        { title: 'Έλεγχος εφικτότητας', text: 'Το σύστημα μπορεί να ελέγχει αν υπάρχουν πραγματικά οι απαραίτητες προϋποθέσεις πριν δεχτεί την κράτηση.' },
+        { title: 'Επαναλαμβανόμενα προγράμματα και αλλαγές', text: 'Η επαναλαμβανόμενη εργασία μπορεί να προγραμματίζεται, ενώ μεμονωμένες εξαιρέσεις αντιμετωπίζονται όταν αλλάζουν οι πραγματικές συνθήκες.' },
+        { title: 'Επιχειρησιακή εικόνα', text: 'Οι ομάδες μπορούν να βλέπουν πιο καθαρά την επερχόμενη εργασία, τις συγκρούσεις και τη διαθέσιμη δυναμικότητα.' },
+      ],
+      value: 'Ο κακός προγραμματισμός σπαταλά ταυτόχρονα δύο πολύτιμα πράγματα: τον χρόνο του πελάτη και τη δυναμικότητα της επιχείρησης. Το BRS δημιουργείται για να μειώσει και τα δύο.',
+      boundary: 'Η δημόσια σελίδα δεν εκθέτει ημερολόγια πελατών, bookings, βάρδιες προσωπικού, inventories πόρων, scheduling APIs ή λειτουργικά records.',
     },
   },
   earnlogic: {
     en: {
-      headline: 'Explain how commercial performance becomes compensation',
-      intro: 'EarnLogic connects source activity, governed rules, calculations, statements, and evidence so organizations can understand not only what someone earned, but how the result was produced.',
-      problem: 'Variable compensation becomes difficult to trust when plans, source data, adjustments, calculations, and exports live in separate places. EarnLogic is designed to preserve a governed calculation story from input to result.',
-      capabilities: [
-        { title: 'Governed calculations', text: 'Run compensation logic against controlled plan and configuration versions with reproducible calculation behavior.' },
-        { title: 'Lineage and explanation', text: 'Connect monetary outcomes to the source activity, rules, adjustments, and calculation evidence that produced them.' },
-        { title: 'Statements and audit', text: 'Present payee-facing results while retaining controlled history, reconciliation, approvals, and immutable evidence where supported.' },
-        { title: 'Planning intelligence', text: 'Support scenario and forecast analysis without allowing non-authoritative intelligence to silently rewrite finalized compensation history.' },
+      category: 'Compensation intelligence',
+      headline: 'Compensation should be understandable by the people who calculate it and the people who receive it.',
+      intro: 'EarnLogic connects commercial activity, compensation rules, and calculation results in one controlled process.',
+      problem: [
+        'Variable compensation often grows around spreadsheets. That may work at first. Then plans change, exceptions appear, manual corrections are added, data comes from several systems, and more people become involved.',
+        'Eventually a simple question becomes difficult: “Why is this the amount?”',
+        'Finding the answer may require several files, several versions, and somebody who remembers how the calculation originally worked. That costs time and creates mistrust.',
       ],
-      boundary: 'This page exposes no employee or payee data, compensation records, customer integrations, calculation environments, statements, exports, provider credentials, or tenant workspaces.',
-      value: 'EarnLogic is built for organizations that need compensation to be explainable, reproducible, governed, and connected to the commercial activity behind it.',
+      capabilities: [
+        { title: 'Controlled calculation rules', text: 'Compensation can be calculated against defined plan and configuration versions.' },
+        { title: 'Calculation lineage', text: 'A result can be connected back to the data, rules, and adjustments that created it.' },
+        { title: 'Statements and history', text: 'People can see their results while the organisation keeps the underlying calculation history.' },
+        { title: 'Planning', text: 'Future scenarios can be analysed without rewriting finalised historical results.' },
+      ],
+      value: 'When money is involved, an unexplained number is rarely good enough. EarnLogic is designed so the calculation can be followed rather than simply accepted.',
+      boundary: 'This page exposes no employee or payee data, compensation records, customer integrations, statements, exports, provider credentials, or tenant workspaces.',
     },
     el: {
-      headline: 'Εξηγεί πώς η εμπορική απόδοση μετατρέπεται σε αμοιβή',
-      intro: 'Το EarnLogic συνδέει source activity, ελεγχόμενους κανόνες, υπολογισμούς, statements και τεκμήρια, ώστε ένας οργανισμός να κατανοεί όχι μόνο τι κέρδισε κάποιος αλλά και πώς προέκυψε το αποτέλεσμα.',
-      problem: 'Οι μεταβλητές αμοιβές δυσκολεύονται να εμπνεύσουν εμπιστοσύνη όταν plans, source data, adjustments, calculations και exports βρίσκονται σε διαφορετικά σημεία. Το EarnLogic διατηρεί μια ελεγχόμενη ιστορία υπολογισμού από την είσοδο μέχρι το αποτέλεσμα.',
-      capabilities: [
-        { title: 'Ελεγχόμενοι υπολογισμοί', text: 'Εκτελεί compensation logic πάνω σε ελεγχόμενες εκδόσεις plans και configuration με αναπαραγώγιμη συμπεριφορά υπολογισμού.' },
-        { title: 'Lineage και εξήγηση', text: 'Συνδέει τα χρηματικά αποτελέσματα με source activity, κανόνες, adjustments και calculation evidence που τα δημιούργησαν.' },
-        { title: 'Statements και audit', text: 'Παρουσιάζει αποτελέσματα στους payees διατηρώντας ελεγχόμενο ιστορικό, reconciliation, approvals και immutable evidence όπου υποστηρίζεται.' },
-        { title: 'Ευφυΐα σχεδιασμού', text: 'Υποστηρίζει scenarios και forecasts χωρίς η μη-authoritative ανάλυση να μπορεί να αλλάξει σιωπηρά οριστικοποιημένη ιστορία αμοιβών.' },
+      category: 'Αμοιβές και κίνητρα',
+      headline: 'Οι αμοιβές πρέπει να είναι κατανοητές τόσο σε αυτούς που τις υπολογίζουν όσο και σε αυτούς που τις λαμβάνουν.',
+      intro: 'Το EarnLogic συνδέει την εμπορική δραστηριότητα, τους κανόνες αμοιβών και τα αποτελέσματα των υπολογισμών σε μία ελεγχόμενη διαδικασία.',
+      problem: [
+        'Οι μεταβλητές αμοιβές συχνά ξεκινούν μέσα από spreadsheets. Στην αρχή αυτό μπορεί να λειτουργεί. Μετά αλλάζουν τα plans, εμφανίζονται εξαιρέσεις, προστίθενται χειροκίνητες διορθώσεις, τα δεδομένα έρχονται από διαφορετικά συστήματα και εμπλέκονται περισσότεροι άνθρωποι.',
+        'Και τελικά μία απλή ερώτηση γίνεται δύσκολη: «Γιατί είναι αυτό το ποσό;»',
+        'Η απάντηση μπορεί να απαιτεί διαφορετικά αρχεία, διαφορετικές εκδόσεις και κάποιον που θυμάται πώς λειτουργούσε αρχικά ο υπολογισμός. Αυτό κοστίζει χρόνο και δημιουργεί δυσπιστία.',
       ],
-      boundary: 'Η δημόσια σελίδα δεν εκθέτει δεδομένα εργαζομένων ή payees, compensation records, customer integrations, calculation environments, statements, exports, provider credentials ή tenant workspaces.',
-      value: 'Το EarnLogic απευθύνεται σε οργανισμούς που χρειάζονται οι αμοιβές να είναι εξηγήσιμες, αναπαραγώγιμες, ελεγχόμενες και συνδεδεμένες με την εμπορική δραστηριότητα που τις δημιούργησε.',
+      capabilities: [
+        { title: 'Ελεγχόμενοι κανόνες υπολογισμού', text: 'Οι αμοιβές μπορούν να υπολογίζονται με βάση συγκεκριμένες εκδόσεις plan και configuration.' },
+        { title: 'Διαδρομή υπολογισμού', text: 'Ένα αποτέλεσμα μπορεί να συνδέεται πίσω στα δεδομένα, στους κανόνες και στις διορθώσεις που το δημιούργησαν.' },
+        { title: 'Καταστάσεις και ιστορικό', text: 'Οι άνθρωποι μπορούν να βλέπουν το αποτέλεσμα, ενώ ο οργανισμός διατηρεί το ιστορικό του υπολογισμού.' },
+        { title: 'Σχεδιασμός', text: 'Μπορούν να εξετάζονται μελλοντικά σενάρια χωρίς να αλλάζουν οριστικοποιημένα ιστορικά αποτελέσματα.' },
+      ],
+      value: 'Όταν μιλάμε για χρήματα, ένας ανεξήγητος αριθμός σπάνια είναι αρκετός. Το EarnLogic σχεδιάζεται ώστε ο υπολογισμός να μπορεί να ακολουθηθεί, όχι απλώς να γίνει αποδεκτός.',
+      boundary: 'Η δημόσια σελίδα δεν εκθέτει δεδομένα εργαζομένων ή payees, compensation records, customer integrations, statements, exports, provider credentials ή tenant workspaces.',
     },
   },
   familyos: {
     en: {
-      headline: 'One place to coordinate the moving parts of family life',
-      intro: 'FamilyOS brings discovery, bookings, schedules, saved items, family roles, and everyday coordination into a parent-first, child-centred operating experience.',
-      problem: 'Family responsibilities are usually scattered across messages, calendars, provider pages, reminders, notes, and memory. FamilyOS is designed to give a household one clearer place to see what matters now and what is coming next.',
-      capabilities: [
-        { title: 'Shared coordination', text: 'Bring family members, responsibilities, saved items, reminders, and schedules into one understandable household context.' },
-        { title: 'Discovery and bookings', text: 'Support privacy-aware discovery and booking flows while keeping authoritative provider availability and real transactions behind controlled service boundaries.' },
-        { title: 'Calendar and continuity', text: 'Connect upcoming responsibilities with past activity so family organization becomes useful over time rather than only at the moment of booking.' },
-        { title: 'Parent-first privacy', text: 'Keep child/teen experiences, permissions, location-sensitive behavior, and family access governed by the product’s parent-controlled model.' },
+      category: 'Family coordination',
+      headline: 'Family organisation should not depend on one person remembering everything.',
+      intro: 'FamilyOS brings family schedules, responsibilities, bookings, places, and useful information into one shared environment.',
+      problem: [
+        'Family information rarely lives in one place. One appointment is in a calendar. Another arrives by message. A useful provider is saved somewhere. School information is in another system. Someone remembers a deadline. Someone else assumes it has already been handled.',
+        'Individually, none of these things is difficult. Together, they create a constant coordination workload.',
+        'The cost is time and attention. People repeatedly search for information, repeat conversations, and remember things the software around them should probably be helping with.',
       ],
+      capabilities: [
+        { title: 'Shared family context', text: 'Members, schedules, responsibilities, and useful information can exist in the same household view.' },
+        { title: 'Discovery and bookings', text: 'Useful places and services can be connected with the family’s actual schedule.' },
+        { title: 'Calendar and history', text: 'Upcoming events and past activity can remain connected rather than disappearing after they happen.' },
+        { title: 'Parent-first control', text: 'Family permissions and child-related functionality stay under clear parent-controlled boundaries.' },
+      ],
+      value: 'We do not want FamilyOS to make family life feel like business administration. The aim is the opposite: less administration around the family.',
       boundary: 'This page exposes no family profiles, child or teen data, private schedules, provider accounts, bookings, saved locations, payment information, documents, or household activity.',
-      value: 'FamilyOS is designed for families that want less coordination overhead and a more reliable shared view of everyday responsibilities.',
     },
     el: {
-      headline: 'Ένα μέρος για να συντονίζονται όλα όσα κινούν την οικογενειακή καθημερινότητα',
-      intro: 'Το FamilyOS συγκεντρώνει discovery, bookings, προγράμματα, αποθηκευμένα στοιχεία, οικογενειακούς ρόλους και καθημερινό συντονισμό σε μια parent-first, child-centred εμπειρία.',
-      problem: 'Οι οικογενειακές υποχρεώσεις είναι συνήθως διασκορπισμένες σε μηνύματα, ημερολόγια, σελίδες παρόχων, reminders, σημειώσεις και μνήμη. Το FamilyOS δημιουργείται για να δίνει στο νοικοκυριό ένα καθαρότερο σημείο αναφοράς για το τι έχει σημασία τώρα και τι έρχεται μετά.',
-      capabilities: [
-        { title: 'Κοινός συντονισμός', text: 'Συνδέει μέλη οικογένειας, υποχρεώσεις, αποθηκευμένα στοιχεία, reminders και schedules μέσα σε ένα κατανοητό household context.' },
-        { title: 'Discovery και bookings', text: 'Υποστηρίζει privacy-aware discovery και booking flows, κρατώντας την authoritative διαθεσιμότητα παρόχων και τις πραγματικές συναλλαγές πίσω από ελεγχόμενα service boundaries.' },
-        { title: 'Ημερολόγιο και συνέχεια', text: 'Συνδέει τις επόμενες υποχρεώσεις με το ιστορικό ώστε η οικογενειακή οργάνωση να αποκτά αξία με τον χρόνο και όχι μόνο τη στιγμή μιας κράτησης.' },
-        { title: 'Parent-first ιδιωτικότητα', text: 'Διατηρεί child/teen experiences, permissions, location-sensitive behavior και οικογενειακή πρόσβαση υπό το γονεϊκά ελεγχόμενο μοντέλο του προϊόντος.' },
+      category: 'Οικογενειακός συντονισμός',
+      headline: 'Η οργάνωση μιας οικογένειας δεν θα έπρεπε να βασίζεται σε έναν άνθρωπο που θυμάται τα πάντα.',
+      intro: 'Το FamilyOS συγκεντρώνει προγράμματα, υποχρεώσεις, κρατήσεις, μέρη και χρήσιμες πληροφορίες της οικογένειας σε ένα κοινό περιβάλλον.',
+      problem: [
+        'Οι πληροφορίες μιας οικογένειας σπάνια βρίσκονται σε ένα σημείο. Ένα ραντεβού βρίσκεται στο ημερολόγιο. Ένα άλλο ήρθε σε μήνυμα. Ένας χρήσιμος επαγγελματίας έχει αποθηκευτεί κάπου. Μία σχολική πληροφορία βρίσκεται σε διαφορετικό σύστημα. Κάποιος θυμάται μία προθεσμία και κάποιος άλλος θεωρεί ότι την έχει ήδη αναλάβει άλλος.',
+        'Καθένα από αυτά από μόνο του δεν είναι δύσκολο. Όλα μαζί δημιουργούν συνεχή ανάγκη συντονισμού.',
+        'Το κόστος είναι χρόνος και προσοχή. Ψάχνουμε ξανά πληροφορίες, επαναλαμβάνουμε συζητήσεις και προσπαθούμε να θυμόμαστε πράγματα στα οποία το λογισμικό θα μπορούσε να μας βοηθά περισσότερο.',
       ],
+      capabilities: [
+        { title: 'Κοινό οικογενειακό πλαίσιο', text: 'Μέλη, προγράμματα, υποχρεώσεις και χρήσιμες πληροφορίες μπορούν να υπάρχουν στην ίδια εικόνα του νοικοκυριού.' },
+        { title: 'Αναζήτηση και κρατήσεις', text: 'Χρήσιμα μέρη και υπηρεσίες μπορούν να συνδέονται με το πραγματικό πρόγραμμα της οικογένειας.' },
+        { title: 'Ημερολόγιο και ιστορικό', text: 'Τα επόμενα γεγονότα και όσα έχουν ήδη συμβεί μπορούν να παραμένουν συνδεδεμένα αντί να εξαφανίζονται μετά την ολοκλήρωσή τους.' },
+        { title: 'Έλεγχος με προτεραιότητα στον γονέα', text: 'Τα δικαιώματα και οι λειτουργίες που σχετίζονται με παιδιά παραμένουν μέσα σε ξεκάθαρα γονεϊκά ελεγχόμενα όρια.' },
+      ],
+      value: 'Δεν θέλουμε το FamilyOS να κάνει την οικογένεια να αισθάνεται σαν επιχείρηση. Το αντίθετο: θέλουμε λιγότερη διαχείριση γύρω από την οικογένεια.',
       boundary: 'Η δημόσια σελίδα δεν εκθέτει οικογενειακά προφίλ, δεδομένα παιδιών ή εφήβων, ιδιωτικά schedules, provider accounts, bookings, αποθηκευμένες τοποθεσίες, στοιχεία πληρωμών, έγγραφα ή household activity.',
-      value: 'Το FamilyOS σχεδιάζεται για οικογένειες που θέλουν λιγότερη επιβάρυνση συντονισμού και πιο αξιόπιστη κοινή εικόνα των καθημερινών υποχρεώσεων.',
     },
   },
   legacyci: {
     en: {
-      headline: 'Understand database dependencies before a change becomes an incident',
-      intro: 'LegacyCI builds an evidence-backed view of database structure, lineage, proposed changes, and downstream impact while keeping uncertainty visible and source systems read-only.',
-      problem: 'In complex database estates, a DDL change can affect objects and consumers far beyond the edited statement. LegacyCI is designed to show the dependency path, the evidence behind it, and what remains unresolved before engineering teams deploy the change.',
-      capabilities: [
-        { title: 'Read-only metadata ingestion', text: 'Connect to certified PostgreSQL sources with least-privilege metadata access and preserve immutable snapshots for analysis.' },
-        { title: 'Semantic lineage', text: 'Resolve supported object, column, expression, routine, trigger, and cross-object relationships when the available evidence supports them.' },
-        { title: 'Pre-change impact', text: 'Parse proposed DDL without executing it against the source system, then trace downstream blast radius and compatibility findings.' },
-        { title: 'Evidence and governance', text: 'Keep confidence, unresolved paths, reports, review decisions, policies, waivers, and enterprise workflow evidence attached to the analysis.' },
+      category: 'Database change intelligence',
+      headline: 'Database changes are easy to write. Their consequences are harder to see.',
+      intro: 'LegacyCI helps engineering teams understand database dependencies and possible downstream impact before a change is deployed.',
+      problem: [
+        'Databases become complicated gradually. Tables are created. Views are added. Procedures depend on them. Applications use them. Reports appear.',
+        'Years later, some of the original engineers are gone and parts of the dependency structure are no longer obvious. Then somebody needs to change a column, table, or object.',
+        'The SQL may be simple. The difficult question is: “What else depends on this?” If the answer is incomplete, the result may be failed deployments, broken reports, application errors, or production incidents.',
       ],
-      boundary: 'This page exposes no database connections, credentials, metadata snapshots, SQL proposals, impact reports, customer schemas, private agents, enterprise configuration, or source-system data. LegacyCI does not execute proposed DDL against customer source databases.',
-      value: 'LegacyCI is built for engineering teams that need to change complex database systems with more evidence, less guesswork, and a clearly visible read-only safety boundary.',
+      capabilities: [
+        { title: 'Read-only analysis', text: 'LegacyCI analyses metadata without needing permission to alter the production source.' },
+        { title: 'Dependency and lineage analysis', text: 'Supported relationships between database objects can be mapped and explored.' },
+        { title: 'Pre-change impact analysis', text: 'A proposed structural change can be analysed before it is executed against the source database.' },
+        { title: 'Evidence and uncertainty', text: 'The system can show what it has evidence for and where the dependency picture is incomplete.' },
+      ],
+      value: 'LegacyCI is not intended to replace engineering judgement. It is intended to give engineers a better picture before they have to use that judgement.',
+      boundary: 'This page exposes no database connections, credentials, metadata snapshots, SQL proposals, impact reports, customer schemas, private agents, enterprise configuration, or source-system data.',
     },
     el: {
-      headline: 'Κατανόηση των database dependencies πριν μία αλλαγή γίνει incident',
-      intro: 'Το LegacyCI δημιουργεί evidence-backed εικόνα για database structure, lineage, προτεινόμενες αλλαγές και downstream impact, κρατώντας ορατή την αβεβαιότητα και τα source systems σε read-only όριο.',
-      problem: 'Σε σύνθετα database estates, μία αλλαγή DDL μπορεί να επηρεάσει objects και consumers πολύ πέρα από το statement που τροποποιείται. Το LegacyCI δείχνει dependency paths, τα τεκμήρια πίσω από αυτά και τι παραμένει unresolved πριν η engineering ομάδα κάνει deployment.',
-      capabilities: [
-        { title: 'Read-only metadata ingestion', text: 'Συνδέεται με πιστοποιημένες PostgreSQL πηγές με least-privilege metadata access και διατηρεί immutable snapshots για ανάλυση.' },
-        { title: 'Semantic lineage', text: 'Επιλύει υποστηριζόμενες σχέσεις object, column, expression, routine, trigger και cross-object όταν τα διαθέσιμα τεκμήρια το επιτρέπουν.' },
-        { title: 'Pre-change impact', text: 'Αναλύει προτεινόμενο DDL χωρίς να το εκτελεί στο source system και στη συνέχεια χαρτογραφεί downstream blast radius και compatibility findings.' },
-        { title: 'Evidence και governance', text: 'Διατηρεί confidence, unresolved paths, reports, review decisions, policies, waivers και enterprise workflow evidence συνδεδεμένα με την ανάλυση.' },
+      category: 'Ανάλυση αλλαγών βάσεων δεδομένων',
+      headline: 'Οι αλλαγές σε μία βάση δεδομένων γράφονται εύκολα. Οι συνέπειές τους φαίνονται πολύ πιο δύσκολα.',
+      intro: 'Το LegacyCI βοηθά engineering ομάδες να καταλαβαίνουν τις εξαρτήσεις και τις πιθανές downstream επιπτώσεις μιας αλλαγής πριν αυτή γίνει deployment.',
+      problem: [
+        'Οι βάσεις δεδομένων γίνονται σύνθετες σταδιακά. Δημιουργούνται πίνακες. Προστίθενται views. Procedures εξαρτώνται από αυτά. Applications τα χρησιμοποιούν. Εμφανίζονται reports.',
+        'Χρόνια αργότερα, κάποιοι από τους αρχικούς engineers έχουν φύγει και μέρος της δομής εξαρτήσεων δεν είναι πλέον προφανές. Και τότε κάποιος πρέπει να αλλάξει μία στήλη, έναν πίνακα ή κάποιο άλλο object.',
+        'Το SQL μπορεί να είναι απλό. Η δύσκολη ερώτηση είναι: «Τι άλλο εξαρτάται από αυτό;» Αν η απάντηση είναι ελλιπής, το αποτέλεσμα μπορεί να είναι αποτυχημένα deployments, χαλασμένα reports, application errors ή production incidents.',
       ],
-      boundary: 'Η δημόσια σελίδα δεν εκθέτει database connections, credentials, metadata snapshots, SQL proposals, impact reports, customer schemas, private agents, enterprise configuration ή source-system data. Το LegacyCI δεν εκτελεί προτεινόμενο DDL σε customer source databases.',
-      value: 'Το LegacyCI απευθύνεται σε engineering ομάδες που χρειάζονται αλλαγές σε σύνθετες βάσεις δεδομένων με περισσότερα τεκμήρια, λιγότερες υποθέσεις και ένα ξεκάθαρα ορατό read-only όριο ασφαλείας.',
+      capabilities: [
+        { title: 'Read-only ανάλυση', text: 'Το LegacyCI αναλύει metadata χωρίς να χρειάζεται δικαιώματα αλλαγής στο production source.' },
+        { title: 'Ανάλυση dependencies και lineage', text: 'Οι υποστηριζόμενες σχέσεις ανάμεσα σε database objects μπορούν να χαρτογραφούνται και να εξετάζονται.' },
+        { title: 'Ανάλυση πριν από την αλλαγή', text: 'Μία προτεινόμενη δομική αλλαγή μπορεί να αναλυθεί πριν εκτελεστεί στην πηγή.' },
+        { title: 'Τεκμήρια και αβεβαιότητα', text: 'Το σύστημα μπορεί να δείχνει τι γνωρίζει με επαρκή τεκμηρίωση και σε ποια σημεία η εικόνα των εξαρτήσεων παραμένει ελλιπής.' },
+      ],
+      value: 'Το LegacyCI δεν δημιουργείται για να αντικαταστήσει την κρίση των engineers. Δημιουργείται για να τους δίνει καλύτερη εικόνα πριν χρειαστεί να χρησιμοποιήσουν αυτή την κρίση.',
+      boundary: 'Η δημόσια σελίδα δεν εκθέτει database connections, credentials, metadata snapshots, SQL proposals, impact reports, customer schemas, private agents, enterprise configuration ή source-system data.',
     },
   },
 }

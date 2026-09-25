@@ -19,7 +19,7 @@ try {
 
 const { chromium } = playwright
 const expectedProducts = ['AgentGate', 'AutoPaylot', 'Business Resource Scheduler', 'EarnLogic', 'FamilyOS', 'LegacyCI']
-const secondaryRoutes = ['agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html', 'privacy.html', 'terms.html', 'trademark.html']
+const secondaryRoutes = ['products.html', 'how-we-build.html', 'about.html', 'contact.html', 'agentgate.html', 'autopaylot.html', 'business-resource-scheduler.html', 'earnlogic.html', 'familyos.html', 'legacyci.html', 'privacy.html', 'terms.html', 'trademark.html']
 
 function assert(condition, message) {
   if (!condition) throw new Error(message)
@@ -79,9 +79,8 @@ async function verifyHome(page, label) {
 }
 
 async function verifyDesktop(page, label) {
-  for (const hash of ['#products', '#principles', '#about', '#contact']) {
-    await page.locator(`#site-navigation a[href="${hash}"]`).click()
-    assert((await page.evaluate(() => window.location.hash)) === hash, `${label}: desktop navigation did not reach ${hash}.`)
+  for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html']) {
+    assert(await page.locator(`#site-navigation a[href="${href}"]`).count() === 1, `${label}: desktop navigation is missing ${href}.`)
   }
 
   const themeButton = page.getByRole('button', { name: 'Switch to dark theme' })

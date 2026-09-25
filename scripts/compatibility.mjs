@@ -374,6 +374,7 @@ async function verifyLanguagesAndThemes(page, label, mobileLike) {
 }
 
 async function verifyNavigation(page, label, mobileLike) {
+  const expected = ['./products.html', './how-we-build.html', './about.html', './contact.html']
   if (mobileLike) {
     const menuButton = page.locator('.menu-button').first()
     if (await menuButton.isVisible()) {
@@ -382,14 +383,10 @@ async function verifyNavigation(page, label, mobileLike) {
       await page.keyboard.press('Escape')
       assert(!(await page.locator('#site-navigation').isVisible()), `${label}: Escape did not close mobile navigation.`)
       await menuButton.click()
-      await page.locator('#site-navigation a[href="#products"]').click()
-      assert((await page.evaluate(() => location.hash)) === '#products', `${label}: mobile navigation did not reach Products.`)
     }
-  } else {
-    for (const hash of ['#products', '#principles', '#about', '#contact']) {
-      await page.locator(`#site-navigation a[href="${hash}"]`).click()
-      assert((await page.evaluate(() => location.hash)) === hash, `${label}: desktop navigation did not reach ${hash}.`)
-    }
+  }
+  for (const href of expected) {
+    assert(await page.locator(`#site-navigation a[href="${href}"]`).count() === 1, `${label}: navigation is missing ${href}.`)
   }
 }
 

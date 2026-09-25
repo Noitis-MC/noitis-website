@@ -50,31 +50,18 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
       <a className="skip-link" href="#main">{language === 'el' ? 'Μετάβαση στο κύριο περιεχόμενο' : 'Skip to main content'}</a>
 
       <header className="site-header">
-        <a className="brand-link" href="./index.html" aria-label="Noitis" onClick={closeMenu}>
-          <BrandMark compact theme={theme} />
-        </a>
-        <button
-          className="menu-button"
-          type="button"
-          aria-label={menuOpen ? ui.menuCloseAria : ui.menuOpenAria}
-          aria-expanded={menuOpen}
-          aria-controls="site-navigation"
-          onClick={() => setMenuOpen((value) => !value)}
-        >
+        <a className="brand-link" href="./index.html" aria-label="Noitis" onClick={closeMenu}><BrandMark compact theme={theme} /></a>
+        <button className="menu-button" type="button" aria-label={menuOpen ? ui.menuCloseAria : ui.menuOpenAria} aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => setMenuOpen((value) => !value)}>
           {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
         </button>
         <nav id="site-navigation" className={menuOpen ? 'site-nav site-nav--open' : 'site-nav'} aria-label={ui.mainNavAria}>
-          <a href="./index.html#products" onClick={closeMenu}>{ui.products}</a>
-          <a href="./index.html#about" onClick={closeMenu}>{ui.about}</a>
-          <a href="./index.html#contact" onClick={closeMenu}>{ui.contact}</a>
+          <a href="./products.html" onClick={closeMenu}>{ui.products}</a>
+          <a href="./how-we-build.html" onClick={closeMenu}>{ui.how}</a>
+          <a href="./about.html" onClick={closeMenu}>{ui.about}</a>
+          <a href="./contact.html" onClick={closeMenu}>{ui.contact}</a>
           <a href="./privacy.html" onClick={closeMenu}>{ui.privacy}</a>
           <LanguageSwitcher compact />
-          <button
-            className="theme-button"
-            type="button"
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            aria-label={theme === 'light' ? ui.switchToDark : ui.switchToLight}
-          >
+          <button className="theme-button" type="button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? ui.switchToDark : ui.switchToLight}>
             {theme === 'light' ? ui.dark : ui.light}
           </button>
         </nav>
@@ -83,8 +70,8 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
       <main id="main">
         <section className="product-landing-hero">
           <div className="product-landing-hero__copy">
-            <a className="product-landing__back" href="./index.html#products"><FiArrowLeft aria-hidden="true" /> {ui.back}</a>
-            <p className="eyebrow">{product.category}</p>
+            <a className="product-landing__back" href="./products.html"><FiArrowLeft aria-hidden="true" /> {ui.back}</a>
+            <p className="eyebrow">{content.category}</p>
             <h1>{product.name}</h1>
             <p className="product-landing-hero__headline">{content.headline}</p>
             <p className="product-landing-hero__intro">{content.intro}</p>
@@ -95,28 +82,19 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
           </div>
         </section>
 
-        <div className="product-landing-context-grid">
-          <section className="section product-landing-access" aria-labelledby="access-title">
-            <div>
-              <p className="eyebrow">{ui.accessEyebrow}</p>
-              <h2 id="access-title">{ui.accessTitle}</h2>
-            </div>
-            <p>{ui.accessText}</p>
-          </section>
-
-          <section className="section product-landing-problem" aria-labelledby="problem-title">
-            <div>
-              <p className="eyebrow">{ui.problemEyebrow}</p>
-              <h2 id="problem-title">{ui.problemTitle}</h2>
-            </div>
-            <p className="section__lead">{content.problem}</p>
-          </section>
-        </div>
+        <section className="section product-landing-problem product-landing-problem--featured" aria-labelledby="problem-title">
+          <div className="product-landing-section-heading">
+            <p className="eyebrow">{ui.problemEyebrow}</p>
+            <h2 id="problem-title">{ui.problemTitle}</h2>
+          </div>
+          <div className="product-landing-problem__copy">
+            {content.problem.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
+        </section>
 
         <section className="section" aria-labelledby="capabilities-title">
           <div className="section-heading">
             <div><p className="eyebrow">{ui.capabilityEyebrow}</p><h2 id="capabilities-title">{ui.capabilityTitle}</h2></div>
-            <p>{content.value}</p>
           </div>
           <div className="product-landing-capabilities swipe-track" role="region" aria-label={ui.capabilityTitle} tabIndex={0}>
             {content.capabilities.map((capability) => (
@@ -129,33 +107,41 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
           </div>
         </section>
 
-        <div className="product-landing-lower-grid">
+        <section className="section product-landing-value" aria-labelledby="value-title">
+          <p className="eyebrow">{ui.valueEyebrow}</p>
+          <h2 id="value-title">{ui.valueTitle}</h2>
+          <p>{content.value}</p>
+        </section>
+
+        <div className="product-landing-context-grid product-landing-context-grid--secondary">
+          <section className="section product-landing-access" aria-labelledby="access-title">
+            <div><p className="eyebrow">{ui.accessEyebrow}</p><h2 id="access-title">{ui.accessTitle}</h2></div>
+            <p>{ui.accessText}</p>
+          </section>
           <section className="section product-landing-boundary" aria-labelledby="boundary-title">
-            <div>
-              <p className="eyebrow">{ui.boundaryEyebrow}</p>
-              <h2 id="boundary-title">{ui.boundaryTitle}</h2>
-            </div>
+            <div><p className="eyebrow">{ui.boundaryEyebrow}</p><h2 id="boundary-title">{ui.boundaryTitle}</h2></div>
             <p>{content.boundary}</p>
           </section>
-
-          <section className="section product-landing-cta" aria-labelledby="contact-title">
-            <p className="eyebrow">{ui.valueEyebrow}</p>
-            <h2 id="contact-title">{ui.valueTitle}</h2>
-            <p>{ui.valueText}</p>
-            <div className="hero__actions">
-              <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{ui.email} <FiMail aria-hidden="true" /></a>
-              <a className="button button--secondary" href="./index.html#products">{ui.products}</a>
-            </div>
-          </section>
         </div>
+
+        <section className="section product-landing-cta" aria-labelledby="contact-title">
+          <p className="eyebrow">{ui.contactEyebrow}</p>
+          <h2 id="contact-title">{ui.contactTitle}</h2>
+          <p>{ui.valueText}</p>
+          <div className="hero__actions">
+            <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{ui.email} <FiMail aria-hidden="true" /></a>
+            <a className="button button--secondary" href="./products.html">{ui.products}</a>
+          </div>
+        </section>
       </main>
 
       <footer className="site-footer">
         <div className="site-footer__brand"><BrandMark theme={theme} /><p>{ui.footerTagline}</p></div>
         <div className="site-footer__links">
-          <a href="./index.html#products">{ui.products}</a>
-          <a href="./index.html#about">{ui.about}</a>
-          <a href="./index.html#contact">{ui.contact}</a>
+          <a href="./products.html">{ui.products}</a>
+          <a href="./how-we-build.html">{ui.how}</a>
+          <a href="./about.html">{ui.about}</a>
+          <a href="./contact.html">{ui.contact}</a>
           <a href="./privacy.html">{ui.privacy}</a>
           <a href="./terms.html">{language === 'el' ? 'Όροι χρήσης' : 'Terms'}</a>
           <a href="./trademark.html">{language === 'el' ? 'Εμπορικά σήματα' : 'Trademarks'}</a>

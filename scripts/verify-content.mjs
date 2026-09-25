@@ -6,6 +6,10 @@ const textExtensions = new Set(['.html', '.js', '.css', '.xml', '.txt', '.webman
 const forbiddenProductionTokens = ['localhost:', '127.0.0.1']
 const publicPages = [
   { file: 'index.html', path: '' },
+  { file: 'products.html', path: 'products.html' },
+  { file: 'how-we-build.html', path: 'how-we-build.html' },
+  { file: 'about.html', path: 'about.html' },
+  { file: 'contact.html', path: 'contact.html' },
   { file: 'agentgate.html', path: 'agentgate.html' },
   { file: 'autopaylot.html', path: 'autopaylot.html' },
   { file: 'business-resource-scheduler.html', path: 'business-resource-scheduler.html' },

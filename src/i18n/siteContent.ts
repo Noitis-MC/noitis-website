@@ -52,6 +52,7 @@ export type SiteCopy = {
     intro: string
     open: string
     pricing: string
+    all: string
     unavailable: string
     openAria: string
     pricingAria: string
@@ -106,24 +107,25 @@ const english: SiteCopy = {
     switchToDark: 'Switch to dark theme',
   },
   hero: {
-    eyebrow: 'From Greece. Built for the world.',
-    title: 'Technology people can trust',
-    lead: 'Noitis builds focused software for difficult operational problems where clarity, control, and trustworthy decisions matter.',
-    support: 'Our products are in active development. We describe current capability conservatively and keep future work separate from what is available today.',
-    discover: 'Discover our products',
-    meet: 'Meet Noitis™',
+    eyebrow: 'From Greece, building for a wider world.',
+    title: 'We build software for problems that should work better than they do.',
+    lead: 'Noitis develops focused applications around real problems we come across in everyday life, business, and technology.',
+    support: 'Usually they are not new problems. They are things people already deal with every day — fragmented information, too much manual coordination, unclear decisions, or work that is harder than it needs to be because the right tool does not exist yet.',
+    discover: 'Explore our products',
+    meet: 'About Noitis',
   },
   purpose: {
-    eyebrow: 'Our purpose',
-    title: 'Make advanced technology feel dependable',
-    text: 'We look for places where people lose time, control, or confidence because important work is fragmented across tools and manual processes. Then we engineer a clearer system around the real decision.',
+    eyebrow: 'Why we build',
+    title: 'We start with the problem, not the technology.',
+    text: 'We are interested in situations where something is harder, slower, or less reliable than it should be. Sometimes the cost is obvious. Sometimes it is the quieter cost of remembering too much, checking several systems before one decision, or never being completely sure the information in front of you is right. We look at that first, then decide whether software can genuinely make it simpler.',
   },
   products: {
     eyebrow: 'What we build',
-    title: 'A family of focused products',
-    intro: 'Each product solves a different problem, but all of them share the same standard: intelligence should be understandable, controlled, and useful in the real workflow.',
-    open: 'Open product',
+    title: 'Different applications for different kinds of problems.',
+    intro: 'We are not trying to build one platform that does everything. Each product has its own purpose and its own users. What connects them is the way we approach the problem.',
+    open: 'Explore product',
     pricing: 'Pricing',
+    all: 'See all products',
     unavailable: 'Public access not configured',
     openAria: 'Open {name}',
     pricingAria: 'Open {name} pricing',
@@ -131,198 +133,79 @@ const english: SiteCopy = {
   productCopy: {
     AgentGate: {
       category: 'AI governance',
-      description: 'A governance gateway for AI agents that applies organization policy and routes sensitive actions through human approval when required.',
+      description: 'Control over what AI agents are allowed to do — automatically, with approval, or not at all.',
       status: 'In development',
-      note: 'The governance control plane and localhost developer-connectivity contracts are implemented; production integration adapters and approval delivery remain in development.',
+      note: 'AgentGate is under active development.',
     },
     AutoPaylot: {
       category: 'Financial obligations',
-      description: 'Financial-obligation control for organizing recurring commitments and deciding what is ready before money moves.',
+      description: 'A clearer way to organise recurring obligations before they all compete for the same money.',
       status: 'In development',
-      note: 'Read-only sandbox bank connectivity and simulated payment controls are implemented; real payment execution remains disabled.',
+      note: 'AutoPaylot is under active development.',
     },
     'Business Resource Scheduler': {
       category: 'Operational scheduling',
-      description: 'Constraint-based scheduling for work that depends on people, skills, equipment, spaces, locations, availability, and business rules.',
+      description: 'Scheduling based on the people, skills, equipment, space, and time the work actually requires.',
       status: 'In development',
-      note: 'Operational scheduling and adaptive planning are implemented; external calendar, API, webhook, and recurring synchronization capabilities remain in development.',
+      note: 'Business Resource Scheduler is under active development.',
     },
     EarnLogic: {
       category: 'Compensation intelligence',
-      description: 'Commercial performance and incentive compensation connected by calculation lineage that explains monetary results.',
+      description: 'Connect performance, compensation rules, and calculation results so the number can be explained.',
       status: 'In development',
-      note: 'Governed compensation calculations, statements, audit evidence, and the canonical ingestion foundation are implemented; productized CRM, ERP, HRIS, payroll, and public API integrations remain in development.',
+      note: 'EarnLogic is under active development.',
     },
     FamilyOS: {
       category: 'Family coordination',
-      description: 'A parent-first, child-centred experience for discovery, bookings, schedules, saved items, and everyday family coordination.',
+      description: 'One shared place for the schedules, responsibilities, bookings, and information family life creates.',
       status: 'In development',
-      note: 'Family coordination, booking/calendar workflows, and privacy-aware OpenStreetMap discovery are implemented; the provider platform, authoritative availability, and real payments remain in development.',
+      note: 'FamilyOS is under active development.',
     },
     LegacyCI: {
       category: 'Database change intelligence',
-      description: 'Dependency, lineage, and pre-change impact analysis for complex database systems with explicit evidence and visible uncertainty.',
+      description: 'Understand database relationships and possible downstream impact before a change is deployed.',
       status: 'In development',
-      note: 'Certified read-only PostgreSQL 16–18 metadata connectivity is implemented; production semantic lineage parsing and change-impact semantics remain in development.',
+      note: 'LegacyCI is under active development.',
     },
   },
   principles: {
-    eyebrow: 'How we build',
-    title: 'Simple on the surface. Serious underneath',
+    eyebrow: 'How we work',
+    title: 'We try to keep the product simple, even when the problem is not.',
     items: [
-      { title: 'Trust first', text: 'Security, transparency, reliability, and user control are part of the product—not finishing touches.' },
-      { title: 'Useful intelligence', text: 'Advanced technology should remove real work and uncertainty, not create complexity for its own sake.' },
-      { title: 'Human control', text: 'Automation should expand capability while keeping important decisions understandable and accountable.' },
-      { title: 'Built for real people', text: 'Readable, predictable interfaces should work for people of different ages and technical experience.' },
+      { title: 'Understand the real workflow', text: 'We first try to understand how the work is actually done, including the inconvenient parts and the exceptions.' },
+      { title: 'Make important information visible', text: 'Users should be able to understand what the system knows, what it decided, and — where it matters — why.' },
+      { title: 'Keep meaningful control with people', text: 'Automation should remove repetitive work without making important decisions impossible to understand or control.' },
+      { title: 'Design for difficult days too', text: 'People cancel, data is incomplete, equipment fails, connections stop working, and plans change. The product has to deal with that world too.' },
     ],
   },
   about: {
-    eyebrow: 'Our roots',
-    title: 'Greek foundations. Global ambition',
+    eyebrow: 'Noitis',
+    title: 'Built in Greece, with no reason to think only locally.',
     paragraphs: [
-      'Noitis is a technology brand being built in Greece with an international horizon. Our name is inspired by the Greek intellectual tradition around nous and noesis: mind, thought, understanding, and the conception of an idea.',
-      'For us, Noitis is the one who sees what could exist before it exists—and engineers it into reality. That becomes a practical standard: technology should help people understand better, decide with confidence, and act with greater control.',
-      "Noitis began with a builder's question: where are people and businesses still accepting friction, uncertainty, or unnecessary manual work simply because a better system has not been built yet?",
+      'Noitis began from a simple idea: there are still many problems people have learned to work around instead of solving properly. We want to build software for those problems.',
+      'Our name is inspired by the Greek ideas of nous and noesis — thought, understanding, and the formation of an idea. For us, that means understanding a problem clearly, imagining a better way for it to work, and then building it.',
     ],
   },
   contact: {
     eyebrow: 'Contact',
     title: 'Talk to Noitis',
-    text: 'For company, product, privacy, legal, or brand enquiries, use the contact address below. The public website does not use a contact form or marketing tracker.',
+    text: 'If you want to discuss a product, a use case, a pilot, a partnership, or simply what we are building, contact us directly.',
     email: 'Email Noitis',
   },
   future: {
-    eyebrow: 'Where we are going',
-    title: 'Between human intention and machine capability',
-    text: 'As software becomes more capable of reasoning, coordinating, and acting, trust will matter more—not less. Noitis is building toward systems that make that capability understandable, useful, and safe to rely on.',
+    eyebrow: 'Where we are',
+    title: 'We prefer to be clear about what exists and what we are still building.',
+    text: 'Noitis and its products are still being developed. We show what already works, what is being worked on, and where we want each product to go without pretending unfinished work is finished.',
   },
   footer: {
-    tagline: 'Built in Greece. Designed for a global future.',
+    tagline: 'Built in Greece. Designed for a wider world.',
     rights: 'All rights reserved.',
-  },
-}
-
-const greek: SiteCopy = {
-  skip: 'Μετάβαση στο κύριο περιεχόμενο',
-  homeAria: 'Αρχική Noitis',
-  menuOpenAria: 'Άνοιγμα πλοήγησης',
-  menuCloseAria: 'Κλείσιμο πλοήγησης',
-  mainNavAria: 'Κύρια πλοήγηση',
-  nav: {
-    products: 'Προϊόντα',
-    principles: 'Πώς δημιουργούμε',
-    about: 'Σχετικά',
-    contact: 'Επικοινωνία',
-    privacy: 'Απόρρητο',
-    terms: 'Όροι',
-    trademarks: 'Εμπορικά σήματα',
-  },
-  theme: {
-    light: 'Φωτεινό',
-    dark: 'Σκοτεινό',
-    switchToLight: 'Μετάβαση σε φωτεινό θέμα',
-    switchToDark: 'Μετάβαση σε σκοτεινό θέμα',
-  },
-  hero: {
-    eyebrow: 'Από την Ελλάδα. Για όλο τον κόσμο.',
-    title: 'Τεχνολογία που οι άνθρωποι μπορούν να εμπιστευτούν',
-    lead: 'Η Noitis δημιουργεί στοχευμένο λογισμικό για δύσκολα επιχειρησιακά προβλήματα, όπου η σαφήνεια, ο έλεγχος και οι αξιόπιστες αποφάσεις έχουν σημασία.',
-    support: 'Τα προϊόντα μας βρίσκονται σε ενεργή ανάπτυξη. Περιγράφουμε συντηρητικά τις σημερινές δυνατότητες και ξεχωρίζουμε καθαρά τη μελλοντική εργασία από ό,τι είναι διαθέσιμο σήμερα.',
-    discover: 'Ανακαλύψτε τα προϊόντα μας',
-    meet: 'Γνωρίστε τη Noitis™',
-  },
-  purpose: {
-    eyebrow: 'Ο σκοπός μας',
-    title: 'Να κάνουμε την προηγμένη τεχνολογία να εμπνέει σιγουριά',
-    text: 'Αναζητούμε σημεία όπου άνθρωποι και επιχειρήσεις χάνουν χρόνο, έλεγχο ή εμπιστοσύνη επειδή σημαντική εργασία είναι κατακερματισμένη σε εργαλεία και χειροκίνητες διαδικασίες. Έπειτα σχεδιάζουμε ένα καθαρότερο σύστημα γύρω από την πραγματική απόφαση.',
-  },
-  products: {
-    eyebrow: 'Τι δημιουργούμε',
-    title: 'Μια οικογένεια στοχευμένων προϊόντων',
-    intro: 'Κάθε προϊόν λύνει διαφορετικό πρόβλημα, αλλά όλα μοιράζονται το ίδιο πρότυπο: η ευφυΐα πρέπει να είναι κατανοητή, ελεγχόμενη και χρήσιμη στην πραγματική ροή εργασίας.',
-    open: 'Άνοιγμα προϊόντος',
-    pricing: 'Τιμολόγηση',
-    unavailable: 'Η δημόσια πρόσβαση δεν έχει ρυθμιστεί',
-    openAria: 'Άνοιγμα {name}',
-    pricingAria: 'Άνοιγμα τιμολόγησης {name}',
-  },
-  productCopy: {
-    AgentGate: {
-      category: 'Διακυβέρνηση AI',
-      description: 'Μια πύλη διακυβέρνησης για AI agents που εφαρμόζει τις πολιτικές του οργανισμού και δρομολογεί ευαίσθητες ενέργειες για ανθρώπινη έγκριση όταν απαιτείται.',
-      status: 'Υπό ανάπτυξη',
-      note: 'Το governance control plane και τα συμβόλαια διασύνδεσης για localhost έχουν υλοποιηθεί· οι production integration adapters και η παράδοση εγκρίσεων παραμένουν υπό ανάπτυξη.',
-    },
-    AutoPaylot: {
-      category: 'Οικονομικές υποχρεώσεις',
-      description: 'Έλεγχος οικονομικών υποχρεώσεων για την οργάνωση επαναλαμβανόμενων δεσμεύσεων και την απόφαση του τι είναι έτοιμο πριν κινηθούν χρήματα.',
-      status: 'Υπό ανάπτυξη',
-      note: 'Η read-only σύνδεση με sandbox τράπεζας και οι έλεγχοι προσομοιωμένων πληρωμών έχουν υλοποιηθεί· η πραγματική εκτέλεση πληρωμών παραμένει απενεργοποιημένη.',
-    },
-    'Business Resource Scheduler': {
-      category: 'Επιχειρησιακός προγραμματισμός',
-      description: 'Προγραμματισμός βάσει περιορισμών για εργασία που εξαρτάται από ανθρώπους, δεξιότητες, εξοπλισμό, χώρους, τοποθεσίες, διαθεσιμότητα και επιχειρησιακούς κανόνες.',
-      status: 'Υπό ανάπτυξη',
-      note: 'Ο επιχειρησιακός προγραμματισμός και ο προσαρμοστικός σχεδιασμός έχουν υλοποιηθεί· οι δυνατότητες εξωτερικού ημερολογίου, API, webhook και επαναλαμβανόμενου συγχρονισμού παραμένουν υπό ανάπτυξη.',
-    },
-    EarnLogic: {
-      category: 'Ευφυΐα αποδοχών',
-      description: 'Εμπορική απόδοση και μεταβλητές αμοιβές συνδεδεμένες με γραμμή υπολογισμού που εξηγεί τα χρηματικά αποτελέσματα.',
-      status: 'Υπό ανάπτυξη',
-      note: 'Οι ελεγχόμενοι υπολογισμοί αποδοχών, οι καταστάσεις, τα audit evidence και η κανονική βάση ingestion έχουν υλοποιηθεί· οι productized διασυνδέσεις CRM, ERP, HRIS, payroll και public API παραμένουν υπό ανάπτυξη.',
-    },
-    FamilyOS: {
-      category: 'Οικογενειακός συντονισμός',
-      description: 'Μια εμπειρία με προτεραιότητα στον γονέα και επίκεντρο το παιδί για ανακάλυψη, κρατήσεις, προγράμματα, αποθηκευμένα στοιχεία και καθημερινό οικογενειακό συντονισμό.',
-      status: 'Υπό ανάπτυξη',
-      note: 'Ο οικογενειακός συντονισμός, οι ροές booking/calendar και η ανακάλυψη μέσω OpenStreetMap με σεβασμό στην ιδιωτικότητα έχουν υλοποιηθεί· η πλατφόρμα παρόχων, η authoritative διαθεσιμότητα και οι πραγματικές πληρωμές παραμένουν υπό ανάπτυξη.',
-    },
-    LegacyCI: {
-      category: 'Ευφυΐα αλλαγών βάσεων δεδομένων',
-      description: 'Ανάλυση εξαρτήσεων, lineage και επιπτώσεων πριν από αλλαγές σε σύνθετα συστήματα βάσεων δεδομένων, με σαφή τεκμήρια και ορατή αβεβαιότητα.',
-      status: 'Υπό ανάπτυξη',
-      note: 'Η πιστοποιημένη read-only σύνδεση μεταδεδομένων PostgreSQL 16–18 έχει υλοποιηθεί· το production semantic lineage parsing και τα semantics επιπτώσεων αλλαγών παραμένουν υπό ανάπτυξη.',
-    },
-  },
-  principles: {
-    eyebrow: 'Πώς δημιουργούμε',
-    title: 'Απλό στην επιφάνεια. Σοβαρό από κάτω',
-    items: [
-      { title: 'Πρώτα η εμπιστοσύνη', text: 'Η ασφάλεια, η διαφάνεια, η αξιοπιστία και ο έλεγχος από τον χρήστη είναι μέρος του προϊόντος — όχι τελευταίες πινελιές.' },
-      { title: 'Χρήσιμη ευφυΐα', text: 'Η προηγμένη τεχνολογία πρέπει να αφαιρεί πραγματική δουλειά και αβεβαιότητα, όχι να δημιουργεί πολυπλοκότητα για χάρη της πολυπλοκότητας.' },
-      { title: 'Ανθρώπινος έλεγχος', text: 'Η αυτοματοποίηση πρέπει να διευρύνει τις δυνατότητες, διατηρώντας τις σημαντικές αποφάσεις κατανοητές και υπόλογες.' },
-      { title: 'Για πραγματικούς ανθρώπους', text: 'Ευανάγνωστες και προβλέψιμες διεπαφές πρέπει να λειτουργούν για ανθρώπους διαφορετικών ηλικιών και τεχνικής εμπειρίας.' },
-    ],
-  },
-  about: {
-    eyebrow: 'Οι ρίζες μας',
-    title: 'Ελληνικές βάσεις. Παγκόσμια φιλοδοξία',
-    paragraphs: [
-      'Η Noitis είναι ένα τεχνολογικό brand που χτίζεται στην Ελλάδα με διεθνή ορίζοντα. Το όνομά μας αντλεί έμπνευση από την ελληνική πνευματική παράδοση γύρω από τον νου και τη νόηση: σκέψη, κατανόηση και σύλληψη μιας ιδέας.',
-      'Για εμάς, Noitis είναι εκείνος που βλέπει τι θα μπορούσε να υπάρξει πριν υπάρξει — και το μετατρέπει με μηχανική σε πραγματικότητα. Αυτό γίνεται πρακτικό πρότυπο: η τεχνολογία πρέπει να βοηθά τους ανθρώπους να κατανοούν καλύτερα, να αποφασίζουν με σιγουριά και να ενεργούν με περισσότερο έλεγχο.',
-      'Η Noitis ξεκίνησε από ένα ερώτημα δημιουργού: πού εξακολουθούν άνθρωποι και επιχειρήσεις να αποδέχονται τριβή, αβεβαιότητα ή περιττή χειροκίνητη εργασία απλώς επειδή δεν έχει ακόμη δημιουργηθεί ένα καλύτερο σύστημα;',
-    ],
-  },
-  contact: {
-    eyebrow: 'Επικοινωνία',
-    title: 'Μιλήστε με τη Noitis',
-    text: 'Για θέματα εταιρείας, προϊόντων, απορρήτου, νομικά ζητήματα ή θέματα brand, χρησιμοποιήστε την παρακάτω διεύθυνση επικοινωνίας. Ο δημόσιος ιστότοπος δεν χρησιμοποιεί φόρμα επικοινωνίας ή marketing tracker.',
-    email: 'Email στη Noitis',
-  },
-  future: {
-    eyebrow: 'Πού κατευθυνόμαστε',
-    title: 'Ανάμεσα στην ανθρώπινη πρόθεση και τη δυνατότητα της μηχανής',
-    text: 'Καθώς το λογισμικό αποκτά μεγαλύτερη ικανότητα συλλογισμού, συντονισμού και δράσης, η εμπιστοσύνη θα έχει περισσότερη — όχι λιγότερη — σημασία. Η Noitis χτίζει συστήματα που κάνουν αυτή τη δυνατότητα κατανοητή, χρήσιμη και ασφαλή για να μπορεί κανείς να βασίζεται σε αυτή.',
-  },
-  footer: {
-    tagline: 'Δημιουργείται στην Ελλάδα. Σχεδιάζεται για ένα παγκόσμιο μέλλον.',
-    rights: 'Με επιφύλαξη παντός δικαιώματος.',
   },
 }
 
 export const siteContent: Record<NoitisLanguage, SiteCopy> = {
   en: english,
-  el: greek,
+  el: english,
 }
 
 export function replaceName(template: string, name: string) {

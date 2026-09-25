@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { extname, join } from 'node:path'
 
-const DEFAULT_SITE_URL = 'https://noitis-mc.github.io/noitis-website/'
+const DEFAULT_SITE_URL = 'https://noitis.gr/'
 const textExtensions = new Set(['.html', '.js', '.css', '.xml', '.txt', '.webmanifest', '.json'])
 const forbiddenProductionTokens = ['localhost:', '127.0.0.1']
 const publicPages = [

@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
 
-const DEFAULT_SITE_URL = 'https://noitis-mc.github.io/noitis-website/'
+const DEFAULT_SITE_URL = 'https://noitis.gr/'
 
 function normalizeSiteUrl(value: string | undefined) {
   const url = new URL(value?.trim() || DEFAULT_SITE_URL)

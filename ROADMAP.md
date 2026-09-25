@@ -1,15 +1,15 @@
 # Noitis Website Roadmap
 
-This roadmap is the implementation sequence for the public Noitis company website. The site remains static-first unless a real website requirement justifies additional infrastructure. Phase 6 is the accepted official public launch; Phase 7 hardens that launched site for cross-platform compatibility, publication resilience, and release-candidate operations. A branded custom domain may be added later without reopening an accepted milestone.
+This roadmap is the implementation sequence for the public Noitis company website. The site remains static-first unless a real website requirement justifies additional infrastructure. Phase 6 is the accepted official public launch at `https://noitis.gr/`; Phase 7 hardens that launched site for cross-platform compatibility, publication resilience, and release-candidate operations.
 
-## Implementation audit — 2026-09-17
+## Implementation audit — 2026-09-25
 
 - **Phases 1–6 are complete and accepted.** The website has the static-first React/TypeScript/Vite foundation, reviewed publication content, product catalogue, legal/publication controls, accessibility/SEO/quality checks, cross-browser smoke coverage, production operations contract, and accepted GitHub Pages launch.
 - **The Noitis PNG logo remains the approved browser-tab and Apple Home Screen product mark.** The accepted site uses `media/Noitis Logo - Light.png` for the public-page favicon and Safari/iOS Home Screen presentation; the lightweight manifest SVG remains a supporting installable-web-app asset rather than replacing the approved PNG identity.
-- **Phase 6 remains complete and owner-accepted for the current GitHub Pages public launch.** The approved release is deployed from `main` through GitHub Actions and is publicly reachable at `https://noitis-mc.github.io/noitis-website/` without requiring a GitHub login. GitHub Pages uses HTTPS for the current default Pages address.
-- **Phase 7 is complete and accepted for the current static-site scope.** The repository owns a permanent compatibility runner covering desktop Chromium/Firefox/WebKit and representative mobile/tablet profiles, English/Greek and theme persistence, overflow/touch/layout checks, production/public verification, and the static-site attack-resilience boundary. Windows-host compatibility acceptance was completed on 2026-09-15; additional real-host/device spot checks remain useful ongoing evidence rather than a closure gate for this static GitHub Pages site.
+- **Phase 6 remains complete and owner-accepted for the current Noitis public launch.** The approved release is deployed from `main` through GitHub Actions to GitHub Pages and the canonical public address is `https://noitis.gr/`, over HTTPS and without requiring a GitHub login.
+- **Phase 7 is complete and accepted for the current static-site scope.** The repository owns a permanent compatibility runner covering desktop Chromium/Firefox/WebKit and representative mobile/tablet profiles, English/Greek and theme persistence, overflow/touch/layout checks, production/public verification against `https://noitis.gr/`, and the static-site attack-resilience boundary. Windows-host compatibility acceptance was completed on 2026-09-15; additional real-host/device spot checks remain useful ongoing evidence rather than a closure gate.
 - **The repository was intentionally made public to enable GitHub Pages on the current GitHub plan.** This publication decision applies only to the Noitis company website repository; it does not change the visibility or release policy of the product application repositories.
-- **The current launch uses the GitHub Pages default production URL by deliberate owner decision.** Purchasing, verifying, and activating a branded Noitis custom domain is deferred until the owner is ready. When a custom domain is introduced, the existing DNS/domain/TLS/canonical checks and live-release gate must be rerun against that address.
+- **The branded Noitis domain is now the production authority.** `https://noitis.gr/` is canonical; the GitHub Pages project URL and `https://www.noitis.gr/` are alternate entry points whose redirect behavior is covered by the live publication checks. Production configuration validation is locked to the apex Noitis domain.
 - Production builds continue to enforce public-safe product destinations and publication metadata. Permanent local product links remain a development concern rather than leaking into production output.
 - Phase branches are milestone branches. Once a phase is accepted and merged, its branch is kept at that completed phase and is not advanced with later-phase implementation unless the owner explicitly aligns it with `main`.
 
@@ -52,12 +52,12 @@ This roadmap is the implementation sequence for the public Noitis company websit
 - [x] Define the optional custom-domain, DNS, ownership-verification, certificate, and HTTPS activation procedure
 - [x] Implement production URL/custom-domain validation and a single canonical publication configuration source
 - [x] Define canonical/default-domain/apex-or-www redirect verification for a future custom-domain launch
-- [x] Review analytics need/legal basis and intentionally keep analytics disabled while no justified requirement exists
+- [x] Review analytics need/legal basis and support privacy-first owner-only aggregate visitor analytics without rendering a public counter
 - [x] Define live website monitoring, broken-link checks, dependency updates, and content/operations ownership
 - [x] Document DNS/canonical policy, normal rollback, emergency unpublish, and emergency content/legal update procedures
 - [x] Provide a deterministic production live-health gate for publication verification
 
-**Phase 4 evidence:** `scripts/verify-production-config.mjs` provides `npm run check:production`; `scripts/verify-publication-health.mjs` provides `npm run check:live`; `.github/workflows/deploy-pages.yml` fails closed on missing/unsafe production configuration and uses the current Pages Actions artifact path; `.github/workflows/site-health.yml` runs daily when Pages is enabled; `.github/dependabot.yml` defines weekly npm/Actions review; `.github/CODEOWNERS` defines ownership; and `docs/operations/PRODUCTION.md` is the production runbook.
+**Phase 4 evidence:** `scripts/verify-production-config.mjs` provides `npm run check:production` and locks production publication to `https://noitis.gr/`; `scripts/verify-publication-health.mjs` provides `npm run check:live` and checks canonical redirects; `.github/workflows/deploy-pages.yml` fails closed on missing/unsafe production configuration and can inject the owner-only Cloudflare Web Analytics beacon; `.github/workflows/site-health.yml` runs daily when Pages is enabled; `.github/dependabot.yml` defines weekly npm/Actions review; `.github/CODEOWNERS` defines ownership; and `docs/operations/PRODUCTION.md` is the production runbook.
 
 ## Phase 5 — Launch candidate — Complete / accepted
 - [x] Freeze launch copy and product links for final review
@@ -75,19 +75,19 @@ This roadmap is the implementation sequence for the public Noitis company websit
 - [x] Prepare deterministic Phase-6 launch acceptance tooling and runbook on top of the exact accepted Phase-5 baseline
 - [x] Deploy the approved release from `main` through the maintained GitHub Actions Pages workflow
 - [x] Enable GitHub Pages with GitHub Actions as the source and configure the current publication variables
-- [x] Publish the Noitis company website at `https://noitis-mc.github.io/noitis-website/`
-- [x] Use HTTPS on the current GitHub Pages production address
+- [x] Publish the Noitis company website at the canonical address `https://noitis.gr/`
+- [x] Use HTTPS on the canonical `https://noitis.gr/` production address
 - [x] Confirm that the public website is reachable without requiring a GitHub login
 - [x] Preserve the accepted legal pages, product-link safety, canonical metadata, sitemap/robots, manifest/favicon, and social-preview publication contract
 - [x] Preserve desktop/mobile responsive behavior, theme behavior, navigation, and the accepted Noitis visual presentation
 - [x] Keep products without an approved public HTTPS destination intentionally marked as not publicly configured rather than exposing localhost/development links
 - [x] Enable deployment/build health visibility, daily website health monitoring, and maintained publication verification tooling
-- [x] Accept the GitHub Pages URL as the current official public launch address
+- [x] Accept `https://noitis.gr/` as the official public launch address and keep the GitHub Pages project URL as a redirect/fallback surface
 - [x] Mark the Noitis company website publicly launched for the current scope
 
-**Phase 6 acceptance evidence:** The accepted Phase-6 branch provides `scripts/phase6-live-smoke.mjs`, strengthened `scripts/verify-publication-health.mjs`, `npm run check:phase6`, `.github/workflows/phase6-live-acceptance.yml`, and `docs/PHASE-6-LAUNCH.md`. The final accepted tree was aligned into `main`; the GitHub Pages deployment for the aligned `main` state completed successfully; the owner confirmed the public site is reachable and accepted the temporary GitHub Pages address as the current launch URL. The website remains available independently of the owner's local development machine.
+**Phase 6 acceptance evidence:** `docs/PHASE-6-LAUNCH.md` records the launch contract; `scripts/verify-publication-health.mjs`, `scripts/live-smoke.mjs`, `npm run check:release`, `.github/workflows/live-acceptance.yml`, and `.github/workflows/deploy-pages.yml` provide the maintained repository-side release gates. The GitHub Pages deployment is generated from `main`, and production configuration/canonical metadata now target `https://noitis.gr/`. The website remains available independently of the owner's local development machine.
 
-**Deferred post-launch custom-domain upgrade — not a Phase-6 closure gate:** When the owner chooses to purchase a Noitis domain, verify the domain with GitHub, configure the Pages custom domain and DNS, wait for certificate provisioning, enforce HTTPS, configure canonical/apex-or-www redirects as appropriate, update `NOITIS_SITE_URL` / `NOITIS_CUSTOM_DOMAIN`, and rerun the full live acceptance gate. This future domain migration must not change the accepted Noitis visual identity or product-publication safety rules.
+**Custom-domain closure:** The previously deferred branded-domain step is now part of the accepted production baseline. `https://noitis.gr/` is canonical; production validation, sitemap/robots generation, compatibility checks, and live redirect verification are aligned to that address. GitHub's default Pages URL remains hosting infrastructure, not the public canonical identity.
 
 ## Phase 7 — Production hardening and release candidate — Complete / accepted
 - [x] Check Windows/Linux/other-OS UI risks through repository-owned Chromium, Firefox, and WebKit compatibility coverage plus responsive device profiles
@@ -95,7 +95,7 @@ This roadmap is the implementation sequence for the public Noitis company websit
 - [x] Validate English/Greek switching and persistence, light/dark themes, navigation, legal pages, images, overflow/clipping, touch targets, and browser/resource errors
 - [x] Correct compatibility defects found by the hardening work, including Greek landscape navigation overflow and ultra-narrow feature-phone overflow
 - [x] Keep permanent local/public compatibility commands and a complete release verification gate owned by the repository
-- [x] Preserve the accepted GitHub Pages production URL, HTTPS/public availability, canonical metadata, sitemap, robots, social preview, favicon, and product-link safety
+- [x] Preserve the accepted `https://noitis.gr/` production URL, HTTPS/public availability, canonical metadata, sitemap, robots, social preview, favicon, canonical redirects, and product-link safety
 - [x] Review the attack-resilience boundary for the current static GitHub Pages architecture and avoid claiming application-server controls that do not exist
 - [x] Keep secrets, localhost/private product destinations, and unpublished configuration out of production output
 - [x] Preserve accessibility, responsive layout, theme behavior, and the approved Noitis visual identity across local and public builds
@@ -105,10 +105,10 @@ This roadmap is the implementation sequence for the public Noitis company websit
 ### Phase 7 acceptance evidence
 
 - `scripts/compatibility.mjs` provides the permanent cross-browser/mobile compatibility runner.
-- `npm run check:compat` runs the local compatibility matrix; `npm run check:public` runs it against the public GitHub Pages site; `npm run check:all` combines repository/browser/compatibility checks; and `npm run check:release` is the complete public release gate.
+- `npm run check:compat` runs the local compatibility matrix; `npm run check:public` runs it against `https://noitis.gr/`; `npm run check:all` combines repository/browser/compatibility checks; and `npm run check:release` is the complete public release gate.
 - The accepted Windows-host run on 2026-09-15 covered desktop Chromium, Firefox, and WebKit plus representative Android/iOS/tablet/feature-phone profiles and found/fixed real responsive defects.
 - `docs/COMPATIBILITY.md` records the compatibility contract and the distinction between automated browser/device-profile emulation and optional future physical-device evidence.
-- The current architecture is static-only: no trusted application API, authentication/session store, tenant database, billing endpoint, webhook handler, or payment execution surface exists on the company website. Application-layer rate limiting and transactional attack controls therefore belong to future dynamic infrastructure if such infrastructure is introduced.
+- The current application architecture remains static-only: no trusted application API, authentication/session store, tenant database, billing endpoint, webhook handler, or payment execution surface exists on the company website. The optional Cloudflare Web Analytics beacon is external aggregate measurement rather than a Noitis application backend. Application-layer rate limiting and transactional attack controls therefore belong to future dynamic infrastructure if such infrastructure is introduced.
 - GitHub Pages/network-edge DDoS protection remains a hosting responsibility; repository checks cover what the static application itself can truthfully control.
 - Safari/iOS Home Screen support uses the approved PNG Noitis mark, standalone-capable manifest metadata, theme/status-bar metadata, and the existing public installable-web-app contract.
 

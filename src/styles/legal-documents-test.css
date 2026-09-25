@@ -1,0 +1,175 @@
+/* =========================================================
+   NOITIS LEGAL DOCUMENTS
+   Privacy / Terms / Trademark intentionally avoid the
+   marketing-card language used elsewhere on the test branch.
+========================================================= */
+
+.legal-shell {
+  background: #F4F7FB;
+  color: #172033;
+}
+
+.legal-shell .site-header {
+  background: rgba(255, 255, 255, .96);
+  border-bottom-color: #D8E2F1;
+  backdrop-filter: blur(12px);
+}
+
+.legal-shell .privacy-nav a {
+  color: #4C5870;
+}
+
+.legal-shell .privacy-nav a:hover {
+  color: #0B1020;
+}
+
+.legal-page {
+  max-width: 980px;
+  margin: 34px auto 70px;
+  padding: 0 clamp(28px, 5vw, 64px) clamp(48px, 6vw, 72px);
+  border: 1px solid #D8E2F1;
+  border-top: 5px solid #0B1020;
+  background: #FFFFFF;
+  box-shadow: 0 18px 50px rgba(11, 16, 32, .08);
+}
+
+.legal-hero {
+  padding: clamp(46px, 6vw, 68px) 0 38px;
+  border-bottom: 1px solid #D8E2F1;
+}
+
+.legal-hero .eyebrow {
+  margin-bottom: 12px;
+  color: #1D4ED8;
+  font-size: .76rem;
+  letter-spacing: .11em;
+}
+
+.legal-hero h1 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  color: #0B1020;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1;
+}
+
+.legal-hero .privacy-hero__lead {
+  max-width: 800px;
+  margin-bottom: 20px;
+  color: #4C5870;
+  font-size: 1.05rem;
+  line-height: 1.72;
+}
+
+.legal-hero .privacy-meta {
+  display: inline-flex;
+  gap: 6px;
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #D8E2F1;
+  background: #EAF2FF;
+  color: #26334A;
+  font-size: .88rem;
+}
+
+.legal-section {
+  padding: 38px 0;
+  border-top: 0;
+  border-bottom: 1px solid #D8E2F1;
+}
+
+.legal-section:last-of-type {
+  border-bottom: 0;
+}
+
+.legal-section h2 {
+  max-width: 820px;
+  margin-bottom: 18px;
+  color: #0B1020;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+.legal-section p,
+.legal-section li,
+.legal-section dd {
+  max-width: 820px;
+  color: #39445A;
+  font-size: .98rem;
+  line-height: 1.78;
+}
+
+.legal-section ul {
+  max-width: 820px;
+  padding-left: 24px;
+}
+
+.legal-section li {
+  margin: 8px 0;
+}
+
+.legal-section a {
+  color: #1D4ED8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-section code {
+  padding: 2px 5px;
+  border: 1px solid #D8E2F1;
+  background: #F4F7FB;
+  color: #0B1020;
+  font-size: .9em;
+}
+
+.legal-page .privacy-details {
+  max-width: 820px;
+  margin: 22px 0;
+  border-top: 1px solid #D8E2F1;
+}
+
+.legal-page .privacy-details > div {
+  grid-template-columns: minmax(190px, .32fr) minmax(0, .68fr);
+  padding: 14px 0;
+  border-bottom: 1px solid #D8E2F1;
+}
+
+.legal-page .privacy-details dt {
+  color: #0B1020;
+}
+
+.legal-page .privacy-details dd {
+  color: #39445A;
+}
+
+.legal-footer {
+  background: #FFFFFF;
+}
+
+.legal-footer .site-footer__brand p,
+.legal-footer .site-footer__links a,
+.legal-footer .site-footer__legal {
+  color: #4C5870;
+}
+
+.legal-footer .site-footer__links a:hover {
+  color: #0B1020;
+}
+
+@media (max-width: 720px) {
+  .legal-page {
+    margin-top: 18px;
+    margin-bottom: 38px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .legal-hero {
+    padding-top: 38px;
+  }
+
+  .legal-page .privacy-details > div {
+    grid-template-columns: 1fr;
+  }
+}

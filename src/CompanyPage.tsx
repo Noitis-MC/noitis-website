@@ -42,7 +42,7 @@ export function CompanyPage({ pageSlug }: { pageSlug: CompanyPageSlug }) {
   const closeMenu = () => setMenuOpen(false)
 
   return (
-    <div className="site-shell company-page-shell">
+    <div className={`site-shell company-page-shell company-page-shell--${pageSlug}`}>
       <a className="skip-link" href="#main">{ui.skip}</a>
       <header className="site-header">
         <a className="brand-link" href="./index.html" aria-label="Noitis" onClick={closeMenu}><BrandMark compact theme={theme} /></a>
@@ -69,7 +69,7 @@ export function CompanyPage({ pageSlug }: { pageSlug: CompanyPageSlug }) {
         </nav>
       </header>
 
-      <main id="main" className="company-page">
+      <main id="main" className={`company-page company-page--${pageSlug}`}>
         <section className="company-hero">
           <p className="eyebrow">{copy.eyebrow}</p>
           <h1>{copy.title}</h1>

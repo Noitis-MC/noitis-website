@@ -380,3 +380,106 @@ html[data-theme='dark'] .product-landing-shell .product-landing-capability {
     width: 100%;
   }
 }
+
+
+/* ---------------------------------------------------------
+   COMPANY PAGE IDENTITIES
+   Same five-color system, different emphasis per page.
+--------------------------------------------------------- */
+
+/* How We Build: Blue = structure, Cyan = clarity, Violet = judgement. */
+.company-page-shell--how-we-build .company-hero {
+  border-left-color: var(--noitis-blue);
+  background:
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--noitis-cyan) 13%, transparent), transparent 30%),
+    var(--brand-surface-ice);
+}
+
+.company-page-shell--how-we-build .company-page-section:nth-child(1) {
+  border-left-color: var(--noitis-blue);
+  background: var(--brand-surface-ice);
+}
+
+.company-page-shell--how-we-build .company-page-section:nth-child(2) {
+  border-left-color: var(--noitis-cyan);
+  background: var(--brand-surface-cyan);
+}
+
+.company-page-shell--how-we-build .company-page-section:nth-child(3) {
+  border-left-color: var(--noitis-violet);
+  background: var(--brand-surface-violet);
+}
+
+.company-page-shell--how-we-build .company-page-section:nth-child(4) {
+  border-left-color: var(--noitis-blue);
+  background:
+    linear-gradient(135deg, var(--brand-surface), var(--brand-surface-ice));
+}
+
+/* About: Violet leads identity; Cyan keeps it open and technical. */
+.company-page-shell--about .company-hero {
+  border-left-color: var(--noitis-violet);
+  background:
+    radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--noitis-violet) 13%, transparent), transparent 31%),
+    linear-gradient(135deg, var(--brand-surface) 55%, var(--brand-surface-violet));
+}
+
+.company-page-shell--about .company-hero .eyebrow,
+.company-page-shell--about .company-page-section__index {
+  color: var(--noitis-violet);
+}
+
+.company-page-shell--about .company-page-section:nth-child(1) {
+  border-left-color: var(--noitis-violet);
+  background: var(--brand-surface-violet);
+}
+
+.company-page-shell--about .company-page-section:nth-child(2) {
+  border-left-color: var(--noitis-cyan);
+  background: var(--brand-surface-cyan);
+}
+
+.company-page-shell--about .company-page-section:nth-child(3) {
+  border-left-color: var(--noitis-blue);
+  background: var(--brand-surface-ice);
+}
+
+/* Contact: finish with Midnight, use Blue/Cyan for the invitation to act. */
+.company-page-shell--contact .company-hero {
+  border-left-color: var(--noitis-cyan);
+  background:
+    radial-gradient(circle at 90% 16%, color-mix(in srgb, var(--noitis-blue) 12%, transparent), transparent 30%),
+    var(--brand-surface-ice);
+}
+
+.company-page-shell--contact .company-contact-card {
+  color: var(--noitis-ice);
+  border-color: var(--noitis-midnight);
+  border-left-color: var(--noitis-cyan);
+  background:
+    radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--noitis-violet) 24%, transparent), transparent 34%),
+    var(--noitis-midnight);
+}
+
+.company-page-shell--contact .company-contact-card p {
+  color: color-mix(in srgb, var(--noitis-ice) 82%, var(--noitis-midnight));
+}
+
+.company-page-shell--contact .company-contact-card .button--primary {
+  border-color: var(--noitis-blue);
+  background: var(--noitis-blue);
+  color: #FFFFFF;
+}
+
+html[data-theme='dark'] .company-page-shell--contact .company-contact-card {
+  color: var(--noitis-midnight);
+  border-color: color-mix(in srgb, var(--noitis-midnight) 18%, var(--noitis-ice));
+  border-left-color: var(--noitis-cyan);
+  background:
+    radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--noitis-cyan) 17%, transparent), transparent 34%),
+    var(--noitis-ice);
+}
+
+html[data-theme='dark'] .company-page-shell--contact .company-contact-card p {
+  color: #39445A;
+}

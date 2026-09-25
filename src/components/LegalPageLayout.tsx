@@ -24,7 +24,7 @@ export function LegalPageLayout({ page, mainId, content }: LegalPageLayoutProps)
   ].filter((link) => link.key === 'home' || link.key !== page)
 
   return (
-    <div className="site-shell">
+    <div className={`site-shell legal-shell legal-shell--${page}`}>
       <a className="skip-link" href={`#${mainId}`}>{common.skip}</a>
       <header className="site-header">
         <a className="brand-link" href="./index.html" aria-label={common.returnHomeAria}><BrandMark compact /></a>
@@ -34,8 +34,8 @@ export function LegalPageLayout({ page, mainId, content }: LegalPageLayoutProps)
         </nav>
       </header>
 
-      <main className="privacy-page" id={mainId}>
-        <header className="privacy-hero">
+      <main className="privacy-page legal-page" id={mainId}>
+        <header className="privacy-hero legal-hero">
           <p className="eyebrow">{content.eyebrow}</p>
           <h1>{content.title}</h1>
           <p className="privacy-hero__lead">{content.lead}</p>
@@ -43,14 +43,14 @@ export function LegalPageLayout({ page, mainId, content }: LegalPageLayoutProps)
         </header>
 
         {content.sections.map((section) => (
-          <section className="privacy-section" key={section.heading}>
+          <section className="privacy-section legal-section" key={section.heading}>
             <h2>{section.heading}</h2>
             {section.body}
           </section>
         ))}
       </main>
 
-      <footer className="site-footer site-footer--privacy">
+      <footer className="site-footer site-footer--privacy legal-footer">
         <div className="site-footer__brand"><BrandMark /><p>{content.footerTagline}</p></div>
         <div className="site-footer__links">
           <a href="./index.html">{common.home}</a>

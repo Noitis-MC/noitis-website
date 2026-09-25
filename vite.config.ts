@@ -10,9 +10,18 @@ function normalizeSiteUrl(value: string | undefined) {
   return url.toString()
 }
 
+function analyticsBeacon(token: string) {
+  if (!/^[A-Za-z0-9_-]{16,128}$/.test(token)) {
+    throw new Error('VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN has an invalid format.')
+  }
+
+  return `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"${token}"}'></script>`
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const siteUrl = normalizeSiteUrl(env.VITE_SITE_URL || process.env.VITE_SITE_URL)
+  const analyticsToken = (env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN || process.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN || '').trim()
 
   return {
     // Relative asset paths keep one artifact portable between the GitHub Pages
@@ -23,7 +32,11 @@ export default defineConfig(({ mode }) => {
       {
         name: 'noitis-publication-metadata',
         transformIndexHtml(html) {
-          return html.replaceAll('%NOITIS_SITE_URL%', siteUrl)
+          let transformed = html.replaceAll('%NOITIS_SITE_URL%', siteUrl)
+          if (mode === 'production' && analyticsToken) {
+            transformed = transformed.replace('</body>', `  ${analyticsBeacon(analyticsToken)}\n  </body>`)
+          }
+          return transformed
         },
       },
     ],

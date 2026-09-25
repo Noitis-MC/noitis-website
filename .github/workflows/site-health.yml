@@ -10,6 +10,9 @@ permissions:
 
 env:
   SITE_URL: ${{ vars.NOITIS_SITE_URL }}
+  NOITIS_CUSTOM_DOMAIN: ${{ vars.NOITIS_CUSTOM_DOMAIN }}
+  PAGES_DEFAULT_URL: https://noitis-mc.github.io/noitis-website/
+  ALTERNATE_SITE_URL: https://www.noitis.gr/
 
 jobs:
   health:

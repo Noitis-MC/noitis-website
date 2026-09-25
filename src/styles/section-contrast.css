@@ -1,0 +1,408 @@
+/* =========================================================
+   NOITIS HIGH-CONTRAST SECTION SYSTEM
+   Light theme: dark panels + light text.
+   Dark theme: light panels + dark text.
+========================================================= */
+
+:root {
+  --section-panel-bg: #0B1020;
+  --section-panel-text: #F8FBFF;
+  --section-panel-muted: #C3CEE0;
+  --section-panel-border: #31415E;
+  --section-panel-card: #111A2F;
+  --section-panel-subtle: #17233A;
+  --section-panel-accent: #7DD3FC;
+  --section-panel-link: #93C5FD;
+}
+
+:root[data-theme='dark'] {
+  --section-panel-bg: #F7FAFF;
+  --section-panel-text: #0B1020;
+  --section-panel-muted: #4C5870;
+  --section-panel-border: #CBD6E6;
+  --section-panel-card: #FFFFFF;
+  --section-panel-subtle: #EDF3FB;
+  --section-panel-accent: #1D4ED8;
+  --section-panel-link: #1D4ED8;
+}
+
+/* Shared panel treatment */
+.home-shell .hero,
+.home-shell .section--statement,
+.home-shell #products,
+.home-shell #principles,
+.home-shell .origin,
+.home-shell .home-contact,
+.home-shell .future,
+.company-page-shell .company-hero,
+.company-page-shell .company-product,
+.company-page-shell .company-page-section,
+.company-page-shell .company-contact-card,
+.product-landing-shell .product-landing-hero,
+.product-landing-shell main > .section,
+.product-landing-shell .product-landing-context-grid--secondary > .section {
+  color: var(--section-panel-text);
+  background: var(--section-panel-bg);
+  border: 1px solid var(--section-panel-border);
+  border-radius: 14px;
+  box-shadow: 0 20px 52px rgba(11, 16, 32, .10);
+}
+
+/* HOME --------------------------------------------------- */
+
+.home-shell .hero {
+  margin-top: 22px;
+  margin-bottom: 18px;
+  padding: clamp(42px, 6vw, 68px) clamp(24px, 4.5vw, 54px);
+  border-bottom-color: var(--section-panel-border);
+}
+
+.home-shell .hero__copy {
+  border-left-color: var(--section-panel-accent);
+}
+
+.home-shell .hero h1,
+.home-shell .hero__lead,
+.home-shell .section--statement h2,
+.home-shell #products h2,
+.home-shell #principles h2,
+.home-shell .origin h2,
+.home-shell .home-contact h2,
+.home-shell .future h2,
+.home-shell .product-card h3,
+.home-shell .principle-card h3 {
+  color: var(--section-panel-text);
+}
+
+.home-shell .hero__support,
+.home-shell .section--statement .section__lead,
+.home-shell .section-heading > div:last-child > p,
+.home-shell .origin__copy,
+.home-shell .origin__copy p,
+.home-shell .home-contact .section-heading > div:last-child p,
+.home-shell .future > p:last-child,
+.home-shell .product-card > p:not(.product-card__eyebrow),
+.home-shell .principle-card p {
+  color: var(--section-panel-muted);
+}
+
+.home-shell .eyebrow,
+.home-shell .product-card__eyebrow,
+.home-shell .principle-card__number {
+  color: var(--section-panel-accent);
+}
+
+.home-shell .eyebrow::before,
+.home-shell .section--statement h2::after,
+.home-shell .section-heading h2::after,
+.home-shell .origin h2::after,
+.home-shell .future h2::after {
+  background: var(--section-panel-accent);
+}
+
+.home-shell .section--statement,
+.home-shell #products,
+.home-shell #principles,
+.home-shell .origin,
+.home-shell .home-contact,
+.home-shell .future {
+  margin: 18px 0;
+  padding: clamp(42px, 5.5vw, 64px) clamp(24px, 4.5vw, 54px);
+  border-bottom-color: var(--section-panel-border);
+}
+
+.home-shell .section--statement {
+  max-width: none;
+}
+
+.home-shell .product-card,
+.home-shell .principle-card {
+  color: var(--section-panel-text);
+  background: var(--section-panel-card);
+  border-color: var(--section-panel-border);
+}
+
+.home-shell .product-card__problem {
+  color: var(--section-panel-text) !important;
+}
+
+.home-shell .product-card__status {
+  color: var(--section-panel-text);
+  background: var(--section-panel-subtle);
+  border-color: var(--section-panel-border);
+}
+
+.home-shell .product-card .button--secondary,
+.home-shell .button--secondary {
+  color: var(--section-panel-text);
+  background: var(--section-panel-subtle);
+  border-color: var(--section-panel-border);
+}
+
+.home-shell .text-link {
+  color: var(--section-panel-link);
+}
+
+.home-shell .home-lower-grid {
+  gap: 18px;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.home-shell .home-lower-grid > .section {
+  padding: clamp(42px, 5.5vw, 64px) clamp(24px, 4.5vw, 54px);
+  border: 1px solid var(--section-panel-border);
+}
+
+.home-shell .home-contact {
+  border-left: 1px solid var(--section-panel-border);
+}
+
+.home-shell .future {
+  grid-template-columns: 48px minmax(240px, .85fr) minmax(0, 1.15fr);
+}
+
+.home-shell .future__icon {
+  background: var(--section-panel-subtle);
+  border: 1px solid var(--section-panel-border);
+}
+
+/* COMPANY PAGES ----------------------------------------- */
+
+.company-page-shell .company-hero {
+  max-width: none;
+  margin: 22px 0 18px;
+  padding: clamp(48px, 7vw, 82px) clamp(24px, 4.5vw, 54px);
+  border-left: 4px solid var(--section-panel-accent);
+}
+
+.company-page-shell .company-hero h1,
+.company-page-shell .company-product h2,
+.company-page-shell .company-page-section h2 {
+  color: var(--section-panel-text);
+}
+
+.company-page-shell .company-hero__lead,
+.company-page-shell .company-product__problem p,
+.company-page-shell .company-page-section p,
+.company-page-shell .company-contact-card p {
+  color: var(--section-panel-muted);
+}
+
+.company-page-shell .company-products {
+  gap: 18px;
+  padding-top: 18px;
+}
+
+.company-page-shell .company-product {
+  background: var(--section-panel-bg);
+  border-color: var(--section-panel-border);
+  border-top: 4px solid var(--section-panel-accent);
+}
+
+.company-page-shell .company-product:nth-child(2n) {
+  border-top-color: var(--section-panel-link);
+}
+
+.company-page-shell .company-product__intro {
+  color: var(--section-panel-text);
+}
+
+.company-page-shell .company-product__problem {
+  background: var(--section-panel-subtle);
+  border-left-color: var(--section-panel-accent);
+}
+
+.company-page-shell .company-product__problem strong,
+.company-page-shell .product-card__eyebrow,
+.company-page-shell .company-page-section__index {
+  color: var(--section-panel-accent);
+}
+
+.company-page-shell .company-product .text-link,
+.company-page-shell .company-page-section .text-link {
+  color: var(--section-panel-link);
+}
+
+.company-page-shell .company-section-list {
+  display: grid;
+  gap: 18px;
+  max-width: none;
+  padding-top: 18px;
+}
+
+.company-page-shell .company-page-section {
+  padding: clamp(40px, 5vw, 58px) clamp(24px, 4vw, 48px);
+  border-bottom: 1px solid var(--section-panel-border);
+}
+
+.company-page-shell .company-question-list li {
+  color: var(--section-panel-text);
+  border-left-color: var(--section-panel-accent);
+  background: var(--section-panel-subtle);
+  padding-right: 12px;
+}
+
+.company-page-shell .company-contact-card {
+  max-width: none;
+  margin-top: 18px;
+  padding: clamp(30px, 4vw, 44px);
+  border-left: 4px solid var(--section-panel-accent);
+}
+
+.company-page-shell .company-product__logo {
+  border-color: var(--section-panel-border);
+}
+
+/* PRODUCT LANDING PAGES --------------------------------- */
+
+.product-landing-shell .product-landing-hero {
+  margin-top: 22px;
+  margin-bottom: 18px;
+  padding: clamp(42px, 6vw, 66px) clamp(24px, 4.5vw, 54px);
+  border-bottom-color: var(--section-panel-border);
+}
+
+.product-landing-shell .product-landing-hero__copy {
+  border-left-color: var(--section-panel-accent);
+}
+
+.product-landing-shell .product-landing-hero h1,
+.product-landing-shell .product-landing-hero__headline,
+.product-landing-shell main > .section h2,
+.product-landing-shell .product-landing-context-grid--secondary h2,
+.product-landing-shell .product-landing-capability h3 {
+  color: var(--section-panel-text);
+}
+
+.product-landing-shell .product-landing-hero__intro,
+.product-landing-shell .product-landing__back,
+.product-landing-shell .product-landing-problem__copy p,
+.product-landing-shell .product-landing-value > p:last-child,
+.product-landing-shell .product-landing-access p:last-child,
+.product-landing-shell .product-landing-boundary p:last-child,
+.product-landing-shell .product-landing-cta > p,
+.product-landing-shell .product-landing-capability p {
+  color: var(--section-panel-muted);
+}
+
+.product-landing-shell .eyebrow {
+  color: var(--section-panel-accent);
+}
+
+.product-landing-shell .eyebrow::before {
+  background: var(--section-panel-accent);
+}
+
+.product-landing-shell main > .section {
+  margin: 18px 0;
+  padding: clamp(40px, 5vw, 60px) clamp(24px, 4.5vw, 54px);
+  border-top: 1px solid var(--section-panel-border);
+}
+
+.product-landing-shell .product-landing-problem--featured {
+  background: var(--section-panel-bg);
+  border-color: var(--section-panel-border) !important;
+  border-left: 4px solid var(--section-panel-accent) !important;
+}
+
+.product-landing-shell .product-landing-capability {
+  color: var(--section-panel-text);
+  background: var(--section-panel-card);
+  border-color: var(--section-panel-border);
+  border-top-color: var(--section-panel-accent);
+}
+
+.product-landing-shell .product-landing-capability:nth-child(2),
+.product-landing-shell .product-landing-capability:nth-child(3),
+.product-landing-shell .product-landing-capability:nth-child(4) {
+  border-top-color: var(--section-panel-link);
+}
+
+.product-landing-shell .product-landing-value > p:last-child {
+  color: var(--section-panel-text);
+}
+
+.product-landing-shell .product-landing-context-grid--secondary {
+  display: grid;
+  gap: 18px;
+  margin: 18px 0;
+  border: 0;
+}
+
+.product-landing-shell .product-landing-context-grid--secondary > .section {
+  margin: 0;
+  padding: clamp(34px, 4.5vw, 48px) clamp(24px, 4vw, 42px);
+  border: 1px solid var(--section-panel-border);
+}
+
+.product-landing-shell .product-landing-context-grid--secondary > .section + .section {
+  border-left: 1px solid var(--section-panel-border);
+}
+
+.product-landing-shell .product-landing__status {
+  color: var(--section-panel-text);
+  background: var(--section-panel-subtle);
+  border-color: var(--section-panel-border);
+}
+
+.product-landing-shell .button--secondary {
+  color: var(--section-panel-text);
+  background: var(--section-panel-subtle);
+  border-color: var(--section-panel-border);
+}
+
+/* Keep the inverted sections visually strong on smaller screens too. */
+@media (max-width: 900px) {
+  .home-shell .home-lower-grid {
+    gap: 0;
+  }
+
+  .home-shell .home-lower-grid > .section + .section {
+    margin-top: 0;
+  }
+
+  .home-shell .home-contact {
+    border-top: 1px solid var(--section-panel-border);
+  }
+
+  .product-landing-shell .product-landing-context-grid--secondary {
+    gap: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-shell .hero,
+  .home-shell .section--statement,
+  .home-shell #products,
+  .home-shell #principles,
+  .home-shell .origin,
+  .home-shell .home-contact,
+  .home-shell .future,
+  .company-page-shell .company-hero,
+  .company-page-shell .company-product,
+  .company-page-shell .company-page-section,
+  .company-page-shell .company-contact-card,
+  .product-landing-shell .product-landing-hero,
+  .product-landing-shell main > .section,
+  .product-landing-shell .product-landing-context-grid--secondary > .section {
+    border-radius: 10px;
+  }
+
+  .home-shell .hero,
+  .home-shell .section--statement,
+  .home-shell #products,
+  .home-shell #principles,
+  .home-shell .origin,
+  .home-shell .home-contact,
+  .home-shell .future {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .product-landing-shell .product-landing-hero {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

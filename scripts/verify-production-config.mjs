@@ -1,3 +1,6 @@
+const CANONICAL_SITE_URL = 'https://noitis.gr/'
+const CANONICAL_HOST = 'noitis.gr'
+
 const siteValue = (process.env.VITE_SITE_URL || process.env.NOITIS_SITE_URL || '').trim()
 const customDomain = (process.env.NOITIS_CUSTOM_DOMAIN || '').trim().toLowerCase()
 
@@ -22,7 +25,15 @@ if (!siteUrl.pathname.endsWith('/')) {
   throw new Error('Production publication URL must end with a trailing slash.')
 }
 
+if (siteUrl.toString() !== CANONICAL_SITE_URL) {
+  throw new Error(`Noitis production must publish canonically at ${CANONICAL_SITE_URL}. Received ${siteUrl.toString()}`)
+}
+
 if (customDomain) {
+  if (customDomain !== CANONICAL_HOST) {
+    throw new Error(`NOITIS_CUSTOM_DOMAIN must be ${CANONICAL_HOST}. Received ${customDomain}.`)
+  }
+
   if (customDomain.includes('://') || customDomain.includes('/') || customDomain.includes(':')) {
     throw new Error('NOITIS_CUSTOM_DOMAIN must contain only the hostname, for example www.example.com.')
   }

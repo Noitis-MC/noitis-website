@@ -20,7 +20,7 @@
     "check:production": "node scripts/verify-production-config.mjs",
     "check:live": "node scripts/verify-publication-health.mjs",
     "check:compat": "node scripts/compatibility.mjs",
-    "check:public": "node scripts/compatibility.mjs --url=https://noitis-mc.github.io/noitis-website/",
+    "check:public": "node scripts/compatibility.mjs --url=https://noitis.gr/",
     "check:all": "npm run check && npm run check:browser && npm run check:compat",
     "check:release": "npm run check:production && npm run check:all && npm run check:live && npm run check:browser:live && npm run check:public",
     "check": "npm run check:scripts && npm run check:public-tree && npm run build && npm run check:content && npm run check:links && npm run check:quality"

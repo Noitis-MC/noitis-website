@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 
-const DEFAULT_SITE_URL = 'https://noitis-mc.github.io/noitis-website/'
+const DEFAULT_SITE_URL = 'https://noitis.gr/'
 
 function normalizeSiteUrl(rawValue) {
   const value = (rawValue || DEFAULT_SITE_URL).trim()

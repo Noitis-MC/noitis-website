@@ -10,7 +10,7 @@ Our aim is simple: make advanced technology feel dependable. We look for places 
 
 The public Noitis website is live at:
 
-**https://noitis-mc.github.io/noitis-website/**
+**https://noitis.gr/**
 
 The website is publicly accessible over HTTPS and does not require a GitHub account.
 

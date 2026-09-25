@@ -7,7 +7,8 @@ The Noitis company website is static-first and deployed through GitHub Actions t
 - Repository: `Noitis-MC/noitis-website`
 - Deployment source: `main` through `.github/workflows/deploy-pages.yml`
 - Hosting: GitHub Pages
-- Current public URL: `https://noitis-mc.github.io/noitis-website/`
+- Canonical public URL: `https://noitis.gr/`
+- Alternate/fallback URLs checked for canonical redirect: `https://www.noitis.gr/` and `https://noitis-mc.github.io/noitis-website/`
 - Publication URL authority: repository Actions variable `NOITIS_SITE_URL`
 - Optional custom-domain variable: `NOITIS_CUSTOM_DOMAIN`
 - Deployment gate: `NOITIS_PAGES_ENABLED=true`
@@ -21,7 +22,8 @@ Configure these under **Settings → Secrets and variables → Actions → Varia
 |---|---:|---|
 | `NOITIS_PAGES_ENABLED` | Yes | Set to `true` while Pages is intentionally enabled. |
 | `NOITIS_SITE_URL` | Yes | Canonical HTTPS publication base URL, including trailing `/`. |
-| `NOITIS_CUSTOM_DOMAIN` | Only for a custom domain | Hostname only; must match `NOITIS_SITE_URL`. |
+| `NOITIS_CUSTOM_DOMAIN` | Recommended | Set to `noitis.gr`; must match `NOITIS_SITE_URL`. |
+| `CLOUDFLARE_WEB_ANALYTICS_TOKEN` | For private visitor analytics | Cloudflare Web Analytics site token injected into production HTML. It is a public beacon identifier, not a dashboard/read credential. |
 | `<PRODUCT>_PUBLIC_URL` | When a product is public | Approved HTTPS product destination. |
 | `<PRODUCT>_PRICING_URL` | Optional | Approved HTTPS pricing destination. |
 
@@ -33,7 +35,7 @@ Local/static validation:
 
 ```powershell
 npm ci
-$env:VITE_SITE_URL = "https://noitis-mc.github.io/noitis-website/"
+$env:VITE_SITE_URL = "https://noitis.gr/"
 npm run check:production
 npm run check
 ```
@@ -41,9 +43,11 @@ npm run check
 After publication:
 
 ```powershell
-$env:SITE_URL = "https://noitis-mc.github.io/noitis-website/"
-$env:VITE_SITE_URL = "https://noitis-mc.github.io/noitis-website/"
+$env:SITE_URL = "https://noitis.gr/"
+$env:VITE_SITE_URL = "https://noitis.gr/"
+$env:NOITIS_CUSTOM_DOMAIN = "noitis.gr"
 $env:PAGES_DEFAULT_URL = "https://noitis-mc.github.io/noitis-website/"
+$env:ALTERNATE_SITE_URL = "https://www.noitis.gr/"
 npm run check:live
 ```
 
@@ -53,19 +57,18 @@ For the full live acceptance gate, install Playwright Chromium and run `npm run 
 
 Pages uses **GitHub Actions** as its source. The deployment workflow refuses publication when the configured site URL is absent, non-HTTPS, local, or inconsistent with an optional custom domain.
 
-The current GitHub Pages address is intentionally accepted as the production URL. A branded Noitis domain can be introduced later without changing the website architecture.
+The GitHub Pages project remains the hosting/deployment platform, but `https://noitis.gr/` is the authoritative public address. The default Pages project URL and `www` hostname are redirect/fallback surfaces, not canonical publication addresses.
 
-## Optional custom-domain migration
+## Custom-domain production contract
 
-When Noitis chooses to buy and activate a branded domain:
+The Noitis domain migration is now the production baseline:
 
-1. verify ownership with GitHub;
-2. configure the Pages custom domain;
-3. configure DNS with the DNS provider;
-4. wait for certificate provisioning and enforce HTTPS;
-5. set `NOITIS_SITE_URL` to the canonical HTTPS domain and set `NOITIS_CUSTOM_DOMAIN` to its hostname;
-6. verify default-Pages and apex/`www` redirect behavior as applicable;
-7. rerun `npm run check:release` against the new public address.
+1. GitHub Pages custom domain is `noitis.gr`;
+2. DNS points the apex domain to GitHub Pages and `www` follows the documented GitHub Pages custom-domain pattern;
+3. HTTPS is enforced after certificate provisioning;
+4. `NOITIS_SITE_URL=https://noitis.gr/` and `NOITIS_CUSTOM_DOMAIN=noitis.gr`;
+5. the default Pages project URL and `www` hostname must resolve to the canonical `https://noitis.gr/` origin;
+6. `npm run check:release` is the release gate for the canonical domain.
 
 Do not implement JavaScript or meta-refresh redirects for canonical-host changes.
 
@@ -79,11 +82,19 @@ The owner named in `CODEOWNERS` owns deployment failures, availability failures,
 
 Dependabot is configured for weekly npm and GitHub Actions update pull requests. Dependency updates must pass the normal repository checks and should not be merged merely because they are automated.
 
-## Analytics decision
+## Private visitor analytics
 
-Analytics are intentionally disabled while there is no defined business requirement and the accepted privacy position states that marketing analytics are not used.
+The website supports Cloudflare Web Analytics as the minimal owner-only traffic counter/performance layer. It does not render a public visitor count, and dashboard access remains controlled by the Cloudflare account.
 
-If analytics are proposed later, define the business need, perform privacy/legal review, prefer minimal-data configuration, and update public documentation before activation.
+To activate it:
+
+1. create a Cloudflare Web Analytics site for `noitis.gr`;
+2. copy its site token;
+3. add that value as the GitHub Actions repository variable `CLOUDFLARE_WEB_ANALYTICS_TOKEN`;
+4. push or manually run the Pages deployment;
+5. verify the beacon appears only in production output and that the Cloudflare dashboard begins receiving aggregate visits.
+
+Do not store Cloudflare API tokens, dashboard credentials, or other read/admin secrets in `VITE_*` variables. If the analytics provider or data behavior changes, update the public Privacy notice before treating the change as production-ready.
 
 ## Normal rollback
 

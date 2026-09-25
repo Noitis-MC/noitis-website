@@ -5,7 +5,7 @@ The Noitis company website keeps compatibility verification inside the repositor
 Supported website surfaces:
 
 - local development: `http://localhost:5173/`
-- public production: `https://noitis-mc.github.io/noitis-website/`
+- public production: `https://noitis.gr/`
 
 ## Commands
 
@@ -28,7 +28,7 @@ Run the complete local verification set:
 npm run check:all
 ```
 
-Run the compatibility matrix directly against the public GitHub Pages site:
+Run the compatibility matrix directly against the canonical public Noitis domain:
 
 ```powershell
 npm run check:public

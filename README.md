@@ -10,9 +10,9 @@ Our aim is simple: make advanced technology feel dependable. We look for places 
 
 The public Noitis website is live at:
 
-**https://noitis-mc.github.io/noitis-website/**
+**https://noitis.gr/**
 
-The website is publicly accessible over HTTPS and does not require a GitHub account.
+The website is publicly accessible over HTTPS at the Noitis domain and does not require a GitHub account. It is deployed from `main` through GitHub Pages.
 
 ## What we build
 
@@ -64,7 +64,7 @@ Noitis began with a builder's question: where are people and businesses still ac
 
 ## Company website
 
-This repository publishes the official Noitis company website. The site presents Noitis, its product family, its principles, and its public legal information. It is intentionally static-first and does not operate a customer account system, payment service, contact-form backend, or marketing analytics platform.
+This repository publishes the official Noitis company website. The site presents Noitis, its product family, its principles, and its public legal information. It is intentionally static-first and does not operate a customer account system, payment service, contact-form backend, or customer database. Production may use privacy-first Cloudflare Web Analytics for owner-only aggregate page-view/performance visibility; no public visitor counter is rendered.
 
 ## Contact
 

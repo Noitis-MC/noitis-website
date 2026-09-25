@@ -20,9 +20,9 @@ static dist/ artifact
 GitHub Pages
 ```
 
-The site has four HTML entry points: `index.html`, `privacy.html`, `terms.html`, and `trademark.html`.
+The site has ten HTML entry points: the company home page, six product landing pages, and the Privacy, Terms, and Trademark pages.
 
-The website intentionally has **no API, operational database, warehouse, authentication service, payment processor, CMS, or form backend**.
+The website intentionally has **no application API, operational database, warehouse, authentication service, payment processor, CMS, or form backend**. A production-only Cloudflare Web Analytics beacon may be injected for private aggregate traffic/performance reporting; it does not add a Noitis application backend.
 
 ## Public product authority
 
@@ -34,7 +34,7 @@ Local product destinations are generated into ignored `.env.development.local`, 
 
 `vite.config.ts` injects the configured publication base URL into canonical/Open Graph/Twitter metadata. `scripts/generate-publication-files.mjs` creates `sitemap.xml` and `robots.txt` for the same publication address.
 
-The current production address is `https://noitis-mc.github.io/noitis-website/`. A future custom domain can replace it after DNS, TLS, canonical-host, redirect, and live acceptance checks are completed.
+The canonical production address is `https://noitis.gr/`. The GitHub Pages project URL and `https://www.noitis.gr/` are treated as alternate entry points that must resolve to the canonical apex domain. DNS, TLS, redirect, and live acceptance checks are part of the release contract.
 
 ## Deployment flow
 
@@ -54,4 +54,4 @@ Pages artifact → public deployment
 
 ## Evolution rule
 
-Keep this repository static-first. Add server-side capability only when a real website feature requires it. Do not introduce backend/database/CMS/analytics/authentication infrastructure merely to make the repository appear more complex.
+Keep this repository static-first. Add server-side capability only when a real website feature requires it. The owner-only aggregate analytics beacon is an explicit website requirement and remains external to the application architecture; do not introduce backend/database/CMS/authentication infrastructure merely to make the repository appear more complex.

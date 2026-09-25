@@ -37,9 +37,9 @@ For cross-browser review, install the pinned Playwright tooling without changing
 
 ## Environment configuration
 
-Development defaults are documented in `.env.example` and generated into `.env.development.local`. Production/public links are optional `VITE_*` values supplied by the deployment environment.
+Development defaults are documented in `.env.example` and generated into `.env.development.local`. Production/public links and the optional Cloudflare Web Analytics site token are `VITE_*` values supplied by the deployment environment. The analytics token identifies the site beacon; it must not be confused with a private dashboard/API credential.
 
-Never put secrets in a `VITE_*` variable: frontend variables are public by design.
+Never put secrets in a `VITE_*` variable: frontend variables are public by design. In particular, analytics read/admin credentials must never be shipped to the browser.
 
 ## Engineering expectations
 

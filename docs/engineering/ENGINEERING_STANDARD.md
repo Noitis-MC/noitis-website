@@ -32,13 +32,13 @@ Prefer simple cacheable static output. Avoid unnecessary runtime dependencies. L
 
 ## SEO and publication metadata
 
-Every public entry point requires an accurate title/description and canonical/social metadata. Sitemap/robots output must be generated for the configured publication URL. A custom domain becomes authoritative only after ownership, DNS, TLS, and live verification are complete.
+Every public entry point requires an accurate title/description and canonical/social metadata. Sitemap/robots output must be generated for the configured publication URL. The authoritative production domain is `https://noitis.gr/`; canonical/social metadata, sitemap/robots, redirect checks, and live verification must stay aligned to it.
 
 ## Privacy and security
 
 The static site must not contain secrets or private/customer data. `VITE_*` variables are public frontend configuration and must never contain secrets.
 
-If analytics, forms, cookies, newsletters, accounts, or other data collection are added later, document legal basis, consent where applicable, data destinations, retention, failure modes, and legal-page changes before production use.
+The current production architecture may use Cloudflare Web Analytics for owner-only aggregate page-view/performance reporting without a public counter. Any analytics change must keep the privacy notice accurate and must not place dashboard/read credentials in frontend variables. If forms, advertising analytics, cookies, newsletters, accounts, or other data collection are added later, document legal basis, consent where applicable, data destinations, retention, failure modes, and legal-page changes before production use.
 
 ## Deterministic builds
 
@@ -52,7 +52,7 @@ CI runs on pushes and pull requests. Pages deployment runs from `main` when `NOI
 
 ## Domain and hosting configuration
 
-Domain ownership, DNS, HTTPS, Pages settings, and redirects belong to deployment/operations configuration, not component logic. Relative asset paths are intentional while the site may move between the current GitHub Pages project URL and a future custom domain.
+Domain ownership, DNS, HTTPS, Pages settings, and redirects belong to deployment/operations configuration, not component logic. `https://noitis.gr/` is canonical; relative asset paths remain intentional so the same Pages artifact works at the apex domain and through verified redirect/fallback paths.
 
 ## Change discipline
 

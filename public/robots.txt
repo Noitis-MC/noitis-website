@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://noitis-mc.github.io/noitis-website/sitemap.xml
+Sitemap: https://noitis.gr/sitemap.xml

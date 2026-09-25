@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://noitis-mc.github.io/noitis-website/</loc></url>
-  <url><loc>https://noitis-mc.github.io/noitis-website/privacy.html</loc></url>
-  <url><loc>https://noitis-mc.github.io/noitis-website/terms.html</loc></url>
-  <url><loc>https://noitis-mc.github.io/noitis-website/trademark.html</loc></url>
+  <url><loc>https://noitis.gr/</loc></url>
+  <url><loc>https://noitis.gr/agentgate.html</loc></url>
+  <url><loc>https://noitis.gr/autopaylot.html</loc></url>
+  <url><loc>https://noitis.gr/business-resource-scheduler.html</loc></url>
+  <url><loc>https://noitis.gr/earnlogic.html</loc></url>
+  <url><loc>https://noitis.gr/familyos.html</loc></url>
+  <url><loc>https://noitis.gr/legacyci.html</loc></url>
+  <url><loc>https://noitis.gr/privacy.html</loc></url>
+  <url><loc>https://noitis.gr/terms.html</loc></url>
+  <url><loc>https://noitis.gr/trademark.html</loc></url>
 </urlset>

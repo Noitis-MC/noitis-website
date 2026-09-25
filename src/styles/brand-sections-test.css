@@ -1,0 +1,382 @@
+/* =========================================================
+   NOITIS FIVE-COLOR BRAND EXPERIMENT
+   Test branch only: brand-color-sections-test
+
+   Midnight  #0B1020  = authority / deep contrast
+   Blue      #3B82F6  = primary action / primary section marker
+   Cyan      #22D3EE  = clarity / technical emphasis
+   Violet    #8B5CF6  = distinction / secondary emphasis
+   Ice       #EAF2FF  = breathing room / soft section surface
+========================================================= */
+
+:root {
+  --noitis-midnight: #0B1020;
+  --noitis-blue: #3B82F6;
+  --noitis-cyan: #22D3EE;
+  --noitis-violet: #8B5CF6;
+  --noitis-ice: #EAF2FF;
+
+  --brand-copy: var(--noitis-midnight);
+  --brand-copy-muted: #4C5870;
+  --brand-surface: #FFFFFF;
+  --brand-surface-ice: var(--noitis-ice);
+  --brand-surface-cyan: color-mix(in srgb, var(--noitis-cyan) 7%, #FFFFFF);
+  --brand-surface-violet: color-mix(in srgb, var(--noitis-violet) 7%, #FFFFFF);
+  --brand-border: color-mix(in srgb, var(--noitis-midnight) 14%, #FFFFFF);
+}
+
+:root[data-theme='dark'] {
+  --brand-copy: var(--noitis-ice);
+  --brand-copy-muted: color-mix(in srgb, var(--noitis-ice) 72%, var(--noitis-midnight));
+  --brand-surface: var(--noitis-midnight);
+  --brand-surface-ice: color-mix(in srgb, var(--noitis-midnight) 88%, var(--noitis-blue));
+  --brand-surface-cyan: color-mix(in srgb, var(--noitis-midnight) 88%, var(--noitis-cyan));
+  --brand-surface-violet: color-mix(in srgb, var(--noitis-midnight) 88%, var(--noitis-violet));
+  --brand-border: color-mix(in srgb, var(--noitis-ice) 20%, var(--noitis-midnight));
+}
+
+/* ---------------------------------------------------------
+   HOME — one visual idea per section
+--------------------------------------------------------- */
+
+.home-shell .hero {
+  margin-top: 18px;
+  padding-left: clamp(24px, 4vw, 48px);
+  padding-right: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--brand-border);
+  border-top: 3px solid var(--noitis-blue);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--noitis-cyan) 12%, transparent), transparent 30%),
+    linear-gradient(135deg, var(--brand-surface) 58%, var(--brand-surface-ice));
+}
+
+.home-shell .hero__copy {
+  border-left-color: var(--noitis-blue);
+}
+
+.home-shell .section--statement {
+  max-width: none;
+  margin: 18px 0;
+  padding: clamp(42px, 5vw, 60px) clamp(24px, 4vw, 44px);
+  border: 1px solid var(--brand-border);
+  border-left: 4px solid var(--noitis-cyan);
+  border-radius: 10px;
+  background: var(--brand-surface-ice);
+}
+
+.home-shell #products {
+  margin: 18px 0;
+  padding: clamp(44px, 5.5vw, 64px) clamp(24px, 4vw, 44px);
+  border: 1px solid var(--brand-border);
+  border-top: 4px solid var(--noitis-blue);
+  border-radius: 10px;
+  background: var(--brand-surface);
+}
+
+.home-shell #principles {
+  margin: 18px 0;
+  padding: clamp(44px, 5.5vw, 64px) clamp(24px, 4vw, 44px);
+  border: 1px solid var(--brand-border);
+  border-left: 4px solid var(--noitis-violet);
+  border-radius: 10px;
+  background: var(--brand-surface-violet);
+}
+
+.home-shell .home-lower-grid {
+  gap: 18px;
+  border-bottom: 0;
+}
+
+.home-shell .home-lower-grid > .section {
+  padding: clamp(42px, 5vw, 58px) clamp(24px, 4vw, 40px);
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+}
+
+.home-shell .origin {
+  background: var(--brand-surface-cyan);
+  border-left: 4px solid var(--noitis-cyan) !important;
+}
+
+.home-shell .home-contact {
+  color: var(--noitis-ice);
+  background:
+    radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--noitis-violet) 24%, transparent), transparent 36%),
+    var(--noitis-midnight);
+  border-left: 4px solid var(--noitis-blue) !important;
+}
+
+.home-shell .home-contact h2,
+.home-shell .home-contact p,
+.home-shell .home-contact .eyebrow {
+  color: var(--noitis-ice);
+}
+
+.home-shell .home-contact .eyebrow::before {
+  background: var(--noitis-cyan);
+}
+
+.home-shell .future {
+  margin: 18px 0 44px;
+  padding: clamp(38px, 5vw, 52px) clamp(24px, 4vw, 42px);
+  border: 1px solid var(--brand-border);
+  border-top: 3px solid var(--noitis-violet);
+  border-radius: 10px;
+  background:
+    linear-gradient(120deg, var(--brand-surface-ice), var(--brand-surface-violet));
+}
+
+/* Product cards: Blue / Cyan / Violet carry the visual rhythm. */
+.home-shell .product-card {
+  border: 1px solid var(--brand-border);
+  border-top-width: 3px;
+  background: var(--brand-surface);
+}
+
+.home-shell .product-card:nth-child(3n + 1) { border-top-color: var(--noitis-blue); }
+.home-shell .product-card:nth-child(3n + 2) { border-top-color: var(--noitis-cyan); }
+.home-shell .product-card:nth-child(3n) { border-top-color: var(--noitis-violet); }
+
+.home-shell .principle-card {
+  border: 1px solid var(--brand-border);
+  background: var(--brand-surface);
+}
+
+.home-shell .principle-card:nth-child(3n + 1) { box-shadow: inset 0 3px 0 var(--noitis-blue); }
+.home-shell .principle-card:nth-child(3n + 2) { box-shadow: inset 0 3px 0 var(--noitis-cyan); }
+.home-shell .principle-card:nth-child(3n) { box-shadow: inset 0 3px 0 var(--noitis-violet); }
+
+.home-shell .section--statement .eyebrow { color: var(--noitis-cyan); }
+.home-shell #products .eyebrow { color: var(--noitis-blue); }
+.home-shell #principles .eyebrow { color: var(--noitis-violet); }
+.home-shell .origin .eyebrow { color: var(--noitis-cyan); }
+.home-shell .future .eyebrow { color: var(--noitis-violet); }
+
+.home-shell .section--statement .eyebrow::before { background: var(--noitis-cyan); }
+.home-shell #products .eyebrow::before { background: var(--noitis-blue); }
+.home-shell #principles .eyebrow::before { background: var(--noitis-violet); }
+.home-shell .origin .eyebrow::before { background: var(--noitis-cyan); }
+.home-shell .future .eyebrow::before { background: var(--noitis-violet); }
+
+/* ---------------------------------------------------------
+   COMPANY PAGES
+--------------------------------------------------------- */
+
+.company-page-shell .company-hero {
+  max-width: none;
+  margin: 18px 0;
+  padding: clamp(48px, 6vw, 72px) clamp(24px, 4vw, 46px);
+  border: 1px solid var(--brand-border);
+  border-left: 4px solid var(--noitis-blue);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--noitis-cyan) 10%, transparent), transparent 30%),
+    var(--brand-surface-ice);
+}
+
+.company-page-shell .company-products {
+  gap: 18px;
+  padding-top: 18px;
+}
+
+.company-page-shell .company-product {
+  border: 1px solid var(--brand-border);
+  border-top-width: 4px;
+  background: var(--brand-surface);
+}
+
+.company-page-shell .company-product:nth-child(3n + 1) { border-top-color: var(--noitis-blue); }
+.company-page-shell .company-product:nth-child(3n + 2) { border-top-color: var(--noitis-cyan); }
+.company-page-shell .company-product:nth-child(3n) { border-top-color: var(--noitis-violet); }
+
+.company-page-shell .company-product__problem {
+  background: var(--brand-surface-ice);
+}
+
+.company-page-shell .company-section-list {
+  display: grid;
+  gap: 18px;
+  max-width: none;
+  padding-top: 18px;
+}
+
+.company-page-shell .company-page-section {
+  padding: clamp(40px, 5vw, 56px) clamp(24px, 4vw, 42px);
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  background: var(--brand-surface);
+}
+
+.company-page-shell .company-page-section:nth-child(3n + 1) {
+  border-left: 4px solid var(--noitis-blue);
+  background: var(--brand-surface-ice);
+}
+
+.company-page-shell .company-page-section:nth-child(3n + 2) {
+  border-left: 4px solid var(--noitis-cyan);
+  background: var(--brand-surface-cyan);
+}
+
+.company-page-shell .company-page-section:nth-child(3n) {
+  border-left: 4px solid var(--noitis-violet);
+  background: var(--brand-surface-violet);
+}
+
+.company-page-shell .company-contact-card {
+  max-width: none;
+  margin-top: 18px;
+  border: 1px solid var(--brand-border);
+  border-left: 4px solid var(--noitis-blue);
+  background: var(--brand-surface-ice);
+}
+
+/* ---------------------------------------------------------
+   PRODUCT LANDING PAGES
+--------------------------------------------------------- */
+
+.product-landing-shell .product-landing-hero {
+  margin-top: 18px;
+  padding-left: clamp(24px, 4vw, 46px);
+  padding-right: clamp(24px, 4vw, 46px);
+  border: 1px solid var(--brand-border);
+  border-top: 3px solid var(--noitis-blue);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 90% 14%, color-mix(in srgb, var(--noitis-cyan) 10%, transparent), transparent 28%),
+    var(--brand-surface-ice);
+}
+
+.product-landing-shell .product-landing-hero__copy {
+  border-left-color: var(--noitis-blue);
+}
+
+.product-landing-shell .product-landing-problem--featured {
+  margin-top: 18px;
+  border: 1px solid var(--brand-border) !important;
+  border-left: 4px solid var(--noitis-cyan) !important;
+  background: var(--brand-surface-cyan);
+}
+
+.product-landing-shell .product-landing-capability {
+  border: 1px solid var(--brand-border);
+  border-top-width: 3px;
+  background: var(--brand-surface);
+}
+
+.product-landing-shell .product-landing-capability:nth-child(3n + 1) { border-top-color: var(--noitis-blue); }
+.product-landing-shell .product-landing-capability:nth-child(3n + 2) { border-top-color: var(--noitis-cyan); }
+.product-landing-shell .product-landing-capability:nth-child(3n) { border-top-color: var(--noitis-violet); }
+
+.product-landing-shell .product-landing-value {
+  margin-top: 18px;
+  max-width: none;
+  padding-left: clamp(24px, 4vw, 46px) !important;
+  padding-right: clamp(24px, 4vw, 46px) !important;
+  border: 1px solid var(--brand-border);
+  border-left: 4px solid var(--noitis-violet);
+  border-radius: 10px;
+  background: var(--brand-surface-violet);
+}
+
+.product-landing-shell .product-landing-context-grid--secondary {
+  gap: 18px;
+  margin-top: 18px;
+  border: 0;
+}
+
+.product-landing-shell .product-landing-context-grid--secondary > .section {
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  background: var(--brand-surface-ice);
+}
+
+.product-landing-shell .product-landing-access {
+  border-left: 4px solid var(--noitis-blue) !important;
+}
+
+.product-landing-shell .product-landing-boundary {
+  border-left: 4px solid var(--noitis-cyan) !important;
+}
+
+.product-landing-shell .product-landing-cta {
+  margin-top: 18px;
+  max-width: none;
+  padding-left: clamp(24px, 4vw, 46px) !important;
+  padding-right: clamp(24px, 4vw, 46px) !important;
+  border: 1px solid var(--brand-border);
+  border-left: 4px solid var(--noitis-blue);
+  border-radius: 10px;
+  background: var(--brand-surface-ice);
+}
+
+/* ---------------------------------------------------------
+   DARK THEME — retain the same hierarchy, not a new design
+--------------------------------------------------------- */
+
+html[data-theme='dark'] .home-shell .home-contact {
+  color: var(--noitis-midnight);
+  background:
+    radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--noitis-cyan) 16%, transparent), transparent 34%),
+    var(--noitis-ice);
+  border-color: color-mix(in srgb, var(--noitis-midnight) 18%, var(--noitis-ice));
+}
+
+html[data-theme='dark'] .home-shell .home-contact h2,
+html[data-theme='dark'] .home-shell .home-contact p,
+html[data-theme='dark'] .home-shell .home-contact .eyebrow {
+  color: var(--noitis-midnight);
+}
+
+html[data-theme='dark'] .home-shell .home-contact .button--primary {
+  border-color: var(--noitis-blue);
+}
+
+html[data-theme='dark'] .home-shell .product-card,
+html[data-theme='dark'] .home-shell .principle-card,
+html[data-theme='dark'] .company-page-shell .company-product,
+html[data-theme='dark'] .product-landing-shell .product-landing-capability {
+  color: var(--noitis-ice);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .home-shell .home-lower-grid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-shell .hero,
+  .home-shell .section--statement,
+  .home-shell #products,
+  .home-shell #principles,
+  .home-shell .home-lower-grid > .section,
+  .home-shell .future,
+  .company-page-shell .company-hero,
+  .company-page-shell .company-page-section,
+  .company-page-shell .company-contact-card,
+  .product-landing-shell .product-landing-hero,
+  .product-landing-shell .product-landing-value,
+  .product-landing-shell .product-landing-cta,
+  .product-landing-shell .product-landing-context-grid--secondary > .section {
+    border-radius: 8px;
+  }
+
+  .home-shell .hero,
+  .home-shell .section--statement,
+  .home-shell #products,
+  .home-shell #principles,
+  .home-shell .home-lower-grid > .section,
+  .home-shell .future {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .product-landing-shell .product-landing-hero {
+    width: 100%;
+  }
+}

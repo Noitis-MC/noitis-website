@@ -69,7 +69,7 @@ This roadmap is the implementation sequence for the public Noitis company websit
 - [x] Confirm that every currently configured product destination is intentional and publicly safe; products without an approved public HTTPS destination remain intentionally unconfigured
 - [x] Complete the Phase-5 go/no-go review with no unresolved repository-side critical issues
 
-**Phase 5 evidence:** `docs/PHASE-5-LAUNCH-CANDIDATE.md` defines the release-candidate contract. `src/productCatalog.ts` and `docs/content/PRODUCT_CATALOG.md` were re-audited and frozen for the accepted launch candidate. The accepted branch keeps the approved PNG favicon, verifies navigation/product-link/legal/theme/responsive behavior, verifies the live social preview, manifest, favicon, canonical/sitemap/robots output, and exposes hosting/security headers.
+**Phase 5 evidence:** This roadmap is the authoritative lifecycle record. `src/productCatalog.ts` and `docs/content/PRODUCT_CATALOG.md` were re-audited and frozen for the accepted launch candidate. The maintained repository checks preserve the approved PNG favicon and verify navigation, product links, legal/theme/responsive behavior, social preview, manifest, canonical metadata, sitemap/robots output, and hosting/security observations.
 
 ## Phase 6 — Official Noitis website launch — Complete / accepted
 - [x] Prepare deterministic Phase-6 launch acceptance tooling and runbook on top of the exact accepted Phase-5 baseline
@@ -85,7 +85,7 @@ This roadmap is the implementation sequence for the public Noitis company websit
 - [x] Accept `https://noitis.gr/` as the official public launch address and keep the GitHub Pages project URL as a redirect/fallback surface
 - [x] Mark the Noitis company website publicly launched for the current scope
 
-**Phase 6 acceptance evidence:** `docs/PHASE-6-LAUNCH.md` records the launch contract; `scripts/verify-publication-health.mjs`, `scripts/live-smoke.mjs`, `npm run check:release`, `.github/workflows/live-acceptance.yml`, and `.github/workflows/deploy-pages.yml` provide the maintained repository-side release gates. The GitHub Pages deployment is generated from `main`, and production configuration/canonical metadata now target `https://noitis.gr/`. The website remains available independently of the owner's local development machine.
+**Phase 6 acceptance evidence:** This roadmap records the launch contract; `scripts/verify-publication-health.mjs`, `scripts/live-smoke.mjs`, `npm run check:release`, `.github/workflows/live-acceptance.yml`, `.github/workflows/deploy-pages.yml`, and `docs/operations/PRODUCTION.md` provide the maintained repository-side release gates and operations evidence. The GitHub Pages deployment is generated from `main`, and production configuration/canonical metadata target `https://noitis.gr/`. The website remains available independently of the owner's local development machine.
 
 **Custom-domain closure:** The previously deferred branded-domain step is now part of the accepted production baseline. `https://noitis.gr/` is canonical; production validation, sitemap/robots generation, compatibility checks, and live redirect verification are aligned to that address. GitHub's default Pages URL remains hosting infrastructure, not the public canonical identity.
 

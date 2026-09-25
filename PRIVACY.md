@@ -1,6 +1,6 @@
 # Noitis™ Website Privacy Notice
 
-**Effective date: 25 August 2026**
+**Effective date: 25 September 2026**
 
 This notice describes the current privacy behavior of the public Noitis™ company website. It applies to this website only; individual Noitis products may require separate privacy notices when their own services process personal data.
 
@@ -14,29 +14,32 @@ If the legal identity responsible for Noitis changes, or a registered entity bec
 
 ## 2. What the current website collects
 
-The website is static-first. Its frontend does not intentionally include account creation, contact forms, advertising trackers, marketing analytics, payment collection, or a Noitis-operated backend database.
+The website is static-first. Its frontend does not intentionally include account creation, contact forms, advertising trackers, payment collection, or a Noitis-operated customer database.
 
-It stores one local browser preference:
+It stores two local browser preferences:
 
 - `noitis-theme` — remembers whether the visitor selected the light or dark theme.
+- `noitis.language` — remembers whether the visitor selected English or Greek.
 
-This value is stored in the visitor's browser and is not transmitted to a Noitis application server by the current website code.
+These values are stored in the visitor's browser and are not transmitted to a Noitis application server by the website code.
+
+For owner-only aggregate traffic visibility, the production build can enable **Cloudflare Web Analytics**. When enabled, a Cloudflare beacon records aggregate page-view and performance information. No visitor counter is rendered on the public website, and analytics reports are available only through the authorized analytics account. Cloudflare Web Analytics is used without advertising cookies or cross-site profiling.
 
 ## 3. Hosting and technical connection data
 
-The website is designed for static hosting through GitHub Pages. Pages activation, the final production domain, DNS, and HTTPS configuration are deployment settings and may change as the website moves toward launch.
+The website is published through GitHub Pages at the canonical production domain **https://noitis.gr/**. DNS, TLS, redirect behavior, and GitHub Pages publication remain deployment/operations controls.
 
-When served by a hosting provider, that provider may process technical connection information needed to deliver and secure the site, such as IP addresses, request information, device/browser information, and security logs under its own terms and policies. The current Noitis frontend does not intentionally copy hosting data into a separate Noitis analytics or customer database.
+When served by a hosting provider, that provider may process technical connection information needed to deliver and secure the site, such as IP addresses, request information, device/browser information, and security logs under its own terms and policies. When Cloudflare Web Analytics is enabled, the frontend sends the analytics beacon to Cloudflare for aggregate website measurement. Noitis does not operate a separate visitor-profile or customer analytics database for the company website.
 
 ## 4. Processing purposes
 
-Current processing is limited to delivering static website assets, remembering the theme preference locally, maintaining hosting security/reliability, and complying with applicable legal obligations.
+Current processing is limited to delivering static website assets, remembering theme/language preferences locally, maintaining hosting security/reliability, measuring aggregate website usage and performance when Cloudflare Web Analytics is enabled, and complying with applicable legal obligations.
 
-If Noitis later adds forms, accounts, analytics, newsletters, support tools, cookies, or other data-processing features, this notice must be updated to reflect the real behavior before those features are treated as production-ready.
+If Noitis later adds forms, accounts, newsletters, advertising analytics, support tools, cookies, or other materially different data-processing features, this notice must be updated to reflect the real behavior before those features are treated as production-ready.
 
 ## 5. Cookies and local storage
 
-The current website does not intentionally set advertising or analytics cookies. Visitors may clear the `noitis-theme` value through browser site-data controls; removing it only resets the saved theme choice.
+The current website does not intentionally set advertising or analytics cookies. Cloudflare Web Analytics, when enabled, is configured as a cookie-free measurement beacon. Visitors may clear the `noitis-theme` and `noitis.language` values through browser site-data controls; removing them only resets the saved theme and language choices.
 
 ## 6. Product and external links
 
@@ -44,11 +47,11 @@ The website may link to a Noitis product only when a public destination is expli
 
 ## 7. Retention
 
-The theme preference remains in the visitor's browser until cleared. Hosting-provider technical data is retained according to the provider's applicable policies; Noitis does not currently maintain a separate website analytics database.
+The theme and language preferences remain in the visitor's browser until cleared. Hosting-provider technical data and Cloudflare Web Analytics data, when enabled, are retained according to the relevant provider/account settings and applicable policies. Noitis does not maintain a separate visitor-profile database for this website.
 
 ## 8. International processing
 
-Internet infrastructure and hosting providers may process information in more than one country. Where applicable law requires safeguards for international transfers, the relevant provider and controller are responsible for appropriate legal mechanisms.
+Internet infrastructure, hosting providers, and the analytics provider when enabled may process information in more than one country. Where applicable law requires safeguards for international transfers, the relevant provider and controller are responsible for appropriate legal mechanisms.
 
 ## 9. Your rights
 

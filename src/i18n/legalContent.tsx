@@ -55,7 +55,7 @@ const privacyEnglish: LegalPageCopy = {
   title: 'Privacy should be understandable.',
   lead: 'This notice describes the current privacy behavior of the public Noitis company website. Individual Noitis products may use separate notices when their own services process personal data.',
   effectiveDateLabel: 'Effective date:',
-  effectiveDate: '25 August 2026',
+  effectiveDate: '25 September 2026',
   footerTagline: 'Privacy should be understandable.',
   sections: [
     {
@@ -69,21 +69,21 @@ const privacyEnglish: LegalPageCopy = {
     {
       heading: '2. What the current website collects',
       body: <>
-        <p>The Noitis company website is static-first. Its frontend does not intentionally include account creation, contact forms, advertising trackers, marketing analytics, payment collection, or a Noitis-operated backend database.</p>
+        <p>The Noitis company website is static-first. Its frontend does not intentionally include account creation, contact forms, advertising trackers, payment collection, or a Noitis-operated customer database.</p>
         <p>The website stores two browser preferences locally:</p>
         <ul>
           <li><code>noitis-theme</code> — remembers whether the visitor selected the light or dark theme.</li>
           <li><code>noitis.language</code> — remembers whether the visitor selected English or Greek.</li>
         </ul>
-        <p>These preferences are stored in the visitor&apos;s browser and are not transmitted to a Noitis application server by the current website code.</p>
+        <p>These preferences are stored in the visitor&apos;s browser and are not transmitted to a Noitis application server by the website code.</p><p>For owner-only aggregate traffic visibility, the production build can enable <strong>Cloudflare Web Analytics</strong>. When enabled, a Cloudflare beacon records aggregate page-view and performance information. No visitor counter is rendered on the public website, and analytics reports are available only through the authorized analytics account. It is used without advertising cookies or cross-site profiling.</p>
       </>,
     },
     {
       heading: '3. Hosting and technical connection data',
       body: <>
-        <p>The website is designed for static hosting through GitHub Pages. GitHub Pages activation, the final production domain, DNS, and HTTPS configuration are deployment settings and may change as the website moves toward launch.</p>
+        <p>The website is published through GitHub Pages at the canonical production domain <strong>https://noitis.gr/</strong>. DNS, TLS, redirect behavior, and GitHub Pages publication remain deployment/operations controls.</p>
         <p>When the website is served by a hosting provider, that provider may process technical connection information needed to deliver and secure the site, such as IP addresses, request information, device/browser information, and security logs under its own applicable terms and policies.</p>
-        <p>The current Noitis frontend does not intentionally copy hosting data into a separate Noitis analytics or customer database.</p>
+        <p>When Cloudflare Web Analytics is enabled, the frontend sends the analytics beacon to Cloudflare for aggregate website measurement. Noitis does not operate a separate visitor-profile or customer analytics database for the company website.</p>
       </>,
     },
     {
@@ -92,15 +92,15 @@ const privacyEnglish: LegalPageCopy = {
         <ul>
           <li>To deliver the website and static assets.</li>
           <li>To remember the selected theme and language locally in the browser.</li>
-          <li>To maintain security, reliability, and availability through the hosting platform.</li>
+          <li>To maintain security, reliability, and availability through the hosting platform.</li><li>To measure aggregate website usage and performance when Cloudflare Web Analytics is enabled.</li>
           <li>To comply with applicable legal obligations.</li>
         </ul>
-        <p>If Noitis later adds forms, accounts, analytics, newsletters, support tools, cookies, or other data-processing features, this notice must be updated to reflect the real behavior before those features are treated as production-ready.</p>
+        <p>If Noitis later adds forms, accounts, newsletters, advertising analytics, support tools, cookies, or other materially different data-processing features, this notice must be updated to reflect the real behavior before those features are treated as production-ready.</p>
       </>,
     },
     {
       heading: '5. Cookies and local storage',
-      body: <p>The current website does not intentionally set advertising or analytics cookies. Visitors can remove the <code>noitis-theme</code> and <code>noitis.language</code> values by clearing site data; removing them only resets the saved theme and language choices.</p>,
+      body: <p>The current website does not intentionally set advertising or analytics cookies. Cloudflare Web Analytics, when enabled, is configured as a cookie-free measurement beacon. Visitors can remove the <code>noitis-theme</code> and <code>noitis.language</code> values by clearing site data; removing them only resets the saved theme and language choices.</p>,
     },
     {
       heading: '6. Links to Noitis products and third-party services',
@@ -108,11 +108,11 @@ const privacyEnglish: LegalPageCopy = {
     },
     {
       heading: '7. Retention',
-      body: <p>The <code>noitis-theme</code> and <code>noitis.language</code> preferences remain in the visitor&apos;s browser until the visitor clears them or browser/site storage is otherwise removed. Hosting-provider technical data is retained according to the provider&apos;s applicable policies; Noitis does not currently maintain a separate website analytics database.</p>,
+      body: <p>The <code>noitis-theme</code> and <code>noitis.language</code> preferences remain in the visitor&apos;s browser until the visitor clears them or browser/site storage is otherwise removed. Hosting-provider technical data and Cloudflare Web Analytics data, when enabled, are retained according to the relevant provider/account settings and applicable policies. Noitis does not maintain a separate visitor-profile database for this website.</p>,
     },
     {
       heading: '8. International processing',
-      body: <p>Internet infrastructure and hosting providers may process information in more than one country. Where applicable law requires safeguards for international transfers, the relevant service provider and controller are responsible for appropriate legal mechanisms.</p>,
+      body: <p>Internet infrastructure, hosting providers, and the analytics provider when enabled may process information in more than one country. Where applicable law requires safeguards for international transfers, the relevant service provider and controller are responsible for appropriate legal mechanisms.</p>,
     },
     {
       heading: '9. Your rights',
@@ -142,7 +142,7 @@ const privacyGreek: LegalPageCopy = {
   title: 'Το απόρρητο πρέπει να είναι κατανοητό.',
   lead: 'Η παρούσα δήλωση περιγράφει την τρέχουσα συμπεριφορά απορρήτου του δημόσιου εταιρικού ιστότοπου Noitis. Επιμέρους προϊόντα Noitis μπορεί να χρησιμοποιούν ξεχωριστές δηλώσεις όταν οι δικές τους υπηρεσίες επεξεργάζονται προσωπικά δεδομένα.',
   effectiveDateLabel: 'Ημερομηνία ισχύος:',
-  effectiveDate: '25 Αυγούστου 2026',
+  effectiveDate: '25 Σεπτεμβρίου 2026',
   footerTagline: 'Το απόρρητο πρέπει να είναι κατανοητό.',
   sections: [
     {
@@ -156,21 +156,21 @@ const privacyGreek: LegalPageCopy = {
     {
       heading: '2. Τι συλλέγει ο σημερινός ιστότοπος',
       body: <>
-        <p>Ο εταιρικός ιστότοπος Noitis είναι static-first. Το frontend του δεν περιλαμβάνει σκόπιμα δημιουργία λογαριασμού, φόρμες επικοινωνίας, διαφημιστικούς trackers, marketing analytics, συλλογή πληρωμών ή backend βάση δεδομένων που λειτουργεί η Noitis.</p>
+        <p>Ο εταιρικός ιστότοπος Noitis είναι static-first. Το frontend του δεν περιλαμβάνει σκόπιμα δημιουργία λογαριασμού, φόρμες επικοινωνίας, διαφημιστικούς trackers, συλλογή πληρωμών ή customer database που λειτουργεί η Noitis.</p>
         <p>Ο ιστότοπος αποθηκεύει τοπικά δύο προτιμήσεις του browser:</p>
         <ul>
           <li><code>noitis-theme</code> — θυμάται αν ο επισκέπτης επέλεξε φωτεινό ή σκοτεινό θέμα.</li>
           <li><code>noitis.language</code> — θυμάται αν ο επισκέπτης επέλεξε Αγγλικά ή Ελληνικά.</li>
         </ul>
-        <p>Οι προτιμήσεις αυτές αποθηκεύονται στον browser του επισκέπτη και δεν μεταδίδονται σε application server της Noitis από τον τρέχοντα κώδικα του ιστότοπου.</p>
+        <p>Οι προτιμήσεις αυτές αποθηκεύονται στον browser του επισκέπτη και δεν μεταδίδονται σε application server της Noitis από τον κώδικα του ιστότοπου.</p><p>Για ιδιωτική, συγκεντρωτική εικόνα επισκεψιμότητας από τον ιδιοκτήτη, το production build μπορεί να ενεργοποιεί <strong>Cloudflare Web Analytics</strong>. Όταν είναι ενεργό, ένα Cloudflare beacon καταγράφει συγκεντρωτικές πληροφορίες page views και performance. Δεν εμφανίζεται δημόσιος μετρητής επισκέψεων και τα reports είναι διαθέσιμα μόνο μέσω του εξουσιοδοτημένου analytics account. Χρησιμοποιείται χωρίς advertising cookies ή cross-site profiling.</p>
       </>,
     },
     {
       heading: '3. Φιλοξενία και τεχνικά δεδομένα σύνδεσης',
       body: <>
-        <p>Ο ιστότοπος έχει σχεδιαστεί για στατική φιλοξενία μέσω GitHub Pages. Η ενεργοποίηση GitHub Pages, το τελικό production domain, το DNS και η ρύθμιση HTTPS είναι ρυθμίσεις deployment και μπορεί να αλλάξουν καθώς ο ιστότοπος προχωρά προς το launch.</p>
+        <p>Ο ιστότοπος δημοσιεύεται μέσω GitHub Pages στο canonical production domain <strong>https://noitis.gr/</strong>. Το DNS, το TLS, η συμπεριφορά redirects και το GitHub Pages publication παραμένουν deployment/operations controls.</p>
         <p>Όταν ο ιστότοπος εξυπηρετείται από πάροχο φιλοξενίας, ο πάροχος μπορεί να επεξεργάζεται τεχνικές πληροφορίες σύνδεσης που απαιτούνται για την παράδοση και την ασφάλεια του site, όπως IP addresses, πληροφορίες requests, στοιχεία συσκευής/browser και security logs, σύμφωνα με τους δικούς του εφαρμοστέους όρους και πολιτικές.</p>
-        <p>Το τρέχον frontend της Noitis δεν αντιγράφει σκόπιμα δεδομένα φιλοξενίας σε ξεχωριστή βάση analytics ή πελατών της Noitis.</p>
+        <p>Όταν είναι ενεργό το Cloudflare Web Analytics, το frontend στέλνει το analytics beacon στην Cloudflare για συγκεντρωτική μέτρηση του website. Η Noitis δεν λειτουργεί ξεχωριστή visitor-profile ή customer analytics database για τον εταιρικό ιστότοπο.</p>
       </>,
     },
     {
@@ -179,15 +179,15 @@ const privacyGreek: LegalPageCopy = {
         <ul>
           <li>Για την παράδοση του ιστότοπου και των static assets.</li>
           <li>Για να απομνημονεύεται το επιλεγμένο θέμα και η γλώσσα τοπικά στον browser.</li>
-          <li>Για τη διατήρηση ασφάλειας, αξιοπιστίας και διαθεσιμότητας μέσω της πλατφόρμας φιλοξενίας.</li>
+          <li>Για τη διατήρηση ασφάλειας, αξιοπιστίας και διαθεσιμότητας μέσω της πλατφόρμας φιλοξενίας.</li><li>Για συγκεντρωτική μέτρηση χρήσης και performance του website όταν είναι ενεργό το Cloudflare Web Analytics.</li>
           <li>Για συμμόρφωση με εφαρμοστέες νομικές υποχρεώσεις.</li>
         </ul>
-        <p>Αν η Noitis προσθέσει αργότερα φόρμες, λογαριασμούς, analytics, newsletters, εργαλεία υποστήριξης, cookies ή άλλες λειτουργίες επεξεργασίας δεδομένων, η παρούσα δήλωση πρέπει να ενημερωθεί ώστε να αντικατοπτρίζει την πραγματική συμπεριφορά πριν οι λειτουργίες αυτές θεωρηθούν production-ready.</p>
+        <p>Αν η Noitis προσθέσει αργότερα φόρμες, λογαριασμούς, newsletters, advertising analytics, εργαλεία υποστήριξης, cookies ή άλλες ουσιωδώς διαφορετικές λειτουργίες επεξεργασίας δεδομένων, η παρούσα δήλωση πρέπει να ενημερωθεί ώστε να αντικατοπτρίζει την πραγματική συμπεριφορά πριν οι λειτουργίες αυτές θεωρηθούν production-ready.</p>
       </>,
     },
     {
       heading: '5. Cookies και τοπική αποθήκευση',
-      body: <p>Ο τρέχων ιστότοπος δεν ορίζει σκόπιμα διαφημιστικά ή analytics cookies. Οι επισκέπτες μπορούν να αφαιρέσουν τις τιμές <code>noitis-theme</code> και <code>noitis.language</code> καθαρίζοντας τα δεδομένα του site· η αφαίρεσή τους επαναφέρει μόνο τις αποθηκευμένες επιλογές θέματος και γλώσσας.</p>,
+      body: <p>Ο τρέχων ιστότοπος δεν ορίζει σκόπιμα διαφημιστικά ή analytics cookies. Το Cloudflare Web Analytics, όταν είναι ενεργό, χρησιμοποιείται ως cookie-free measurement beacon. Οι επισκέπτες μπορούν να αφαιρέσουν τις τιμές <code>noitis-theme</code> και <code>noitis.language</code> καθαρίζοντας τα δεδομένα του site· η αφαίρεσή τους επαναφέρει μόνο τις αποθηκευμένες επιλογές θέματος και γλώσσας.</p>,
     },
     {
       heading: '6. Σύνδεσμοι προς προϊόντα Noitis και υπηρεσίες τρίτων',
@@ -195,11 +195,11 @@ const privacyGreek: LegalPageCopy = {
     },
     {
       heading: '7. Διατήρηση',
-      body: <p>Οι προτιμήσεις <code>noitis-theme</code> και <code>noitis.language</code> παραμένουν στον browser του επισκέπτη μέχρι να τις διαγράψει ή να αφαιρεθούν με άλλο τρόπο τα δεδομένα browser/site. Τα τεχνικά δεδομένα του παρόχου φιλοξενίας διατηρούνται σύμφωνα με τις εφαρμοστέες πολιτικές του· η Noitis δεν διατηρεί σήμερα ξεχωριστή βάση website analytics.</p>,
+      body: <p>Οι προτιμήσεις <code>noitis-theme</code> και <code>noitis.language</code> παραμένουν στον browser του επισκέπτη μέχρι να τις διαγράψει ή να αφαιρεθούν με άλλο τρόπο τα δεδομένα browser/site. Τα τεχνικά δεδομένα hosting και τα δεδομένα Cloudflare Web Analytics, όταν είναι ενεργά, διατηρούνται σύμφωνα με τα σχετικά provider/account settings και τις εφαρμοστέες πολιτικές. Η Noitis δεν διατηρεί ξεχωριστή visitor-profile database για αυτόν τον ιστότοπο.</p>,
     },
     {
       heading: '8. Διεθνής επεξεργασία',
-      body: <p>Η διαδικτυακή υποδομή και οι πάροχοι φιλοξενίας μπορεί να επεξεργάζονται πληροφορίες σε περισσότερες από μία χώρες. Όπου η εφαρμοστέα νομοθεσία απαιτεί εγγυήσεις για διεθνείς διαβιβάσεις, ο σχετικός πάροχος υπηρεσίας και ο υπεύθυνος επεξεργασίας είναι υπεύθυνοι για τους κατάλληλους νομικούς μηχανισμούς.</p>,
+      body: <p>Η διαδικτυακή υποδομή, οι πάροχοι φιλοξενίας και ο analytics provider όταν είναι ενεργός μπορεί να επεξεργάζονται πληροφορίες σε περισσότερες από μία χώρες. Όπου η εφαρμοστέα νομοθεσία απαιτεί εγγυήσεις για διεθνείς διαβιβάσεις, ο σχετικός πάροχος υπηρεσίας και ο υπεύθυνος επεξεργασίας είναι υπεύθυνοι για τους κατάλληλους νομικούς μηχανισμούς.</p>,
     },
     {
       heading: '9. Τα δικαιώματά σας',

@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 env:
-  VITE_SITE_URL: https://noitis-mc.github.io/noitis-website/
+  VITE_SITE_URL: https://noitis.gr/
 
 jobs:
   web:

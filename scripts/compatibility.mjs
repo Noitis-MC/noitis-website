@@ -3,7 +3,7 @@ import { spawn, spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import process from 'node:process'
 
-const PUBLIC_URL = 'https://noitis-mc.github.io/noitis-website/'
+const PUBLIC_URL = 'https://noitis.gr/'
 const LOCAL_URL = 'http://127.0.0.1:5173/'
 const argvUrl = process.argv.find((argument) => argument.startsWith('--url='))?.slice('--url='.length)
 const requestedUrl = argvUrl || LOCAL_URL

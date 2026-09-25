@@ -1,12 +1,12 @@
 # Noitis™ Website Terms of Use
 
-**Effective date: 25 August 2026**
+**Effective date: 26 September 2026**
 
 These terms govern use of the public Noitis company website.
 
 ## 1. About the website
 
-The website is an informational company and product-discovery surface operated under the **Noitis™** brand from Greece. It is not itself a production product service, customer account system, payment service, or contractual offer. No separate registered Noitis legal entity is represented by these terms at this stage.
+The website is an informational brand and product-discovery surface currently operated from Greece by the individual owner and developer of **Noitis™** in a personal capacity. Noitis is not yet a separately incorporated or registered legal entity. The website is not itself a production product service, customer account system, payment service, or contractual offer. No company registration number, G.E.MI. number, registered office, or company VAT number is stated because no Noitis legal entity currently exists.
 
 ## 2. Product information
 

@@ -1,8 +1,8 @@
 # Noitis™ Trademark Policy
 
-**Reviewed: 25 August 2026**
+**Reviewed: 26 September 2026**
 
-This policy explains how Noitis brand identifiers are treated within this repository and on the public Noitis website. It is separate from the proprietary terms in [`LICENSE`](./LICENSE), the website terms, and the privacy notice.
+This policy explains how Noitis brand identifiers are treated within this repository and on the public Noitis website. Noitis is currently a technology brand and software project operated by its individual owner and developer; no separate company or other registered legal entity under the Noitis name has yet been formed. It is separate from the proprietary terms in [`LICENSE`](./LICENSE), the website terms, and the privacy notice.
 
 ## Noitis mark
 

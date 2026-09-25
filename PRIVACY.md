@@ -1,16 +1,16 @@
 # Noitis™ Website Privacy Notice
 
-**Effective date: 25 September 2026**
+**Effective date: 26 September 2026**
 
 This notice describes the current privacy behavior of the public Noitis™ company website. It applies to this website only; individual Noitis products may require separate privacy notices when their own services process personal data.
 
 ## 1. Who operates this website?
 
-This website is operated under the **Noitis™** brand from Greece. The current notice does not represent that a separate registered Noitis legal entity has been formed.
+The **Noitis™** website is currently operated from Greece by its individual owner and developer in a personal capacity. Noitis is presently a technology brand and software project; no separate company or other registered legal entity under the Noitis name has yet been formed.
 
 Privacy contact: **chouliarasmatthaios@gmail.com**
 
-If the legal identity responsible for Noitis changes, or a registered entity becomes the controller for this website, this notice will be updated accordingly.
+For this website, the individual owner and developer is currently responsible for the website and its applicable personal-data processing. No company registration number, G.E.MI. number, registered office, or company VAT number is stated because no Noitis legal entity currently exists. If a business entity is formally established and becomes responsible for the website, this notice will be updated with its legal details.
 
 ## 2. What the current website collects
 

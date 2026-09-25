@@ -55,15 +55,15 @@ const privacyEnglish: LegalPageCopy = {
   title: 'Privacy Notice',
   lead: 'This Privacy Notice describes how the public Noitis company website currently handles personal data and related technical information. Individual Noitis products may publish separate privacy notices where their services process personal data.',
   effectiveDateLabel: 'Effective date:',
-  effectiveDate: '25 September 2026',
+  effectiveDate: '26 September 2026',
   footerTagline: 'Noitis™ Privacy Notice',
   sections: [
     {
       heading: '1. Who operates this website?',
       body: <>
-        <p>This website is operated under the <strong>Noitis™</strong> brand from Greece. The current notice does not represent that a separate registered Noitis legal entity has been formed.</p>
+        <p>The <strong>Noitis™</strong> website is currently operated from Greece by its individual owner and developer in a personal capacity. Noitis is presently a technology brand and software project; no separate company or other registered legal entity under the Noitis name has yet been formed.</p>
         <dl className="privacy-details"><div><dt>Privacy contact</dt><dd>chouliarasmatthaios@gmail.com</dd></div></dl>
-        <p>If the legal identity responsible for Noitis changes, or a registered entity becomes the controller for this website, this notice will be updated accordingly.</p>
+        <p>For this website, the individual owner and developer is currently responsible for the website and its applicable personal-data processing. No company registration number, G.E.MI. number, registered office, or company VAT number is stated because no Noitis legal entity currently exists. If a business entity is formally established and becomes responsible for the website, this notice will be updated with its legal details.</p>
       </>,
     },
     {
@@ -142,15 +142,15 @@ const privacyGreek: LegalPageCopy = {
   title: 'Δήλωση Απορρήτου',
   lead: 'Η παρούσα Δήλωση Απορρήτου περιγράφει τον τρόπο με τον οποίο ο δημόσιος εταιρικός ιστότοπος Noitis χειρίζεται σήμερα προσωπικά δεδομένα και συναφείς τεχνικές πληροφορίες. Επιμέρους προϊόντα Noitis μπορεί να δημοσιεύουν ξεχωριστές δηλώσεις απορρήτου όταν οι υπηρεσίες τους επεξεργάζονται προσωπικά δεδομένα.',
   effectiveDateLabel: 'Ημερομηνία ισχύος:',
-  effectiveDate: '25 Σεπτεμβρίου 2026',
+  effectiveDate: '26 Σεπτεμβρίου 2026',
   footerTagline: 'Δήλωση Απορρήτου Noitis™',
   sections: [
     {
       heading: '1. Ποιος λειτουργεί αυτόν τον ιστότοπο;',
       body: <>
-        <p>Ο ιστότοπος λειτουργεί υπό το brand <strong>Noitis™</strong> από την Ελλάδα. Η παρούσα δήλωση δεν υποδηλώνει ότι έχει συσταθεί ξεχωριστή καταχωρισμένη νομική οντότητα Noitis.</p>
+        <p>Ο ιστότοπος <strong>Noitis™</strong> λειτουργεί επί του παρόντος από την Ελλάδα από τον ατομικό ιδιοκτήτη και δημιουργό του, υπό την προσωπική του ιδιότητα. Η Noitis αποτελεί σήμερα τεχνολογικό brand και εγχείρημα λογισμικού· δεν έχει ακόμη συσταθεί ξεχωριστή εταιρεία ή άλλη καταχωρισμένη νομική οντότητα με την επωνυμία Noitis.</p>
         <dl className="privacy-details"><div><dt>Επικοινωνία για θέματα απορρήτου</dt><dd>chouliarasmatthaios@gmail.com</dd></div></dl>
-        <p>Αν αλλάξει η νομική ταυτότητα που είναι υπεύθυνη για τη Noitis ή αν μια καταχωρισμένη οντότητα γίνει υπεύθυνος επεξεργασίας για αυτόν τον ιστότοπο, η δήλωση θα ενημερωθεί αναλόγως.</p>
+        <p>Για τον παρόντα ιστότοπο, ο ατομικός ιδιοκτήτης και δημιουργός είναι σήμερα υπεύθυνος για τον ιστότοπο και για την εφαρμοστέα επεξεργασία προσωπικών δεδομένων. Δεν αναγράφονται αριθμός εταιρικής καταχώρισης, αριθμός Γ.Ε.ΜΗ., εταιρική έδρα ή εταιρικός Α.Φ.Μ., επειδή δεν υφίσταται ακόμη νομική οντότητα Noitis. Αν συσταθεί επίσημα επιχειρηματική οντότητα και αναλάβει την ευθύνη του ιστοτόπου, η παρούσα δήλωση θα ενημερωθεί με τα νόμιμα στοιχεία της.</p>
       </>,
     },
     {
@@ -229,10 +229,10 @@ const termsEnglish: LegalPageCopy = {
   title: 'Terms of Use',
   lead: 'These Terms of Use govern access to and use of the public Noitis website and set out the conditions that apply to its content, product information, intellectual property, links, and permitted use.',
   effectiveDateLabel: 'Effective date:',
-  effectiveDate: '25 August 2026',
+  effectiveDate: '26 September 2026',
   footerTagline: 'Noitis™ Terms of Use',
   sections: [
-    { heading: '1. About the website', body: <><p>The Noitis website is an informational company and product-discovery surface operated under the Noitis™ brand from Greece. It is not itself a production product service, customer account system, payment service, or contractual offer.</p><p>No separate registered Noitis legal entity is represented by these terms at this stage. If the responsible legal identity changes, the terms will be updated.</p></> },
+    { heading: '1. About the website', body: <><p>The Noitis website is an informational brand and product-discovery surface currently operated from Greece by the individual owner and developer of Noitis™ in a personal capacity. Noitis is not yet a separately incorporated or registered legal entity. The website is not itself a production product service, customer account system, payment service, or contractual offer.</p><p>No company registration number, G.E.MI. number, registered office, or company VAT number is stated because no Noitis legal entity currently exists. If a business entity is formally established and assumes responsibility for the website, these terms will be updated.</p></> },
     { heading: '2. Product information', body: <><p>Noitis products shown on the website are currently identified as <strong>In development</strong>. Descriptions are intended to reflect the current product repositories conservatively. Planned capabilities, roadmap items, production integrations, prices, public destinations, and release dates may change.</p><p>A product or pricing link is shown only when a public destination is explicitly configured for the production website. The absence of a link does not imply that a product has been launched.</p></> },
     { heading: '3. Intellectual property', body: <><p>Except for third-party materials governed by their own terms, the website&apos;s source code, text, visual design, logos, graphics, product descriptions, documentation, layouts, and other materials are owned by Noitis or their applicable rights holders.</p><p>Public access to the website or repository does not place those materials in the public domain and does not grant an open-source or commercial-use license. Repository source/content are governed by the proprietary LICENSE; Noitis brand identifiers are governed by the Trademark Policy.</p></> },
     { heading: '4. Permitted and prohibited use', body: <><p>You may browse and use the website for its intended informational purpose and make lawful references to Noitis and its products.</p><ul><li>Do not impersonate Noitis or falsely suggest affiliation, sponsorship, endorsement, or certification.</li><li>Do not misuse Noitis names, logos, marks, visual identity, or product identities.</li><li>Do not unlawfully copy, redistribute, rebrand, sell, sublicense, or commercially exploit protected materials.</li><li>Do not interfere with, attack, or attempt unauthorized access to website or linked infrastructure.</li><li>Do not remove or alter legal, ownership, copyright, or trademark notices.</li></ul></> },
@@ -252,10 +252,10 @@ const termsGreek: LegalPageCopy = {
   title: 'Όροι Χρήσης',
   lead: 'Οι παρόντες Όροι Χρήσης διέπουν την πρόσβαση και τη χρήση του δημόσιου ιστότοπου Noitis και καθορίζουν τους όρους που εφαρμόζονται στο περιεχόμενο, τις πληροφορίες προϊόντων, την πνευματική ιδιοκτησία, τους συνδέσμους και την επιτρεπόμενη χρήση.',
   effectiveDateLabel: 'Ημερομηνία ισχύος:',
-  effectiveDate: '25 Αυγούστου 2026',
+  effectiveDate: '26 Σεπτεμβρίου 2026',
   footerTagline: 'Όροι Χρήσης Noitis™',
   sections: [
-    { heading: '1. Σχετικά με τον ιστότοπο', body: <><p>Ο ιστότοπος Noitis είναι ενημερωτική επιφάνεια εταιρικής παρουσίασης και ανακάλυψης προϊόντων που λειτουργεί υπό το brand Noitis™ από την Ελλάδα. Δεν αποτελεί ο ίδιος production υπηρεσία προϊόντος, σύστημα λογαριασμών πελατών, υπηρεσία πληρωμών ή συμβατική προσφορά.</p><p>Σε αυτό το στάδιο οι παρόντες όροι δεν εκπροσωπούν ξεχωριστή καταχωρισμένη νομική οντότητα Noitis. Αν αλλάξει η υπεύθυνη νομική ταυτότητα, οι όροι θα ενημερωθούν.</p></> },
+    { heading: '1. Σχετικά με τον ιστότοπο', body: <><p>Ο ιστότοπος Noitis είναι ενημερωτική επιφάνεια brand και ανακάλυψης προϊόντων που λειτουργεί επί του παρόντος από την Ελλάδα από τον ατομικό ιδιοκτήτη και δημιουργό της Noitis™, υπό την προσωπική του ιδιότητα. Η Noitis δεν αποτελεί ακόμη ξεχωριστή συσταθείσα ή καταχωρισμένη νομική οντότητα. Ο ιστότοπος δεν αποτελεί ο ίδιος production υπηρεσία προϊόντος, σύστημα λογαριασμών πελατών, υπηρεσία πληρωμών ή συμβατική προσφορά.</p><p>Δεν αναγράφονται αριθμός εταιρικής καταχώρισης, αριθμός Γ.Ε.ΜΗ., εταιρική έδρα ή εταιρικός Α.Φ.Μ., επειδή δεν υφίσταται ακόμη νομική οντότητα Noitis. Αν συσταθεί επίσημα επιχειρηματική οντότητα και αναλάβει την ευθύνη του ιστοτόπου, οι παρόντες όροι θα ενημερωθούν.</p></> },
     { heading: '2. Πληροφορίες προϊόντων', body: <><p>Τα προϊόντα Noitis που εμφανίζονται στον ιστότοπο χαρακτηρίζονται σήμερα ως <strong>Υπό ανάπτυξη</strong>. Οι περιγραφές αποσκοπούν να αντικατοπτρίζουν συντηρητικά τα τρέχοντα product repositories. Σχεδιαζόμενες δυνατότητες, roadmap items, production integrations, τιμές, δημόσιοι προορισμοί και ημερομηνίες κυκλοφορίας μπορεί να αλλάξουν.</p><p>Σύνδεσμος προϊόντος ή τιμολόγησης εμφανίζεται μόνο όταν έχει ρυθμιστεί ρητά δημόσιος προορισμός για τον production ιστότοπο. Η απουσία συνδέσμου δεν σημαίνει ότι ένα προϊόν έχει κυκλοφορήσει.</p></> },
     { heading: '3. Πνευματική ιδιοκτησία', body: <><p>Με εξαίρεση υλικά τρίτων που διέπονται από τους δικούς τους όρους, ο πηγαίος κώδικας, το κείμενο, ο οπτικός σχεδιασμός, τα λογότυπα, τα γραφικά, οι περιγραφές προϊόντων, η τεκμηρίωση, τα layouts και άλλα υλικά του ιστότοπου ανήκουν στη Noitis ή στους αντίστοιχους δικαιούχους τους.</p><p>Η δημόσια πρόσβαση στον ιστότοπο ή στο repository δεν τοποθετεί τα υλικά αυτά στο public domain και δεν παρέχει open-source ή commercial-use άδεια. Το source/content του repository διέπεται από το proprietary LICENSE· τα brand identifiers της Noitis διέπονται από την Πολιτική Εμπορικών Σημάτων.</p></> },
     { heading: '4. Επιτρεπόμενη και απαγορευμένη χρήση', body: <><p>Μπορείτε να περιηγείστε και να χρησιμοποιείτε τον ιστότοπο για τον προβλεπόμενο ενημερωτικό σκοπό του και να κάνετε νόμιμες αναφορές στη Noitis και τα προϊόντα της.</p><ul><li>Μην παριστάνετε τη Noitis και μην υπονοείτε ψευδώς σχέση, χορηγία, έγκριση ή πιστοποίηση.</li><li>Μην κάνετε κατάχρηση ονομάτων, λογοτύπων, σημάτων, οπτικής ταυτότητας ή product identities της Noitis.</li><li>Μην αντιγράφετε, αναδιανέμετε, επανατοποθετείτε ως άλλο brand, πωλείτε, υποαδειοδοτείτε ή εκμεταλλεύεστε εμπορικά προστατευμένο υλικό κατά παράνομο τρόπο.</li><li>Μην παρεμβαίνετε, επιτίθεστε ή επιχειρείτε μη εξουσιοδοτημένη πρόσβαση στον ιστότοπο ή σε συνδεδεμένη υποδομή.</li><li>Μην αφαιρείτε ή τροποποιείτε νομικές σημειώσεις ή σημειώσεις ιδιοκτησίας, copyright ή trademark.</li></ul></> },
@@ -275,10 +275,10 @@ const trademarkEnglish: LegalPageCopy = {
   title: 'Trademark Policy',
   lead: 'This Trademark Policy sets out the conditions governing use of the Noitis name, logos, slogan, product-family branding, and other distinctive brand assets.',
   effectiveDateLabel: 'Effective date:',
-  effectiveDate: '25 August 2026',
+  effectiveDate: '26 September 2026',
   footerTagline: 'Noitis™ Trademark Policy',
   sections: [
-    { heading: '1. Noitis mark', body: <p><strong>Noitis™</strong> is used as a claimed trademark. The ™ symbol indicates a claim of trademark rights; it does not represent registration. The ® symbol must not be used unless registration has actually been granted in the relevant jurisdiction and its use is appropriate.</p> },
+    { heading: '1. Noitis mark', body: <p>Noitis is currently a technology brand and software project operated by its individual owner and developer; no separate company or other registered legal entity under the Noitis name has yet been formed. <strong>Noitis™</strong> is used as a claimed trademark. The ™ symbol indicates a claim of trademark rights; it does not represent registration. The ® symbol must not be used unless registration has actually been granted in the relevant jurisdiction and its use is appropriate.</p> },
     { heading: '2. Protected brand identifiers', body: <><p>Access to this website or repository does not grant permission to use, reproduce, adapt, publish, distribute, register, or commercialize:</p><ul><li>the Noitis™ name;</li><li>Noitis logos, symbols, and marks;</li><li>the “Intelligence, engineered.” slogan;</li><li>Noitis product-family branding;</li><li>Noitis visual identity, distinctive layouts, or brand assets; or</li><li>confusingly similar names, marks, logos, domains, or branding intended to suggest affiliation with Noitis.</li></ul><p>Any permitted use must be expressly authorized by Noitis in writing unless applicable law independently permits the use.</p></> },
     { heading: '3. Product names', body: <><p>The website identifies AgentGate, AutoPaylot, Business Resource Scheduler, EarnLogic, FamilyOS, and LegacyCI as Noitis products. Their appearance here does not grant permission to use those names as brands, product identities, domains, or source identifiers.</p><p>This policy does not represent that each product name is registered. Any separate registration or formal trademark claim for an individual product mark should be documented only after appropriate clearance and legal review.</p></> },
     { heading: '4. Logos and visual assets', body: <p>Noitis logos and other brand assets may appear in source control so the official website can render them. Their technical availability does not grant a license to extract, reuse, modify, distribute, sell, register, or present them as another product, business, service, or organization&apos;s branding.</p> },
@@ -294,10 +294,10 @@ const trademarkGreek: LegalPageCopy = {
   title: 'Πολιτική Εμπορικών Σημάτων',
   lead: 'Η παρούσα Πολιτική Εμπορικών Σημάτων καθορίζει τους όρους που διέπουν τη χρήση του ονόματος Noitis, των λογοτύπων, του slogan, του branding της οικογένειας προϊόντων και άλλων διακριτικών brand assets.',
   effectiveDateLabel: 'Ημερομηνία ισχύος:',
-  effectiveDate: '25 Αυγούστου 2026',
+  effectiveDate: '26 Σεπτεμβρίου 2026',
   footerTagline: 'Πολιτική Εμπορικών Σημάτων Noitis™',
   sections: [
-    { heading: '1. Το σήμα Noitis', body: <p>Το <strong>Noitis™</strong> χρησιμοποιείται ως δηλωμένο εμπορικό σήμα. Το σύμβολο ™ δηλώνει αξίωση δικαιωμάτων trademark· δεν δηλώνει καταχώριση. Το σύμβολο ® δεν πρέπει να χρησιμοποιείται εκτός αν έχει πράγματι χορηγηθεί καταχώριση στη σχετική δικαιοδοσία και η χρήση του είναι κατάλληλη.</p> },
+    { heading: '1. Το σήμα Noitis', body: <p>Η Noitis αποτελεί επί του παρόντος τεχνολογικό brand και εγχείρημα λογισμικού που λειτουργεί από τον ατομικό ιδιοκτήτη και δημιουργό του· δεν έχει ακόμη συσταθεί ξεχωριστή εταιρεία ή άλλη καταχωρισμένη νομική οντότητα με την επωνυμία Noitis. Το <strong>Noitis™</strong> χρησιμοποιείται ως δηλωμένο εμπορικό σήμα. Το σύμβολο ™ δηλώνει αξίωση δικαιωμάτων trademark· δεν δηλώνει καταχώριση. Το σύμβολο ® δεν πρέπει να χρησιμοποιείται εκτός αν έχει πράγματι χορηγηθεί καταχώριση στη σχετική δικαιοδοσία και η χρήση του είναι κατάλληλη.</p> },
     { heading: '2. Προστατευμένα στοιχεία brand', body: <><p>Η πρόσβαση σε αυτόν τον ιστότοπο ή repository δεν παρέχει άδεια χρήσης, αναπαραγωγής, προσαρμογής, δημοσίευσης, διανομής, καταχώρισης ή εμπορικής εκμετάλλευσης:</p><ul><li>του ονόματος Noitis™·</li><li>λογοτύπων, συμβόλων και σημάτων Noitis·</li><li>του slogan “Intelligence, engineered.”·</li><li>του branding της οικογένειας προϊόντων Noitis·</li><li>της οπτικής ταυτότητας, διακριτικών layouts ή brand assets της Noitis· ή</li><li>παραπλανητικά όμοιων ονομάτων, σημάτων, λογοτύπων, domains ή branding που αποσκοπούν να υπονοήσουν σχέση με τη Noitis.</li></ul><p>Κάθε επιτρεπόμενη χρήση πρέπει να εξουσιοδοτείται ρητά γραπτώς από τη Noitis, εκτός αν η εφαρμοστέα νομοθεσία επιτρέπει ανεξάρτητα τη συγκεκριμένη χρήση.</p></> },
     { heading: '3. Ονόματα προϊόντων', body: <><p>Ο ιστότοπος προσδιορίζει τα AgentGate, AutoPaylot, Business Resource Scheduler, EarnLogic, FamilyOS και LegacyCI ως προϊόντα Noitis. Η εμφάνισή τους εδώ δεν παρέχει άδεια χρήσης αυτών των ονομάτων ως brands, product identities, domains ή source identifiers.</p><p>Η παρούσα πολιτική δεν δηλώνει ότι κάθε όνομα προϊόντος είναι καταχωρισμένο. Οποιαδήποτε ξεχωριστή καταχώριση ή επίσημη αξίωση trademark για μεμονωμένο product mark πρέπει να τεκμηριώνεται μόνο μετά από κατάλληλο clearance και νομικό έλεγχο.</p></> },
     { heading: '4. Λογότυπα και οπτικά assets', body: <p>Λογότυπα Noitis και άλλα brand assets μπορεί να υπάρχουν στο source control ώστε ο επίσημος ιστότοπος να μπορεί να τα εμφανίζει. Η τεχνική διαθεσιμότητά τους δεν παρέχει άδεια εξαγωγής, επαναχρησιμοποίησης, τροποποίησης, διανομής, πώλησης, καταχώρισης ή παρουσίασής τους ως branding άλλου προϊόντος, επιχείρησης, υπηρεσίας ή οργανισμού.</p> },

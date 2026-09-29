@@ -18,6 +18,7 @@ function getInitialTheme(): Theme {
 export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [underDevelopmentOpen, setUnderDevelopmentOpen] = useState(false)
   const { language } = useLanguage()
   const ui = landingUiCopy[language]
   const content = productLandingContent[slug][language]
@@ -44,6 +45,12 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
 
   const closeMenu = () => setMenuOpen(false)
   const productLogo = theme === 'dark' ? product.logoDark : product.logoLight
+  const isFamilyOS = slug === 'familyos'
+  const openLabel = language === 'el' ? `Άνοιγμα ${product.name}` : `Open ${product.name}`
+  const developmentTitle = language === 'el' ? 'Το προϊόν είναι υπό ανάπτυξη.' : 'This product is under development.'
+  const developmentText = language === 'el'
+    ? 'Η δημόσια εφαρμογή δεν έχει κυκλοφορήσει ακόμη. Η έκδοση localhost παραμένει διαθέσιμη για ανάπτυξη και δοκιμές.'
+    : 'The public application has not launched yet. The localhost version remains available for development and testing.'
 
   return (
     <div className="site-shell product-landing-shell">
@@ -76,6 +83,11 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
             <p className="product-landing-hero__headline">{content.headline}</p>
             <p className="product-landing-hero__intro">{content.intro}</p>
             <span className="product-landing__status">{ui.status}</span>
+            <div className="product-landing__launch-actions">
+              {isFamilyOS
+                ? <a className="button button--primary" href="https://family-os.gr" target="_blank" rel="noreferrer">{openLabel}</a>
+                : <button className="button button--primary" type="button" onClick={() => setUnderDevelopmentOpen(true)}>{openLabel}</button>}
+            </div>
           </div>
           <div className="product-landing-hero__visual" role="img" aria-label={`${product.name} logo`}>
             <img className="theme-logo" src={productLogo} alt="" decoding="async" fetchPriority="high" />
@@ -134,6 +146,15 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
           </div>
         </section>
       </main>
+
+      {underDevelopmentOpen && <div className="product-development-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setUnderDevelopmentOpen(false) }}>
+        <section className="product-development-dialog" role="dialog" aria-modal="true" aria-labelledby="product-development-title">
+          <p className="eyebrow">{product.name}</p>
+          <h2 id="product-development-title">{developmentTitle}</h2>
+          <p>{developmentText}</p>
+          <button className="button button--primary" type="button" onClick={() => setUnderDevelopmentOpen(false)}>{language === 'el' ? 'Εντάξει' : 'Got it'}</button>
+        </section>
+      </div>}
 
       <footer className="site-footer">
         <div className="site-footer__brand"><BrandMark theme={theme} /><p>{ui.footerTagline}</p></div>

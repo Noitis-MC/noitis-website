@@ -1,4 +1,5 @@
 import type { NoitisLanguage } from './LanguageContext'
+import { greekSiteContent } from './siteContentGreek'
 
 type ProductCopy = {
   category: string
@@ -205,7 +206,7 @@ const english: SiteCopy = {
 
 export const siteContent: Record<NoitisLanguage, SiteCopy> = {
   en: english,
-  el: english,
+  el: greekSiteContent,
 }
 
 export function replaceName(template: string, name: string) {

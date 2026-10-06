@@ -89,7 +89,7 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
                 : <button className="button button--primary" type="button" onClick={() => setUnderDevelopmentOpen(true)}>{openLabel}</button>}
             </div>
           </div>
-          <div className="product-landing-hero__visual" role="img" aria-label={`${product.name} logo`}>
+          <div className="product-landing-hero__visual" role="img" aria-label={language === 'el' ? `Λογότυπο ${product.name}` : `${product.name} logo`}>
             <img className="theme-logo" src={productLogo} alt="" decoding="async" fetchPriority="high" />
           </div>
         </section>

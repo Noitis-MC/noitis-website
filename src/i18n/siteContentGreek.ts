@@ -105,7 +105,7 @@ export const greekSiteContent: SiteCopy = {
     eyebrow: 'Επικοινωνία',
     title: 'Μιλήστε με τη Noitis',
     text: 'Αν θέλετε να συζητήσουμε ένα προϊόν, ένα σενάριο χρήσης, μία πιλοτική εφαρμογή, μία συνεργασία ή απλώς αυτά που δημιουργούμε, επικοινωνήστε μαζί μας απευθείας.',
-    email: 'Email στη Noitis',
+    email: 'Στείλτε email στη Noitis',
   },
   future: {
     eyebrow: 'Πού βρισκόμαστε',

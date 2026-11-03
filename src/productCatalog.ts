@@ -24,7 +24,8 @@ export type ProductCatalogEntry = {
   name: string
   category: string
   description: string
-  status: 'In development'
+  status: 'In development' | 'Publicly available'
+  publicUrl?: string
   note: string
   href: string
   pricingHref?: string
@@ -32,9 +33,22 @@ export type ProductCatalogEntry = {
   logoDark: string
 }
 
-// The company website publishes only Noitis-owned informational landing pages.
-// Operational product applications remain unpublished until their separate
-// pre-production/production environments are explicitly approved.
+// Keep external application destinations separate from informational Noitis pages.
+// BRS does not yet have a confirmed public destination in this repository.
+// Set VITE_BRS_PUBLIC_URL to its approved HTTPS deployment address when available.
+function safePublicUrl(value: string | undefined): string | undefined {
+  if (!value) return undefined
+  try {
+    const url = new URL(value)
+    if (url.protocol !== 'https:' || url.username || url.password || !url.hostname ||
+        ['localhost', '127.0.0.1', '::1'].includes(url.hostname.toLowerCase())) return undefined
+    return url.toString()
+  } catch {
+    return undefined
+  }
+}
+
+const brsPublicUrl = safePublicUrl(import.meta.env.VITE_BRS_PUBLIC_URL)
 export const products: ProductCatalogEntry[] = [
   {
     slug: 'agentgate',
@@ -63,7 +77,8 @@ export const products: ProductCatalogEntry[] = [
     name: 'Business Resource Scheduler',
     category: 'Operational scheduling',
     description: 'Constraint-based scheduling for work that depends on people, skills, equipment, spaces, locations, availability, and business rules.',
-    status: 'In development',
+    status: brsPublicUrl ? 'Publicly available' : 'In development',
+    publicUrl: brsPublicUrl,
     note: 'Repository-level release hardening and local readiness are complete; production-environment certification and launch remain pending.',
     href: './business-resource-scheduler.html',
     logoLight: brsLogoLight,
@@ -85,8 +100,9 @@ export const products: ProductCatalogEntry[] = [
     name: 'FamilyOS',
     category: 'Family coordination',
     description: 'A parent-first, child-centred experience for discovery, bookings, schedules, saved items, and everyday family coordination.',
-    status: 'In development',
-    note: 'Controlled-release application hardening is complete; production infrastructure, live service dependencies, and launch approvals remain pending.',
+    status: 'Publicly available',
+    publicUrl: 'https://family-os.gr/',
+    note: 'The public FamilyOS website is available. Access to individual family workspaces is managed by the application.',
     href: './familyos.html',
     logoLight: fosLogoLight,
     logoDark: fosLogoDark,

@@ -120,9 +120,9 @@ export function App() {
                   <p className="product-card__eyebrow">{productCopy.category}</p>
                   <h3>{product.name}</h3>
                   <p className="product-card__problem">{productCopy.description}</p>
-                  <span className="product-card__status">{productCopy.status}</span>
+                  <span className="product-card__status">{product.publicUrl ? (language === 'el' ? 'Δημόσια διαθέσιμο' : 'Publicly available') : productCopy.status}</span>
                   <div className="hero__actions">
-                    <a className="button button--secondary" href={product.href} aria-label={replaceName(copy.products.openAria, product.name)}>
+                    <a className="button button--secondary" href={product.publicUrl ?? product.href} target={product.publicUrl ? '_blank' : undefined} rel={product.publicUrl ? 'noopener noreferrer' : undefined} aria-label={replaceName(copy.products.openAria, product.name)}>
                       {copy.products.open} <FiExternalLink aria-hidden="true" />
                     </a>
                     {product.pricingHref ? (

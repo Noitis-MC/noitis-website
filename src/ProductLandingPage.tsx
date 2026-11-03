@@ -45,8 +45,13 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
 
   const closeMenu = () => setMenuOpen(false)
   const productLogo = theme === 'dark' ? product.logoDark : product.logoLight
-  const isFamilyOS = slug === 'familyos'
+  const publicUrl = product.publicUrl
   const openLabel = language === 'el' ? `Άνοιγμα ${product.name}` : `Open ${product.name}`
+  const publicStatus = language === 'el' ? 'Δημόσια διαθέσιμο' : 'Publicly available'
+  const publicAccessTitle = language === 'el' ? 'Η εφαρμογή είναι διαθέσιμη στο κοινό' : 'The application is publicly available'
+  const publicAccessText = language === 'el'
+    ? 'Ανοίξτε την εφαρμογή από τον σύνδεσμο παραπάνω. Οι προσωπικοί χώροι εργασίας προστατεύονται από τη διαδικασία σύνδεσης της εφαρμογής.'
+    : 'Use the link above to open the application. Personal workspaces remain protected by the application’s sign-in process.'
   const developmentTitle = language === 'el' ? 'Το προϊόν είναι υπό ανάπτυξη.' : 'This product is under development.'
   const developmentText = language === 'el'
     ? 'Η δημόσια εφαρμογή δεν έχει κυκλοφορήσει ακόμη. Η έκδοση localhost παραμένει διαθέσιμη για ανάπτυξη και δοκιμές.'
@@ -82,10 +87,10 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
             <h1>{product.name}</h1>
             <p className="product-landing-hero__headline">{content.headline}</p>
             <p className="product-landing-hero__intro">{content.intro}</p>
-            <span className="product-landing__status">{ui.status}</span>
+            <span className="product-landing__status">{publicUrl ? publicStatus : ui.status}</span>
             <div className="product-landing__launch-actions">
-              {isFamilyOS
-                ? <a className="button button--primary" href="https://family-os.gr" target="_blank" rel="noreferrer">{openLabel}</a>
+              {publicUrl
+                ? <a className="button button--primary" href={publicUrl} target="_blank" rel="noopener noreferrer">{openLabel}</a>
                 : <button className="button button--primary" type="button" onClick={() => setUnderDevelopmentOpen(true)}>{openLabel}</button>}
             </div>
           </div>
@@ -127,8 +132,8 @@ export function ProductLandingPage({ slug }: { slug: ProductSlug }) {
 
         <div className="product-landing-context-grid product-landing-context-grid--secondary">
           <section className="section product-landing-access" aria-labelledby="access-title">
-            <div><p className="eyebrow">{ui.accessEyebrow}</p><h2 id="access-title">{ui.accessTitle}</h2></div>
-            <p>{ui.accessText}</p>
+            <div><p className="eyebrow">{ui.accessEyebrow}</p><h2 id="access-title">{publicUrl ? publicAccessTitle : ui.accessTitle}</h2></div>
+            <p>{publicUrl ? publicAccessText : ui.accessText}</p>
           </section>
           <section className="section product-landing-boundary" aria-labelledby="boundary-title">
             <div><p className="eyebrow">{ui.boundaryEyebrow}</p><h2 id="boundary-title">{ui.boundaryTitle}</h2></div>

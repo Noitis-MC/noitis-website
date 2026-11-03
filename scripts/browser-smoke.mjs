@@ -139,8 +139,15 @@ async function verifyHomeContract(page, label) {
   for (const card of contract.productCards) {
     assert(Boolean(card.productHref) && !card.unavailable, `${label}: ${card.name} must link to its Noitis landing page.`)
     const productUrl = new URL(card.productHref, baseUrl)
-    assert(productUrl.origin === new URL(baseUrl).origin, `${label}: ${card.name} product link must remain on the Noitis site.`)
-    assert(productUrl.pathname === expectedProductPaths[card.name], `${label}: ${card.name} points to unexpected landing path ${productUrl.pathname}.`)
+    if (card.name === 'FamilyOS') {
+      assert(productUrl.href === 'https://family-os.gr/', `${label}: FamilyOS must open the approved public app.`)
+    } else if (card.name === 'Business Resource Scheduler' && process.env.VITE_BRS_PUBLIC_URL) {
+      const configured = new URL(process.env.VITE_BRS_PUBLIC_URL)
+      assert(configured.protocol === 'https:' && productUrl.href === configured.href, `${label}: BRS public link does not match the configured release URL.`)
+    } else {
+      assert(productUrl.origin === new URL(baseUrl).origin, `${label}: ${card.name} informational link must remain on the Noitis site.`)
+      assert(productUrl.pathname === expectedProductPaths[card.name], `${label}: ${card.name} points to unexpected landing path ${productUrl.pathname}.`)
+    }
 
     if (card.pricingHref) {
       const pricingUrl = new URL(card.pricingHref, baseUrl)
@@ -155,6 +162,23 @@ async function verifyHomeContract(page, label) {
 
   for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html', './privacy.html', './terms.html', './trademark.html']) {
     assert(contract.footer.includes(href), `${label}: footer navigation is missing ${href}.`)
+  }
+}
+
+async function verifyPublicOpenActions(page, label) {
+  await page.goto(`${baseUrl}/familyos.html`, { waitUntil: 'networkidle' })
+  const familyOpen = page.getByRole('link', { name: 'Open FamilyOS' })
+  assert(await familyOpen.count() === 1, `${label}: FamilyOS must have a public app link.`)
+  assert(await familyOpen.getAttribute('href') === 'https://family-os.gr/', `${label}: FamilyOS public destination is incorrect.`)
+  assert((await page.locator('.product-landing__status').textContent())?.includes('Publicly available'), `${label}: FamilyOS status must show public availability.`)
+
+  await page.goto(`${baseUrl}/business-resource-scheduler.html`, { waitUntil: 'networkidle' })
+  if (process.env.VITE_BRS_PUBLIC_URL) {
+    const brsOpen = page.getByRole('link', { name: 'Open Business Resource Scheduler' })
+    assert(await brsOpen.count() === 1, `${label}: configured public BRS must have a working link.`)
+    assert(new URL((await brsOpen.getAttribute('href')) || '').href === new URL(process.env.VITE_BRS_PUBLIC_URL).href, `${label}: BRS opens the wrong URL.`)
+  } else {
+    assert(await page.getByRole('button', { name: 'Open Business Resource Scheduler' }).count() === 1, `${label}: BRS without a verified public URL must keep the development dialog.`)
   }
 }
 
@@ -221,6 +245,7 @@ async function reviewBrowser(name, browserType) {
 
       await reviewPage(page, '', label)
       await verifyHomeContract(page, label)
+      await verifyPublicOpenActions(page, label)
 
       if (viewport.name === 'mobile') {
         const menuButton = page.getByRole('button', { name: 'Open navigation' })

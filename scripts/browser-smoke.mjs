@@ -180,6 +180,7 @@ async function verifyPublicOpenActions(page, label) {
   } else {
     assert(await page.getByRole('button', { name: 'Open Business Resource Scheduler' }).count() === 1, `${label}: BRS without a verified public URL must keep the development dialog.`)
   }
+  await page.goto(baseUrl, { waitUntil: 'networkidle' })
 }
 
 async function verifyDesktopNavigation(page, label) {

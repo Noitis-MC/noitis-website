@@ -40,8 +40,10 @@ function safePublicUrl(value: string | undefined): string | undefined {
   if (!value) return undefined
   try {
     const url = new URL(value)
-    if (url.protocol !== 'https:' || url.username || url.password || !url.hostname ||
-        ['localhost', '127.0.0.1', '::1'].includes(url.hostname.toLowerCase())) return undefined
+    const host = url.hostname.toLowerCase()
+    if (url.protocol !== 'https:' || url.username || url.password || !host ||
+        host === 'localhost' || host.endsWith('.localhost') ||
+        /^127\./.test(host) || host === '[::1]') return undefined
     return url.toString()
   } catch {
     return undefined

@@ -141,9 +141,8 @@ async function verifyHomeContract(page, label) {
     const productUrl = new URL(card.productHref, baseUrl)
     if (card.name === 'FamilyOS') {
       assert(productUrl.href === 'https://family-os.gr/', `${label}: FamilyOS must open the approved public app.`)
-    } else if (card.name === 'Business Resource Scheduler' && process.env.VITE_BRS_PUBLIC_URL) {
-      const configured = new URL(process.env.VITE_BRS_PUBLIC_URL)
-      assert(configured.protocol === 'https:' && productUrl.href === configured.href, `${label}: BRS public link does not match the configured release URL.`)
+    } else if (card.name === 'Business Resource Scheduler') {
+      assert(productUrl.href === 'https://business-rs.gr/', `${label}: BRS must open its approved public app.`)
     } else {
       assert(productUrl.origin === new URL(baseUrl).origin, `${label}: ${card.name} informational link must remain on the Noitis site.`)
       assert(productUrl.pathname === expectedProductPaths[card.name], `${label}: ${card.name} points to unexpected landing path ${productUrl.pathname}.`)
@@ -257,13 +256,10 @@ async function reviewBrowser(name, browserType) {
           assert((await page.locator('.product-landing__status').textContent())?.includes('Publicly available'), `${label}: FamilyOS status must show public availability.`)
         }
         if (route === 'business-resource-scheduler.html') {
-          if (process.env.VITE_BRS_PUBLIC_URL) {
-            const open = page.getByRole('link', { name: 'Open Business Resource Scheduler' })
-            assert(await open.count() === 1, `${label}: configured public BRS must have a working link.`)
-            assert(new URL((await open.getAttribute('href')) || '').href === new URL(process.env.VITE_BRS_PUBLIC_URL).href, `${label}: BRS opens the wrong URL.`)
-          } else {
-            assert(await page.getByRole('button', { name: 'Open Business Resource Scheduler' }).count() === 1, `${label}: BRS without a verified public URL must keep the development dialog.`)
-          }
+          const open = page.getByRole('link', { name: 'Open Business Resource Scheduler' })
+          assert(await open.count() === 1, `${label}: BRS must have a public application link.`)
+          assert(await open.getAttribute('href') === 'https://business-rs.gr/', `${label}: BRS public destination is incorrect.`)
+          assert((await page.locator('.product-landing__status').textContent())?.includes('Publicly available'), `${label}: BRS status must show public availability.`)
         }
       }
 

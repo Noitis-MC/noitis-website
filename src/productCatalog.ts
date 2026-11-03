@@ -33,24 +33,7 @@ export type ProductCatalogEntry = {
   logoDark: string
 }
 
-// Keep external application destinations separate from informational Noitis pages.
-// BRS does not yet have a confirmed public destination in this repository.
-// Set VITE_BRS_PUBLIC_URL to its approved HTTPS deployment address when available.
-function safePublicUrl(value: string | undefined): string | undefined {
-  if (!value) return undefined
-  try {
-    const url = new URL(value)
-    const host = url.hostname.toLowerCase()
-    if (url.protocol !== 'https:' || url.username || url.password || !host ||
-        host === 'localhost' || host.endsWith('.localhost') ||
-        /^127\./.test(host) || host === '[::1]') return undefined
-    return url.toString()
-  } catch {
-    return undefined
-  }
-}
-
-const brsPublicUrl = safePublicUrl(import.meta.env.VITE_BRS_PUBLIC_URL)
+// Public URLs are approved destination links, not local development servers.
 export const products: ProductCatalogEntry[] = [
   {
     slug: 'agentgate',
@@ -79,9 +62,9 @@ export const products: ProductCatalogEntry[] = [
     name: 'Business Resource Scheduler',
     category: 'Operational scheduling',
     description: 'Constraint-based scheduling for work that depends on people, skills, equipment, spaces, locations, availability, and business rules.',
-    status: brsPublicUrl ? 'Publicly available' : 'In development',
-    publicUrl: brsPublicUrl,
-    note: 'Repository-level release hardening and local readiness are complete; production-environment certification and launch remain pending.',
+    status: 'Publicly available',
+    publicUrl: 'https://business-rs.gr/',
+    note: 'The public Business Resource Scheduler website is available. Access to organization workspaces is managed by the application.',
     href: './business-resource-scheduler.html',
     logoLight: brsLogoLight,
     logoDark: brsLogoDark,

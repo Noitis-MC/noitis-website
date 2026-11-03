@@ -42,7 +42,7 @@ Noitis is building a family of focused products. Each product addresses a differ
 
 **Database change intelligence** — dependency, lineage, and pre-change impact analysis for complex database systems with explicit evidence and visible uncertainty.
 
-FamilyOS is publicly accessible through https://family-os.gr/. BRS public application linking is supported via the build-time `VITE_BRS_PUBLIC_URL` variable, but this must be set to the verified HTTPS deployment address before advertising it as public. When unset, the BRS landing page continues to show a development notice rather than sending visitors to a guessed or local URL. Public descriptions are intentionally conservative: current capability is kept separate from future work, and products without an approved public deployment are not linked to private, local, or placeholder environments.
+FamilyOS is publicly accessible through https://family-os.gr/ and Business Resource Scheduler through https://business-rs.gr/. Both homepage and product-page Open links point to their approved public applications. Other products keep their informational landing pages until publicly launched. Public descriptions are intentionally conservative: current capability is kept separate from future work, and products without an approved public deployment are not linked to private, local, or placeholder environments.
 
 ## How we build
 

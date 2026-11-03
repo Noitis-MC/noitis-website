@@ -4,7 +4,6 @@ import { BrandMark } from './BrandMark'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { useLanguage } from './i18n/LanguageContext'
 import { replaceName, siteContent } from './i18n/siteContent'
-import { greekSiteContent } from './i18n/siteContentGreek'
 import { products } from './productCatalog'
 
 import noitisLogoLight from '../media/Noitis Logo - Light.png'
@@ -23,7 +22,7 @@ export function App() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
   const [menuOpen, setMenuOpen] = useState(false)
   const { language } = useLanguage()
-  const copy = language === 'el' ? greekSiteContent : siteContent.en
+  const copy = siteContent[language]
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme

@@ -62,7 +62,7 @@ export const companyPageUi: Record<NoitisLanguage, {
     light: 'Φωτεινό',
     dark: 'Σκούρο',
     skip: 'Μετάβαση στο κύριο περιεχόμενο',
-    email: 'Email στη Noitis',
+    email: 'Στείλτε email στη Noitis',
     footer: 'Χτίζεται στην Ελλάδα. Σχεδιάζεται για έναν ευρύτερο κόσμο.',
     rights: 'Με επιφύλαξη παντός δικαιώματος.',
   },
@@ -111,18 +111,18 @@ export const companyPageContent: Record<CompanyPageSlug, Record<NoitisLanguage, 
     },
     el: {
       eyebrow: 'Πώς δημιουργούμε',
-      title: 'Δεν θέλουμε η λίστα των features να γίνει σημαντικότερη από το πρόβλημα που προσπαθούν να λύσουν.',
+      title: 'Δεν θέλουμε η λίστα των λειτουργιών να γίνει σημαντικότερη από το πρόβλημα που προσπαθούν να λύσουν.',
       intro: 'Ένα προϊόν μπορεί να έχει δεκάδες λειτουργίες και παρ’ όλα αυτά να κάνει τη ζωή του χρήστη πιο δύσκολη. Εμείς προσπαθούμε να κινηθούμε προς την αντίθετη κατεύθυνση: ξεκινάμε από την κατάσταση που θέλουμε να βελτιώσουμε και μετά αποφασίζουμε τι πραγματικά χρειάζεται το προϊόν.',
       sections: [
         {
           title: 'Καταλαβαίνουμε πρώτα τη ροή εργασίας',
-          paragraphs: ['Πριν αποφασίσουμε τι πρέπει να κάνει το σύστημα, προσπαθούμε να καταλάβουμε τι κάνει ήδη ο άνθρωπος. Αυτές οι ερωτήσεις συνήθως μας λένε περισσότερα από μία λίστα features.'],
+          paragraphs: ['Πριν αποφασίσουμε τι πρέπει να κάνει το σύστημα, προσπαθούμε να καταλάβουμε τι κάνει ήδη ο άνθρωπος. Αυτές οι ερωτήσεις συνήθως μας λένε περισσότερα από μία λίστα λειτουργιών.'],
           questions: ['Ποια πληροφορία χρειάζεται;', 'Από πού έρχεται;', 'Τι γίνεται όταν κάτι πάει στραβά;', 'Ποια σημεία βασίζονται στη μνήμη;', 'Ποιες εργασίες επαναλαμβάνονται χειροκίνητα;', 'Πότε ένα λάθος γίνεται ακριβό;'],
         },
         {
           title: 'Προτιμούμε αποφάσεις που εξηγούνται',
           paragraphs: ['Όταν ένα σύστημα παράγει ένα σημαντικό αποτέλεσμα, θέλουμε ο χρήστης να μπορεί να το καταλάβει. Η απάντηση πρέπει να υπάρχει μέσα στο ίδιο το σύστημα και όχι μόνο στο μυαλό αυτού που το δημιούργησε.'],
-          questions: ['Γιατί απορρίφθηκε αυτή η κράτηση;', 'Γιατί έμεινε σε εκκρεμότητα αυτή η πληρωμή;', 'Γιατί άλλαξε αυτό το ποσό αμοιβής;', 'Γιατί επηρεάζεται αυτό το database object;', 'Γιατί αυτή η ενέργεια AI χρειάζεται έγκριση;'],
+          questions: ['Γιατί απορρίφθηκε αυτή η κράτηση;', 'Γιατί έμεινε σε εκκρεμότητα αυτή η πληρωμή;', 'Γιατί άλλαξε αυτό το ποσό αμοιβής;', 'Γιατί επηρεάζεται αυτό το αντικείμενο της βάσης δεδομένων;', 'Γιατί αυτή η ενέργεια τεχνητής νοημοσύνης χρειάζεται έγκριση;'],
         },
         {
           title: 'Αυτοματοποιούμε με μέτρο',
@@ -166,7 +166,7 @@ export const companyPageContent: Record<CompanyPageSlug, Record<NoitisLanguage, 
         },
         {
           title: 'Τι μας ενδιαφέρει',
-          paragraphs: ['Μας ενδιαφέρουν προβλήματα στα οποία καλύτερη πληροφορία ή καλύτερος συντονισμός μπορεί να κάνει ουσιαστική διαφορά.', 'Ένα πρόγραμμα που καταλαβαίνει τους πόρους και όχι μόνο τον χρόνο. Ένα οικονομικό εργαλείο που καταλαβαίνει τις υποχρεώσεις και όχι μόνο τις συναλλαγές. Ένα σύστημα AI που καταλαβαίνει τα οργανωτικά όρια. Ένα σύστημα αμοιβών που μπορεί να εξηγήσει τους αριθμούς του. Ένα οικογενειακό εργαλείο που μειώνει όσα πρέπει να θυμόμαστε. Ένα database εργαλείο που βοηθά τους engineers να δουν τις συνέπειες πριν κάνουν μία αλλαγή.', 'Οι τομείς είναι διαφορετικοί. Η βασική ιδέα όχι.'],
+          paragraphs: ['Μας ενδιαφέρουν προβλήματα στα οποία καλύτερη πληροφορία ή καλύτερος συντονισμός μπορεί να κάνει ουσιαστική διαφορά.', 'Ένα πρόγραμμα που καταλαβαίνει τους πόρους και όχι μόνο τον χρόνο. Ένα οικονομικό εργαλείο που καταλαβαίνει τις υποχρεώσεις και όχι μόνο τις συναλλαγές. Ένα σύστημα τεχνητής νοημοσύνης που καταλαβαίνει τα οργανωτικά όρια. Ένα σύστημα αμοιβών που μπορεί να εξηγήσει τους αριθμούς του. Ένα οικογενειακό εργαλείο που μειώνει όσα πρέπει να θυμόμαστε. Ένα εργαλείο βάσεων δεδομένων που βοηθά τους μηχανικούς λογισμικού να δουν τις συνέπειες πριν κάνουν μία αλλαγή.', 'Οι τομείς είναι διαφορετικοί. Η βασική ιδέα όχι.'],
         },
         {
           title: 'Από την Ελλάδα',
@@ -185,7 +185,7 @@ export const companyPageContent: Record<CompanyPageSlug, Record<NoitisLanguage, 
     el: {
       eyebrow: 'Επικοινωνία',
       title: 'Μιλήστε με τη Noitis.',
-      intro: 'Αν θέλετε να συζητήσουμε για κάποιο από τα προϊόντα μας, ένα πιθανό use case, μία πιλοτική εφαρμογή, μία συνεργασία ή απλώς για αυτά που δημιουργούμε, μπορείτε να επικοινωνήσετε μαζί μας απευθείας. Προτιμούμε μία χρήσιμη συζήτηση από μία περίπλοκη φόρμα.',
+      intro: 'Αν θέλετε να συζητήσουμε για κάποιο από τα προϊόντα μας, ένα πιθανό σενάριο χρήσης, μία πιλοτική εφαρμογή, μία συνεργασία ή απλώς για αυτά που δημιουργούμε, μπορείτε να επικοινωνήσετε μαζί μας απευθείας. Προτιμούμε μία χρήσιμη συζήτηση από μία περίπλοκη φόρμα.',
       sections: [],
     },
   },
@@ -194,7 +194,7 @@ export const companyPageContent: Record<CompanyPageSlug, Record<NoitisLanguage, 
 export const directoryProductCopy: Record<ProductSlug, Record<NoitisLanguage, DirectoryProductCopy>> = {
   agentgate: {
     en: { category: 'AI governance', intro: 'AI agents become useful when they are able to act. That is also where governance becomes important. AgentGate gives organisations a place to define which actions can happen automatically, which require human approval, and which should be blocked.', problemLabel: 'The problem it addresses', problem: 'Without a clear control layer, organisations often have to choose between giving AI too little authority to be useful or too much authority to be comfortable with. AgentGate is being built to create a practical middle ground.', cta: 'Explore AgentGate' },
-    el: { category: 'Διακυβέρνηση AI', intro: 'Οι AI agents γίνονται χρήσιμοι όταν μπορούν να ενεργούν. Εκεί ακριβώς γίνεται σημαντικός και ο έλεγχος. Το AgentGate δίνει σε έναν οργανισμό έναν σαφή τρόπο να ορίζει ποιες ενέργειες γίνονται αυτόματα, ποιες χρειάζονται ανθρώπινη έγκριση και ποιες πρέπει να απορρίπτονται.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Χωρίς ένα ξεκάθαρο επίπεδο ελέγχου, οι οργανισμοί συχνά αναγκάζονται να επιλέξουν ανάμεσα σε πολύ λίγη εξουσιοδότηση ώστε το AI να μην είναι χρήσιμο ή υπερβολικά μεγάλη ώστε το ρίσκο να γίνεται δύσκολο να αποδεχθούν. Το AgentGate δημιουργείται για τον χώρο ανάμεσα στα δύο.', cta: 'Δείτε το AgentGate' },
+    el: { category: 'Διακυβέρνηση τεχνητής νοημοσύνης', intro: 'Οι πράκτορες τεχνητής νοημοσύνης γίνονται χρήσιμοι όταν μπορούν να ενεργούν. Εκεί ακριβώς γίνεται σημαντικός και ο έλεγχος. Το AgentGate δίνει σε έναν οργανισμό έναν σαφή τρόπο να ορίζει ποιες ενέργειες γίνονται αυτόματα, ποιες χρειάζονται ανθρώπινη έγκριση και ποιες πρέπει να απορρίπτονται.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Χωρίς ένα ξεκάθαρο επίπεδο ελέγχου, οι οργανισμοί συχνά αναγκάζονται να επιλέξουν ανάμεσα σε πολύ λίγη εξουσιοδότηση ώστε η τεχνητή νοημοσύνη να μην είναι χρήσιμη ή υπερβολικά μεγάλη ώστε το ρίσκο να γίνεται δύσκολο να αποδεχθούν. Το AgentGate δημιουργείται για τον χώρο ανάμεσα στα δύο.', cta: 'Δείτε το AgentGate' },
   },
   autopaylot: {
     en: { category: 'Financial obligations', intro: 'Recurring payments are individually simple. Together, they are not. Rent, electricity, subscriptions, loan payments, savings, and everyday expenses may all compete for the same income. AutoPaylot brings those obligations into one view and helps organise them before money moves.', problemLabel: 'The problem it addresses', problem: 'The cost is not only late-payment fees. It is also the time and attention required every month to work out what has been paid, what is coming next, and whether paying something now creates a problem somewhere else.', cta: 'Explore AutoPaylot' },
@@ -206,14 +206,14 @@ export const directoryProductCopy: Record<ProductSlug, Record<NoitisLanguage, Di
   },
   earnlogic: {
     en: { category: 'Compensation intelligence', intro: 'Compensation becomes difficult to manage when sales data, targets, plans, exceptions, and calculations live in different places. EarnLogic connects those pieces.', problemLabel: 'The problem it addresses', problem: 'When somebody asks why a compensation result is what it is, finding the answer should not require several spreadsheets and the person who originally built them. The calculation should be reproducible and understandable.', cta: 'Explore EarnLogic' },
-    el: { category: 'Αμοιβές και κίνητρα', intro: 'Οι μεταβλητές αμοιβές γίνονται δύσκολες όταν τα δεδομένα πωλήσεων, οι στόχοι, τα plans, οι εξαιρέσεις και οι υπολογισμοί βρίσκονται σε διαφορετικά σημεία. Το EarnLogic συνδέει αυτά τα κομμάτια.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Όταν κάποιος ρωτά γιατί η αμοιβή του είναι αυτό το ποσό, η απάντηση δεν θα έπρεπε να απαιτεί πολλά spreadsheets και τον άνθρωπο που τα έφτιαξε αρχικά. Ο υπολογισμός πρέπει να μπορεί να επαναληφθεί και να εξηγηθεί.', cta: 'Δείτε το EarnLogic' },
+    el: { category: 'Αμοιβές και κίνητρα', intro: 'Οι μεταβλητές αμοιβές γίνονται δύσκολες όταν τα δεδομένα πωλήσεων, οι στόχοι, τα προγράμματα αμοιβών, οι εξαιρέσεις και οι υπολογισμοί βρίσκονται σε διαφορετικά σημεία. Το EarnLogic συνδέει αυτά τα κομμάτια.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Όταν κάποιος ρωτά γιατί η αμοιβή του είναι αυτό το ποσό, η απάντηση δεν θα έπρεπε να απαιτεί πολλά υπολογιστικά φύλλα και τον άνθρωπο που τα δημιούργησε αρχικά. Ο υπολογισμός πρέπει να μπορεί να επαναληφθεί και να εξηγηθεί.', cta: 'Δείτε το EarnLogic' },
   },
   familyos: {
     en: { category: 'Family coordination', intro: 'Families already coordinate a surprising amount of information. Appointments, school activities, bookings, providers, household tasks, reminders, and shared decisions often live in different places. FamilyOS brings that information into one household context.', problemLabel: 'The problem it addresses', problem: 'Most of the cost is not financial. It is time, repetition, and mental load: searching again for information somebody already found, asking who is handling something, or realising too late that everyone assumed someone else remembered it.', cta: 'Explore FamilyOS' },
-    el: { category: 'Οικογενειακός συντονισμός', intro: 'Μία οικογένεια συντονίζει καθημερινά πολύ περισσότερη πληροφορία απ’ όσο φαίνεται. Ραντεβού, σχολικές δραστηριότητες, κρατήσεις, επαγγελματίες, υποχρεώσεις σπιτιού, υπενθυμίσεις και κοινές αποφάσεις βρίσκονται συνήθως σε διαφορετικά σημεία. Το FamilyOS τα φέρνει στο ίδιο οικογενειακό πλαίσιο.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Το μεγαλύτερο κόστος δεν είναι οικονομικό. Είναι ο χρόνος, η επανάληψη και το mental load: να ψάχνουμε ξανά μία πληροφορία, να ρωτάμε ποιος έχει αναλάβει κάτι ή να καταλαβαίνουμε αργά ότι όλοι θεωρούσαν πως το θυμόταν κάποιος άλλος.', cta: 'Δείτε το FamilyOS' },
+    el: { category: 'Οικογενειακός συντονισμός', intro: 'Μία οικογένεια συντονίζει καθημερινά πολύ περισσότερη πληροφορία απ’ όσο φαίνεται. Ραντεβού, σχολικές δραστηριότητες, κρατήσεις, επαγγελματίες, υποχρεώσεις σπιτιού, υπενθυμίσεις και κοινές αποφάσεις βρίσκονται συνήθως σε διαφορετικά σημεία. Το FamilyOS τα φέρνει στο ίδιο οικογενειακό πλαίσιο.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Το μεγαλύτερο κόστος δεν είναι οικονομικό. Είναι ο χρόνος, η επανάληψη και το νοητικό φορτίο: να ψάχνουμε ξανά μία πληροφορία, να ρωτάμε ποιος έχει αναλάβει κάτι ή να καταλαβαίνουμε αργά ότι όλοι θεωρούσαν πως το θυμόταν κάποιος άλλος.', cta: 'Δείτε το FamilyOS' },
   },
   legacyci: {
     en: { category: 'Database change intelligence', intro: 'Mature database systems accumulate years of dependencies. A table may feed a view, that view may feed another object, an application may depend on it, and an old report may still use it. LegacyCI is designed to make those relationships easier to understand before something changes.', problemLabel: 'The problem it addresses', problem: 'The SQL change itself may take minutes. Understanding everything that could be affected may take much longer. When that understanding is incomplete, the cost can be failed deployments, broken applications, emergency fixes, and production incidents.', cta: 'Explore LegacyCI' },
-    el: { category: 'Ανάλυση αλλαγών βάσεων δεδομένων', intro: 'Τα ώριμα database systems συσσωρεύουν χρόνια εξαρτήσεων. Ένας πίνακας μπορεί να τροφοδοτεί ένα view, το view άλλο object, μία εφαρμογή να βασίζεται σε αυτό και ένα παλιό report να εξακολουθεί να το χρησιμοποιεί. Το LegacyCI κάνει αυτές τις σχέσεις πιο ορατές πριν αλλάξει κάτι.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Το ίδιο το SQL μπορεί να αλλάξει μέσα σε λίγα λεπτά. Το να καταλάβουμε όμως όλα όσα μπορεί να επηρεαστούν είναι πολύ πιο δύσκολο. Όταν αυτή η εικόνα δεν είναι πλήρης, το κόστος μπορεί να είναι αποτυχημένα deployments, χαλασμένες εφαρμογές, επείγουσες διορθώσεις και production incidents.', cta: 'Δείτε το LegacyCI' },
+    el: { category: 'Ανάλυση αλλαγών βάσεων δεδομένων', intro: 'Τα ώριμα συστήματα βάσεων δεδομένων συσσωρεύουν χρόνια εξαρτήσεων. Ένας πίνακας μπορεί να τροφοδοτεί μία προβολή, η προβολή ένα άλλο αντικείμενο, μία εφαρμογή να βασίζεται σε αυτό και μία παλιά αναφορά να εξακολουθεί να το χρησιμοποιεί. Το LegacyCI κάνει αυτές τις σχέσεις πιο ορατές πριν αλλάξει κάτι.', problemLabel: 'Το πρόβλημα που αντιμετωπίζει', problem: 'Το ίδιο το SQL μπορεί να αλλάξει μέσα σε λίγα λεπτά. Το να καταλάβουμε όμως όλα όσα μπορεί να επηρεαστούν είναι πολύ πιο δύσκολο. Όταν αυτή η εικόνα δεν είναι πλήρης, το κόστος μπορεί να είναι αποτυχημένες αναπτύξεις, προβληματικές εφαρμογές, επείγουσες διορθώσεις και συμβάντα σε περιβάλλον παραγωγής.', cta: 'Δείτε το LegacyCI' },
   },
 }

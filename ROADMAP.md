@@ -2,6 +2,14 @@
 
 This roadmap is the implementation sequence for the public Noitis company website. The site remains static-first unless a real website requirement justifies additional infrastructure. Phase 6 is the accepted official public launch at `https://noitis.gr/`; Phase 7 hardens that launched site for cross-platform compatibility, publication resilience, and release-candidate operations.
 
+## Main-branch reconciliation — 2026-11-10
+
+**Compared with `main` at `06f6f8a` (2026-11-03).** The company's static-first website remains **Phase 7 complete / accepted and publicly launched** at `https://noitis.gr/`; there is no eighth phase defined in this roadmap. The later main commits improve accessibility, contrast, mobile touch targets, visual branding, and the public product directory. FamilyOS and Business Resource Scheduler now have publicly configured links, while other products remain gated on approved public destinations.
+
+**Fresh repository evidence:** GitHub Pages deployment and CI succeeded for `06f6f8a` on 2026-11-03, and the scheduled website health workflow succeeded on 2026-11-09. This establishes successful automated publication/health evidence, not a newly executed physical-device or security audit.
+
+**Ongoing work (not incomplete Phase 7):** Monitor live link/canonical/HTTPS checks, keep product URLs current, and repeat browser, responsiveness, and language verification whenever the design or product catalogue changes. Do not expose private/local development URLs.
+
 ## Implementation audit — 2026-09-25
 
 - **Phases 1–6 are complete and accepted.** The website has the static-first React/TypeScript/Vite foundation, reviewed publication content, product catalogue, legal/publication controls, accessibility/SEO/quality checks, cross-browser smoke coverage, production operations contract, and accepted GitHub Pages launch.

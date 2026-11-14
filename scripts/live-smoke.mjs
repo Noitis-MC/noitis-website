@@ -49,19 +49,17 @@ async function reviewPage(page, route, label) {
 async function verifyHome(page, label) {
   const cards = await page.locator('.product-card').evaluateAll((elements) => elements.map((card) => {
     const name = card.querySelector('h3')?.textContent?.trim() || ''
-    const product = card.querySelector('a[aria-label^="Open "]:not([aria-label$=" pricing"])')
-    const pricing = card.querySelector('a[aria-label$=" pricing"]')
-    const unavailable = [...card.querySelectorAll('.product-card__status')]
-      .some((element) => element.textContent?.trim() === 'Public access not configured')
-    return { name, productHref: product?.href || null, pricingHref: pricing?.href || null, unavailable }
+    const landing = card.querySelector('a.card-link')
+    const publicApp = card.querySelector('a.text-link--external')
+    return { name, landingHref: landing?.href || null, publicHref: publicApp?.href || null }
   }))
 
   assert(cards.length === expectedProducts.length, `${label}: expected six product cards.`)
   assert(JSON.stringify(cards.map((card) => card.name)) === JSON.stringify(expectedProducts), `${label}: product catalogue names/order do not match the accepted public catalogue.`)
 
   for (const card of cards) {
-    assert(Boolean(card.productHref) !== card.unavailable, `${label}: ${card.name} must have exactly one public-access state.`)
-    for (const [kind, href] of [['product', card.productHref], ['pricing', card.pricingHref]]) {
+    assert(Boolean(card.landingHref), `${label}: ${card.name} must link to its Noitis landing page.`)
+    for (const [kind, href] of [['landing', card.landingHref], ['public app', card.publicHref]]) {
       if (!href) continue
       const url = new URL(href)
       assert(url.protocol === 'https:', `${label}: ${card.name} ${kind} link is not HTTPS.`)

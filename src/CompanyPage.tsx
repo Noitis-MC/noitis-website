@@ -1,140 +1,102 @@
-import { useEffect, useState } from 'react'
-import { FiArrowRight, FiMail, FiMenu, FiX } from 'react-icons/fi'
-import { BrandMark } from './BrandMark'
-import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { useEffect } from 'react'
+import { FiArrowRight, FiArrowUpRight, FiMail } from 'react-icons/fi'
+import { SiteLayout, type PageKey } from './components/SiteChrome'
+import { companyPageContent, directoryProductCopy, type CompanyPageSlug } from './companyPageContent'
+import { CONTACT_EMAIL, chromeCopy } from './i18n/chromeCopy'
+import { replaceName } from './i18n/siteContent'
 import { useLanguage } from './i18n/LanguageContext'
-import { companyPageContent, companyPageUi, directoryProductCopy, type CompanyPageSlug } from './companyPageContent'
 import { products } from './productCatalog'
 
-type Theme = 'light' | 'dark'
-
-function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'light'
-  const saved = window.localStorage.getItem('noitis-theme')
-  if (saved === 'light' || saved === 'dark') return saved
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+const pageKeys: Record<CompanyPageSlug, PageKey> = {
+  products: 'products',
+  'how-we-build': 'how',
+  about: 'about',
+  contact: 'contact',
 }
 
 export function CompanyPage({ pageSlug }: { pageSlug: CompanyPageSlug }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
-  const [menuOpen, setMenuOpen] = useState(false)
   const { language } = useLanguage()
-  const ui = companyPageUi[language]
+  const chrome = chromeCopy[language]
   const copy = companyPageContent[pageSlug][language]
 
+  // Keep the tab title short and localized (the page headline can be a full sentence).
+  const pageName = chrome.nav[pageKeys[pageSlug] as 'products' | 'how' | 'about' | 'contact']
   useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    window.localStorage.setItem('noitis-theme', theme)
-  }, [theme])
-
-  useEffect(() => {
-    document.title = `${copy.title} — Noitis`
-  }, [copy.title])
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false)
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
-
-  const closeMenu = () => setMenuOpen(false)
+    document.title = `${pageName} — Noitis`
+  }, [pageName])
 
   return (
-    <div className={`site-shell company-page-shell company-page-shell--${pageSlug}`}>
-      <a className="skip-link" href="#main">{ui.skip}</a>
-      <header className="site-header">
-        <a className="brand-link" href="./index.html" aria-label="Noitis" onClick={closeMenu}><BrandMark compact theme={theme} /></a>
-        <button
-          className="menu-button"
-          type="button"
-          aria-label={menuOpen ? ui.menuClose : ui.menuOpen}
-          aria-expanded={menuOpen}
-          aria-controls="site-navigation"
-          onClick={() => setMenuOpen((value) => !value)}
-        >
-          {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
-        </button>
-        <nav id="site-navigation" className={menuOpen ? 'site-nav site-nav--open' : 'site-nav'} aria-label={ui.navAria}>
-          <a href="./products.html" onClick={closeMenu}>{ui.nav.products}</a>
-          <a href="./how-we-build.html" onClick={closeMenu}>{ui.nav.how}</a>
-          <a href="./about.html" onClick={closeMenu}>{ui.nav.about}</a>
-          <a href="./contact.html" onClick={closeMenu}>{ui.nav.contact}</a>
-          <a href="./privacy.html" onClick={closeMenu}>{ui.nav.privacy}</a>
-          <LanguageSwitcher compact />
-          <button className="theme-button" type="button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={theme === 'light' ? ui.switchToDark : ui.switchToLight}>
-            {theme === 'light' ? ui.dark : ui.light}
-          </button>
-        </nav>
-      </header>
+    <SiteLayout current={pageKeys[pageSlug]} className={`company-page-shell company-page-shell--${pageSlug}`}>
+      {(theme) => (
+        <main id="main" className="page">
+          <header className="page-hero">
+            <p className="eyebrow">{copy.eyebrow}</p>
+            <h1>{copy.title}</h1>
+            <p className="page-hero__lead">{copy.intro}</p>
+          </header>
 
-      <main id="main" className={`company-page company-page--${pageSlug}`}>
-        <section className="company-hero">
-          <p className="eyebrow">{copy.eyebrow}</p>
-          <h1>{copy.title}</h1>
-          <p className="company-hero__lead">{copy.intro}</p>
-        </section>
-
-        {pageSlug === 'products' ? (
-          <section className="company-products" aria-label={copy.title}>
-            {products.map((product) => {
-              const productCopy = directoryProductCopy[product.slug][language]
-              const logo = theme === 'dark' ? product.logoDark : product.logoLight
-              return (
-                <article className="company-product" key={product.slug}>
-                  <div className="company-product__top">
-                    <div className="company-product__logo"><img className="theme-logo" src={logo} alt="" loading="lazy" decoding="async" /></div>
-                    <div><p className="product-card__eyebrow">{productCopy.category}</p><h2>{product.name}</h2></div>
-                  </div>
-                  <p className="company-product__intro">{productCopy.intro}</p>
-                  <div className="company-product__problem">
-                    <strong>{productCopy.problemLabel}</strong>
-                    <p>{productCopy.problem}</p>
-                  </div>
-                  <a className="text-link" href={product.href}>{productCopy.cta} <FiArrowRight aria-hidden="true" /></a>
-                </article>
-              )
-            })}
-          </section>
-        ) : pageSlug === 'contact' ? (
-          <section className="company-contact-card">
-            <p>{language === 'el' ? 'Δεν χρειάζεται επίσημη πρόταση για να ξεκινήσει μία χρήσιμη συζήτηση.' : 'You do not need a formal proposal to start a useful conversation.'}</p>
-            <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{ui.email} <FiMail aria-hidden="true" /></a>
-          </section>
-        ) : (
-          <div className="company-section-list">
-            {copy.sections.map((section, index) => (
-              <section className="company-page-section" key={section.title}>
-                <div className="company-page-section__index">0{index + 1}</div>
-                <div>
+          {pageSlug === 'products' ? (
+            <ul className="directory">
+              {products.map((product) => {
+                const productCopy = directoryProductCopy[product.slug][language]
+                const isLive = Boolean(product.publicUrl)
+                return (
+                  <li className="directory-item" key={product.slug}>
+                    <span className="logo-tile logo-tile--large">
+                      <img className="blend-logo" src={theme === 'dark' ? product.logoDark : product.logoLight} alt="" width="640" height="640" loading="lazy" decoding="async" />
+                    </span>
+                    <div className="directory-item__body">
+                      <div className="directory-item__meta">
+                        <span className="product-card__category">{productCopy.category}</span>
+                        <span className={isLive ? 'status status--live' : 'status'}>{isLive ? chrome.statusLive : chrome.statusDevelopment}</span>
+                      </div>
+                      <h2>{product.name}</h2>
+                      <p>{productCopy.intro}</p>
+                      <div className="callout">
+                        <strong>{productCopy.problemLabel}</strong>
+                        <p>{productCopy.problem}</p>
+                      </div>
+                      <div className="actions">
+                        <a className="button button--secondary" href={product.href}>{productCopy.cta} <FiArrowRight aria-hidden="true" /></a>
+                        {product.publicUrl ? (
+                          <a className="button button--ghost" href={product.publicUrl} target="_blank" rel="noopener noreferrer">
+                            {replaceName(chrome.openProduct, product.name)} <FiArrowUpRight aria-hidden="true" />
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          ) : pageSlug === 'contact' ? (
+            <section className="contact-card" aria-label={chrome.nav.contact}>
+              <span className="contact-card__icon" aria-hidden="true"><FiMail /></span>
+              <div>
+                {copy.note ? <p>{copy.note}</p> : null}
+                <a className="contact-card__email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              </div>
+              <a className="button button--primary" href={`mailto:${CONTACT_EMAIL}`}>{chrome.email}</a>
+            </section>
+          ) : (
+            <ol className="chapter-list">
+              {copy.sections.map((section) => (
+                <li className="chapter" key={section.title}>
                   <h2>{section.title}</h2>
-                  {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                  {section.questions ? (
-                    <ul className="company-question-list">
-                      {section.questions.map((question) => <li key={question}>{question}</li>)}
-                    </ul>
-                  ) : null}
-                </div>
-              </section>
-            ))}
-          </div>
-        )}
-      </main>
-
-      <footer className="site-footer">
-        <div className="site-footer__brand"><BrandMark theme={theme} /><p>{ui.footer}</p></div>
-        <div className="site-footer__links">
-          <a href="./products.html">{ui.nav.products}</a>
-          <a href="./how-we-build.html">{ui.nav.how}</a>
-          <a href="./about.html">{ui.nav.about}</a>
-          <a href="./contact.html">{ui.nav.contact}</a>
-          <a href="./privacy.html">{ui.nav.privacy}</a>
-          <a href="./terms.html">{ui.nav.terms}</a>
-          <a href="./trademark.html">{ui.nav.trademarks}</a>
-        </div>
-        <p className="site-footer__legal">© {new Date().getFullYear()} Noitis™. {ui.rights}</p>
-      </footer>
-    </div>
+                  <div className="prose">
+                    {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    {section.questions ? (
+                      <ul className="question-list">
+                        {section.questions.map((question) => <li key={question}>{question}</li>)}
+                      </ul>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          )}
+        </main>
+      )}
+    </SiteLayout>
   )
 }

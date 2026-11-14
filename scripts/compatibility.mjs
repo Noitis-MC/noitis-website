@@ -309,7 +309,7 @@ async function assertUiContract(page, label) {
 }
 
 async function assertTouchTargets(page, label) {
-  const undersized = await page.locator('button, .button, .brand-link, .language-switcher select').evaluateAll((elements) => elements
+  const undersized = await page.locator('button, .button, .brand-link').evaluateAll((elements) => elements
     .filter((element) => {
       const style = getComputedStyle(element)
       const rect = element.getBoundingClientRect()
@@ -324,8 +324,8 @@ async function assertTouchTargets(page, label) {
 async function ensureHeaderControlsVisible(page, label, mobileLike) {
   if (!mobileLike) return
 
-  const switcher = page.locator('.language-switcher select').first()
-  const themeButton = page.locator('.theme-button').first()
+  const switcher = page.locator('.language-switcher').first()
+  const themeButton = page.locator('.theme-toggle').first()
   if (await switcher.isVisible() && await themeButton.isVisible()) return
 
   const menuButton = page.locator('.menu-button').first()
@@ -339,17 +339,17 @@ async function ensureHeaderControlsVisible(page, label, mobileLike) {
 async function verifyLanguagesAndThemes(page, label, mobileLike) {
   await ensureHeaderControlsVisible(page, label, mobileLike)
 
-  const switcher = page.locator('.language-switcher select').first()
+  const switcher = page.locator('.language-switcher').first()
   assert(await switcher.count() === 1, `${label}: language switcher is missing.`)
 
-  await switcher.selectOption('el')
+  await switcher.locator('button[lang="el"]').click()
   await page.waitForFunction(() => document.documentElement.lang === 'el')
   await assertUiContract(page, `${label}/el`)
 
   const greekPersisted = await page.evaluate(() => localStorage.getItem('noitis.language'))
   assert(greekPersisted === 'el', `${label}: Greek language choice was not persisted.`)
 
-  const themeButton = page.locator('.theme-button').first()
+  const themeButton = page.locator('.theme-toggle').first()
   assert(await themeButton.count() === 1, `${label}: theme switcher is missing.`)
   await themeButton.click()
   await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark')
@@ -366,9 +366,9 @@ async function verifyLanguagesAndThemes(page, label, mobileLike) {
   assert(persistedState.lang === 'el' && persistedState.theme === 'dark', `${label}: language/theme preferences did not survive reload.`)
 
   await ensureHeaderControlsVisible(page, `${label}/after-reload`, mobileLike)
-  await page.locator('.language-switcher select').first().selectOption('en')
+  await page.locator('.language-switcher button[lang="en"]').first().click()
   await page.waitForFunction(() => document.documentElement.lang === 'en')
-  await page.locator('.theme-button').first().click()
+  await page.locator('.theme-toggle').first().click()
   await page.waitForFunction(() => document.documentElement.dataset.theme === 'light')
   await assertUiContract(page, `${label}/en/light-restored`)
 }

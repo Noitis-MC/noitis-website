@@ -83,7 +83,7 @@ async function reviewPage(page, route, label) {
 
   assert(undersizedPrimaryTargets.length === 0, `${label}: primary interactive targets below 44x44 CSS pixels: ${undersizedPrimaryTargets.join(', ')}`)
 
-  const undersizedTextLinks = await page.locator('.site-nav a, .privacy-nav a, .site-footer a').evaluateAll((elements) => elements
+  const undersizedTextLinks = await page.locator('.site-nav a, .site-footer a').evaluateAll((elements) => elements
     .filter((element) => {
       const style = getComputedStyle(element)
       if (style.display === 'none' || style.visibility === 'hidden') return false
@@ -100,16 +100,14 @@ async function verifyHomeContract(page, label) {
     const expectedProducts = ['AgentGate', 'AutoPaylot', 'Business Resource Scheduler', 'EarnLogic', 'FamilyOS', 'LegacyCI']
     const productCards = [...document.querySelectorAll('.product-card')].map((card) => {
       const name = card.querySelector('h3')?.textContent?.trim() || ''
-      const openProduct = card.querySelector('a[aria-label^="Open "]:not([aria-label$=" pricing"])')
-      const pricing = card.querySelector('a[aria-label$=" pricing"]')
-      const unavailable = [...card.querySelectorAll('.product-card__status')]
-        .some((element) => element.textContent?.trim() === 'Public access not configured')
+      // Every card links to its Noitis landing page; live products also offer a direct app link.
+      const landing = card.querySelector('a.card-link')
+      const publicApp = card.querySelector('a.text-link--external')
 
       return {
         name,
-        productHref: openProduct?.getAttribute('href') || null,
-        pricingHref: pricing?.getAttribute('href') || null,
-        unavailable,
+        productHref: landing?.getAttribute('href') || null,
+        publicHref: publicApp?.getAttribute('href') || null,
       }
     })
 
@@ -136,26 +134,26 @@ async function verifyHomeContract(page, label) {
     LegacyCI: '/legacyci.html',
   }
 
-  for (const card of contract.productCards) {
-    assert(Boolean(card.productHref) && !card.unavailable, `${label}: ${card.name} must link to its Noitis landing page.`)
-    const productUrl = new URL(card.productHref, baseUrl)
-    if (card.name === 'FamilyOS') {
-      assert(productUrl.href === 'https://family-os.gr/', `${label}: FamilyOS must open the approved public app.`)
-    } else if (card.name === 'Business Resource Scheduler') {
-      assert(productUrl.href === 'https://business-rs.gr/', `${label}: BRS must open its approved public app.`)
-    } else {
-      assert(productUrl.origin === new URL(baseUrl).origin, `${label}: ${card.name} informational link must remain on the Noitis site.`)
-      assert(productUrl.pathname === expectedProductPaths[card.name], `${label}: ${card.name} points to unexpected landing path ${productUrl.pathname}.`)
-    }
+  const expectedPublicApps = {
+    FamilyOS: 'https://family-os.gr/',
+    'Business Resource Scheduler': 'https://business-rs.gr/',
+  }
 
-    if (card.pricingHref) {
-      const pricingUrl = new URL(card.pricingHref, baseUrl)
-      assert(pricingUrl.protocol === 'https:', `${label}: ${card.name} pricing link must use HTTPS.`)
-      assert(!['localhost', '127.0.0.1', '::1'].includes(pricingUrl.hostname), `${label}: ${card.name} pricing link must not target a local address.`)
+  for (const card of contract.productCards) {
+    assert(Boolean(card.productHref), `${label}: ${card.name} must link to its Noitis landing page.`)
+    const productUrl = new URL(card.productHref, baseUrl)
+    assert(productUrl.origin === new URL(baseUrl).origin, `${label}: ${card.name} informational link must remain on the Noitis site.`)
+    assert(productUrl.pathname === expectedProductPaths[card.name], `${label}: ${card.name} points to unexpected landing path ${productUrl.pathname}.`)
+
+    const expectedPublic = expectedPublicApps[card.name] ?? null
+    if (expectedPublic) {
+      assert(card.publicHref === expectedPublic, `${label}: ${card.name} must open its approved public app.`)
+    } else {
+      assert(card.publicHref === null, `${label}: ${card.name} is not launched and must not show a public app link.`)
     }
   }
 
-  for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html', './privacy.html']) {
+  for (const href of ['./products.html', './how-we-build.html', './about.html', './contact.html']) {
     assert(contract.navigation.includes(href), `${label}: main navigation is missing ${href}.`)
   }
 
@@ -253,13 +251,13 @@ async function reviewBrowser(name, browserType) {
           const open = page.getByRole('link', { name: 'Open FamilyOS' })
           assert(await open.count() === 1, `${label}: FamilyOS must have a public app link.`)
           assert(await open.getAttribute('href') === 'https://family-os.gr/', `${label}: FamilyOS public destination is incorrect.`)
-          assert((await page.locator('.product-landing__status').textContent())?.includes('Publicly available'), `${label}: FamilyOS status must show public availability.`)
+          assert((await page.locator('.product-hero .status').textContent())?.includes('Live now'), `${label}: FamilyOS status must show public availability.`)
         }
         if (route === 'business-resource-scheduler.html') {
           const open = page.getByRole('link', { name: 'Open Business Resource Scheduler' })
           assert(await open.count() === 1, `${label}: BRS must have a public application link.`)
           assert(await open.getAttribute('href') === 'https://business-rs.gr/', `${label}: BRS public destination is incorrect.`)
-          assert((await page.locator('.product-landing__status').textContent())?.includes('Publicly available'), `${label}: BRS status must show public availability.`)
+          assert((await page.locator('.product-hero .status').textContent())?.includes('Live now'), `${label}: BRS status must show public availability.`)
         }
       }
 

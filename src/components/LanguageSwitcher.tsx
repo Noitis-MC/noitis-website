@@ -1,25 +1,30 @@
-import { useLanguage } from '../i18n/LanguageContext'
+import { chromeCopy } from '../i18n/chromeCopy'
+import { useLanguage, type NoitisLanguage } from '../i18n/LanguageContext'
 
-interface LanguageSwitcherProps {
-  compact?: boolean
-  className?: string
-}
+const options: { value: NoitisLanguage; short: string; name: string }[] = [
+  { value: 'en', short: 'EN', name: 'English' },
+  { value: 'el', short: 'ΕΛ', name: 'Ελληνικά' },
+]
 
-export function LanguageSwitcher({ compact = false, className = '' }: LanguageSwitcherProps) {
+// Two visible choices are faster to use than a dropdown with two items.
+export function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage()
-  const label = language === 'el' ? 'Γλώσσα' : 'Language'
 
   return (
-    <label className={`language-switcher ${compact ? 'language-switcher--compact' : ''} ${className}`.trim()}>
-      {!compact && <span>{label}</span>}
-      <select
-        value={language}
-        onChange={(event) => setLanguage(event.target.value as 'en' | 'el')}
-        aria-label={label}
-      >
-        <option value="en">EN · English</option>
-        <option value="el">EL · Ελληνικά</option>
-      </select>
-    </label>
+    <div className="language-switcher" role="group" aria-label={chromeCopy[language].languageLabel}>
+      {options.map((option) => (
+        <button
+          key={option.value}
+          type="button"
+          lang={option.value}
+          aria-pressed={language === option.value}
+          aria-label={option.name}
+          title={option.name}
+          onClick={() => setLanguage(option.value)}
+        >
+          {option.short}
+        </button>
+      ))}
+    </div>
   )
 }

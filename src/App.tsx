@@ -1,206 +1,119 @@
-import { useEffect, useState } from 'react'
-import { FiArrowRight, FiExternalLink, FiMail, FiMenu, FiX } from 'react-icons/fi'
-import { BrandMark } from './BrandMark'
-import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { FiArrowRight, FiArrowUpRight, FiMail } from 'react-icons/fi'
+import { SiteLayout } from './components/SiteChrome'
+import { CONTACT_EMAIL, chromeCopy } from './i18n/chromeCopy'
 import { useLanguage } from './i18n/LanguageContext'
 import { replaceName, siteContent } from './i18n/siteContent'
 import { products } from './productCatalog'
 
-import noitisLogoLight from '../media/Noitis Logo - Light.png'
-import noitisLogoDark from '../media/Noitis Logo - Dark.png'
-
-type Theme = 'light' | 'dark'
-
-function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'light'
-  const saved = window.localStorage.getItem('noitis-theme')
-  if (saved === 'light' || saved === 'dark') return saved
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
+import noitisLogoLight from '../media/Noitis Logo - Light.webp'
+import noitisLogoDark from '../media/Noitis Logo - Dark.webp'
 
 export function App() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
-  const [menuOpen, setMenuOpen] = useState(false)
   const { language } = useLanguage()
   const copy = siteContent[language]
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    window.localStorage.setItem('noitis-theme', theme)
-  }, [theme])
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false)
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
-
-  const closeMenu = () => setMenuOpen(false)
-  const heroLogo = theme === 'dark' ? noitisLogoDark : noitisLogoLight
+  const chrome = chromeCopy[language]
+  const [firstPrinciple, ...principles] = copy.principles.items
 
   return (
-    <div className="site-shell home-shell">
-      <a className="skip-link" href="#main">{copy.skip}</a>
-
-      <header className="site-header">
-        <a className="brand-link" href="./index.html" aria-label={copy.homeAria} onClick={closeMenu}><BrandMark compact theme={theme} /></a>
-        <button
-          className="menu-button"
-          type="button"
-          aria-label={menuOpen ? copy.menuCloseAria : copy.menuOpenAria}
-          aria-expanded={menuOpen}
-          aria-controls="site-navigation"
-          onClick={() => setMenuOpen((value) => !value)}
-        >
-          {menuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
-        </button>
-        <nav id="site-navigation" className={menuOpen ? 'site-nav site-nav--open' : 'site-nav'} aria-label={copy.mainNavAria}>
-          <a href="./products.html" onClick={closeMenu}>{copy.nav.products}</a>
-          <a href="./how-we-build.html" onClick={closeMenu}>{copy.nav.principles}</a>
-          <a href="./about.html" onClick={closeMenu}>{copy.nav.about}</a>
-          <a href="./contact.html" onClick={closeMenu}>{copy.nav.contact}</a>
-          <a href="./privacy.html" onClick={closeMenu}>{copy.nav.privacy}</a>
-          <LanguageSwitcher compact />
-          <button
-            className="theme-button"
-            type="button"
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            aria-label={theme === 'light' ? copy.theme.switchToDark : copy.theme.switchToLight}
-          >
-            {theme === 'light' ? copy.theme.dark : copy.theme.light}
-          </button>
-        </nav>
-      </header>
-
-      <main id="main">
-        <section className="hero" id="top">
-          <div className="hero__visual" aria-hidden="true">
-            <div className="hero__company-logo">
-              <img className="theme-logo" src={heroLogo} alt="" decoding="async" fetchPriority="high" />
+    <SiteLayout current="home" className="home-shell">
+      {(theme) => (
+        <main id="main">
+          <section className="hero" id="top">
+            <div className="hero__copy">
+              <p className="eyebrow">{copy.hero.eyebrow}</p>
+              <h1>{copy.hero.title}</h1>
+              <p className="hero__lead">{copy.hero.lead}</p>
+              <p className="hero__support">{copy.hero.support}</p>
+              <div className="actions">
+                <a className="button button--primary" href="./products.html">{copy.hero.discover} <FiArrowRight aria-hidden="true" /></a>
+                <a className="button button--ghost" href="./about.html">{copy.hero.meet}</a>
+              </div>
             </div>
-          </div>
-          <div className="hero__copy">
-            <p className="eyebrow">{copy.hero.eyebrow}</p>
-            <h1>{copy.hero.title}</h1>
-            <p className="hero__lead">{copy.hero.lead}</p>
-            <p className="hero__support">{copy.hero.support}</p>
-            <div className="hero__actions">
-              <a className="button button--primary" href="./products.html">{copy.hero.discover} <FiArrowRight aria-hidden="true" /></a>
-              <a className="button button--secondary" href="./about.html">{copy.hero.meet}</a>
+            <div className="hero__visual" aria-hidden="true">
+              <img className="blend-logo" src={theme === 'dark' ? noitisLogoDark : noitisLogoLight} alt="" width="640" height="640" decoding="async" fetchPriority="high" />
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="section section--statement" aria-labelledby="purpose-title">
-          <p className="eyebrow">{copy.purpose.eyebrow}</p>
-          <h2 id="purpose-title">{copy.purpose.title}</h2>
-          <p className="section__lead">{copy.purpose.text}</p>
-        </section>
+          <section className="statement" aria-labelledby="purpose-title">
+            <p className="eyebrow">{copy.purpose.eyebrow}</p>
+            <h2 id="purpose-title">{copy.purpose.title}</h2>
+            <p>{copy.purpose.text}</p>
+          </section>
 
-        <section className="section" id="products" aria-labelledby="products-title">
-          <div className="section-heading">
-            <div><p className="eyebrow">{copy.products.eyebrow}</p><h2 id="products-title">{copy.products.title}</h2></div>
-            <div>
+          <section className="section" id="products" aria-labelledby="products-title">
+            <div className="section-heading">
+              <p className="eyebrow">{copy.products.eyebrow}</p>
+              <h2 id="products-title">{copy.products.title}</h2>
               <p>{copy.products.intro}</p>
-              <a className="text-link" href="./products.html">{copy.products.all} <FiArrowRight aria-hidden="true" /></a>
             </div>
-          </div>
-          <div className="product-grid swipe-track" role="region" aria-label={copy.products.title} tabIndex={0}>
-            {products.map((product) => {
-              const productLogo = theme === 'dark' ? product.logoDark : product.logoLight
-              const productCopy = copy.productCopy[product.name] ?? product
+            <ul className="product-grid">
+              {products.map((product) => {
+                const productCopy = copy.productCopy[product.name]
+                const isLive = Boolean(product.publicUrl)
+                return (
+                  <li className="product-card" key={product.slug}>
+                    <div className="product-card__top">
+                      <span className="logo-tile">
+                        <img className="blend-logo" src={theme === 'dark' ? product.logoDark : product.logoLight} alt="" width="640" height="640" loading="lazy" decoding="async" />
+                      </span>
+                      <span className={isLive ? 'status status--live' : 'status'}>{isLive ? chrome.statusLive : chrome.statusDevelopment}</span>
+                    </div>
+                    <p className="product-card__category">{productCopy.category}</p>
+                    <h3><a className="card-link" href={product.href}>{product.name}</a></h3>
+                    <p>{productCopy.description}</p>
+                    <div className="product-card__footer">
+                      <span className="text-link" aria-hidden="true">{chrome.learnMore} <FiArrowRight /></span>
+                      {product.publicUrl ? (
+                        <a className="text-link text-link--external" href={product.publicUrl} target="_blank" rel="noopener noreferrer">
+                          {replaceName(chrome.openProduct, product.name)} <FiArrowUpRight aria-hidden="true" />
+                        </a>
+                      ) : null}
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+            <a className="text-link" href="./products.html">{copy.products.all} <FiArrowRight aria-hidden="true" /></a>
+          </section>
 
-              return (
-                <article className="product-card" key={product.name}>
-                  <div className="product-card__logo" role="img" aria-label={`${product.name} logo`}>
-                    <img className="theme-logo" src={productLogo} alt="" loading="lazy" decoding="async" />
-                  </div>
-                  <p className="product-card__eyebrow">{productCopy.category}</p>
-                  <h3>{product.name}</h3>
-                  <p className="product-card__problem">{productCopy.description}</p>
-                  <span className="product-card__status">{product.publicUrl ? (language === 'el' ? 'Δημόσια διαθέσιμο' : 'Publicly available') : productCopy.status}</span>
-                  <div className="hero__actions">
-                    <a className="button button--secondary" href={product.publicUrl ?? product.href} target={product.publicUrl ? '_blank' : undefined} rel={product.publicUrl ? 'noopener noreferrer' : undefined} aria-label={replaceName(copy.products.openAria, product.name)}>
-                      {copy.products.open} <FiExternalLink aria-hidden="true" />
-                    </a>
-                    {product.pricingHref ? (
-                      <a className="button button--secondary" href={product.pricingHref} target="_blank" rel="noreferrer" aria-label={replaceName(copy.products.pricingAria, product.name)}>
-                        {copy.products.pricing} <FiExternalLink aria-hidden="true" />
-                      </a>
-                    ) : null}
-                  </div>
-                </article>
-              )
-            })}
-          </div>
-        </section>
+          <section className="section section--tinted" id="principles" aria-labelledby="principles-title">
+            <div className="section-heading">
+              <p className="eyebrow">{copy.principles.eyebrow}</p>
+              <h2 id="principles-title">{copy.principles.title}</h2>
+              <p>{firstPrinciple.text}</p>
+            </div>
+            <ol className="principle-list">
+              {principles.map((principle) => (
+                <li key={principle.title}>
+                  <h3>{principle.title}</h3>
+                  <p>{principle.text}</p>
+                </li>
+              ))}
+            </ol>
+            <a className="text-link" href="./how-we-build.html">{chrome.nav.how} <FiArrowRight aria-hidden="true" /></a>
+          </section>
 
-        <section className="section" id="principles" aria-labelledby="principles-title">
-          <div className="section-heading">
-            <div><p className="eyebrow">{copy.principles.eyebrow}</p><h2 id="principles-title">{copy.principles.title}</h2></div>
+          <section className="section split" id="about" aria-labelledby="about-title">
             <div>
-              <p>{copy.principles.items[0].text}</p>
-              <a className="text-link" href="./how-we-build.html">{copy.nav.principles} <FiArrowRight aria-hidden="true" /></a>
+              <p className="eyebrow">{copy.about.eyebrow}</p>
+              <h2 id="about-title">{copy.about.title}</h2>
             </div>
-          </div>
-          <div className="principle-grid principle-grid--compact">
-            {copy.principles.items.slice(1).map((principle, index) => (
-              <article className="principle-card" key={principle.title}>
-                <span className="principle-card__number">0{index + 1}</span>
-                <h3>{principle.title}</h3>
-                <p>{principle.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <div className="home-lower-grid">
-          <section className="section origin" id="about" aria-labelledby="about-title">
-            <div className="origin__intro"><p className="eyebrow">{copy.about.eyebrow}</p><h2 id="about-title">{copy.about.title}</h2></div>
-            <div className="origin__copy">
+            <div className="prose">
               {copy.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <p className="muted">{copy.future.text}</p>
               <a className="text-link" href="./about.html">{copy.hero.meet} <FiArrowRight aria-hidden="true" /></a>
             </div>
           </section>
 
-          <section className="section home-contact" id="contact" aria-labelledby="contact-title">
-            <div className="section-heading">
-              <div><p className="eyebrow">{copy.contact.eyebrow}</p><h2 id="contact-title">{copy.contact.title}</h2></div>
-              <div>
-                <p>{copy.contact.text}</p>
-                <div className="hero__actions">
-                  <a className="button button--primary" href="mailto:chouliarasmatthaios@gmail.com">{copy.contact.email} <FiMail aria-hidden="true" /></a>
-                </div>
-              </div>
+          <section className="cta-band" id="contact" aria-labelledby="contact-title">
+            <div>
+              <h2 id="contact-title">{copy.contact.title}</h2>
+              <p>{copy.contact.text}</p>
             </div>
+            <a className="button button--primary" href={`mailto:${CONTACT_EMAIL}`}><FiMail aria-hidden="true" /> {copy.contact.email}</a>
           </section>
-        </div>
-
-        <section className="future" aria-labelledby="future-title">
-          <div className="future__icon" aria-hidden="true">
-            <img className="future__logo" src={heroLogo} alt="" loading="lazy" decoding="async" />
-          </div>
-          <p className="eyebrow">{copy.future.eyebrow}</p>
-          <h2 id="future-title">{copy.future.title}</h2>
-          <p>{copy.future.text}</p>
-        </section>
-      </main>
-
-      <footer className="site-footer">
-        <div className="site-footer__brand"><BrandMark theme={theme} /><p>{copy.footer.tagline}</p></div>
-        <div className="site-footer__links">
-          <a href="./products.html">{copy.nav.products}</a>
-          <a href="./how-we-build.html">{copy.nav.principles}</a>
-          <a href="./about.html">{copy.nav.about}</a>
-          <a href="./contact.html">{copy.nav.contact}</a>
-          <a href="./privacy.html">{copy.nav.privacy}</a>
-          <a href="./terms.html">{copy.nav.terms}</a>
-          <a href="./trademark.html">{copy.nav.trademarks}</a>
-        </div>
-        <p className="site-footer__legal">© {new Date().getFullYear()} Noitis™. {copy.footer.rights}</p>
-      </footer>
-    </div>
+        </main>
+      )}
+    </SiteLayout>
   )
 }

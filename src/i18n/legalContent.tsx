@@ -16,40 +16,6 @@ export type LegalPageCopy = {
   footerTagline: string
 }
 
-export type LegalCommonCopy = {
-  skip: string
-  returnHomeAria: string
-  navAria: string
-  home: string
-  privacy: string
-  terms: string
-  trademarks: string
-  rights: string
-}
-
-export const legalCommon: Record<NoitisLanguage, LegalCommonCopy> = {
-  en: {
-    skip: 'Skip to main content',
-    returnHomeAria: 'Return to Noitis home',
-    navAria: 'Legal navigation',
-    home: 'Home',
-    privacy: 'Privacy',
-    terms: 'Terms',
-    trademarks: 'Trademarks',
-    rights: 'All rights reserved.',
-  },
-  el: {
-    skip: 'Μετάβαση στο κύριο περιεχόμενο',
-    returnHomeAria: 'Επιστροφή στην αρχική Noitis',
-    navAria: 'Νομική πλοήγηση',
-    home: 'Αρχική',
-    privacy: 'Απόρρητο',
-    terms: 'Όροι',
-    trademarks: 'Εμπορικά σήματα',
-    rights: 'Με επιφύλαξη παντός δικαιώματος.',
-  },
-}
-
 const privacyEnglish: LegalPageCopy = {
   eyebrow: 'Noitis™ privacy notice',
   title: 'Privacy Notice',

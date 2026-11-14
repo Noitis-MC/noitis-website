@@ -14,6 +14,8 @@ export type CompanyPageCopy = {
   title: string
   intro: string
   sections: CompanySection[]
+  /** Contact page only: a short reassurance shown next to the email button. */
+  note?: string
 }
 
 export type DirectoryProductCopy = {
@@ -22,50 +24,6 @@ export type DirectoryProductCopy = {
   problemLabel: string
   problem: string
   cta: string
-}
-
-export const companyPageUi: Record<NoitisLanguage, {
-  nav: { products: string; how: string; about: string; contact: string; privacy: string; terms: string; trademarks: string }
-  menuOpen: string
-  menuClose: string
-  navAria: string
-  switchToLight: string
-  switchToDark: string
-  light: string
-  dark: string
-  skip: string
-  email: string
-  footer: string
-  rights: string
-}> = {
-  en: {
-    nav: { products: 'Products', how: 'How we build', about: 'About', contact: 'Contact', privacy: 'Privacy', terms: 'Terms', trademarks: 'Trademarks' },
-    menuOpen: 'Open navigation',
-    menuClose: 'Close navigation',
-    navAria: 'Main navigation',
-    switchToLight: 'Switch to light theme',
-    switchToDark: 'Switch to dark theme',
-    light: 'Light',
-    dark: 'Dark',
-    skip: 'Skip to main content',
-    email: 'Email Noitis',
-    footer: 'Built in Greece. Designed for a wider world.',
-    rights: 'All rights reserved.',
-  },
-  el: {
-    nav: { products: 'Προϊόντα', how: 'Πώς δημιουργούμε', about: 'Η Noitis', contact: 'Επικοινωνία', privacy: 'Απόρρητο', terms: 'Όροι χρήσης', trademarks: 'Εμπορικά σήματα' },
-    menuOpen: 'Άνοιγμα μενού',
-    menuClose: 'Κλείσιμο μενού',
-    navAria: 'Κύρια πλοήγηση',
-    switchToLight: 'Μετάβαση σε φωτεινό θέμα',
-    switchToDark: 'Μετάβαση σε σκούρο θέμα',
-    light: 'Φωτεινό',
-    dark: 'Σκούρο',
-    skip: 'Μετάβαση στο κύριο περιεχόμενο',
-    email: 'Στείλτε email στη Noitis',
-    footer: 'Χτίζεται στην Ελλάδα. Σχεδιάζεται για έναν ευρύτερο κόσμο.',
-    rights: 'Με επιφύλαξη παντός δικαιώματος.',
-  },
 }
 
 export const companyPageContent: Record<CompanyPageSlug, Record<NoitisLanguage, CompanyPageCopy>> = {
@@ -181,12 +139,14 @@ export const companyPageContent: Record<CompanyPageSlug, Record<NoitisLanguage, 
       title: 'Talk to Noitis.',
       intro: 'If you want to discuss one of our products, a possible use case, a pilot, a partnership, or simply what we are building, you can contact us directly. We prefer useful conversations over complicated forms.',
       sections: [],
+      note: 'You do not need a formal proposal to start a useful conversation.',
     },
     el: {
       eyebrow: 'Επικοινωνία',
       title: 'Μιλήστε με τη Noitis.',
       intro: 'Αν θέλετε να συζητήσουμε για κάποιο από τα προϊόντα μας, ένα πιθανό σενάριο χρήσης, μία πιλοτική εφαρμογή, μία συνεργασία ή απλώς για αυτά που δημιουργούμε, μπορείτε να επικοινωνήσετε μαζί μας απευθείας. Προτιμούμε μία χρήσιμη συζήτηση από μία περίπλοκη φόρμα.',
       sections: [],
+      note: 'Δεν χρειάζεται επίσημη πρόταση για να ξεκινήσει μία χρήσιμη συζήτηση.',
     },
   },
 }

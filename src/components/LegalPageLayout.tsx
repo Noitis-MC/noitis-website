@@ -1,65 +1,52 @@
-import { BrandMark } from '../BrandMark'
-import { LanguageSwitcher } from './LanguageSwitcher'
-import { legalCommon } from '../i18n/legalContent'
+import { useEffect } from 'react'
 import type { LegalPageCopy } from '../i18n/legalContent'
 import { useLanguage } from '../i18n/LanguageContext'
+import { SiteLayout } from './SiteChrome'
 
-type LegalPageKey = 'privacy' | 'terms' | 'trademark'
+type LegalPageKey = 'privacy' | 'terms' | 'trademarks'
 
-interface LegalPageLayoutProps {
-  page: LegalPageKey
-  mainId: string
-  content: LegalPageCopy
-}
+const tocLabel = { en: 'On this page', el: 'Σε αυτή τη σελίδα' } as const
 
-export function LegalPageLayout({ page, mainId, content }: LegalPageLayoutProps) {
+export function LegalPageLayout({ page, content }: { page: LegalPageKey; content: LegalPageCopy }) {
   const { language } = useLanguage()
-  const common = legalCommon[language]
 
-  const headerLinks = [
-    { key: 'home', href: './index.html', label: common.home },
-    { key: 'privacy', href: './privacy.html', label: common.privacy },
-    { key: 'terms', href: './terms.html', label: common.terms },
-    { key: 'trademark', href: './trademark.html', label: common.trademarks },
-  ].filter((link) => link.key === 'home' || link.key !== page)
+  useEffect(() => {
+    document.title = `${content.title} — Noitis`
+  }, [content.title])
 
   return (
-    <div className={`site-shell legal-shell legal-shell--${page}`}>
-      <a className="skip-link" href={`#${mainId}`}>{common.skip}</a>
-      <header className="site-header">
-        <a className="brand-link" href="./index.html" aria-label={common.returnHomeAria}><BrandMark compact /></a>
-        <nav className="privacy-nav" aria-label={common.navAria}>
-          {headerLinks.map((link) => <a href={link.href} key={link.key}>{link.label}</a>)}
-          <LanguageSwitcher compact />
-        </nav>
-      </header>
+    <SiteLayout current={page} className={`legal-shell legal-shell--${page}`} footerTagline={content.footerTagline}>
+      {() => (
+        <main id="main" className="page legal-page">
+          <header className="page-hero">
+            <p className="eyebrow">{content.eyebrow}</p>
+            <h1>{content.title}</h1>
+            <p className="page-hero__lead">{content.lead}</p>
+            <p className="legal-meta"><strong>{content.effectiveDateLabel}</strong> {content.effectiveDate}</p>
+          </header>
 
-      <main className="privacy-page legal-page" id={mainId}>
-        <header className="privacy-hero legal-hero">
-          <p className="eyebrow">{content.eyebrow}</p>
-          <h1>{content.title}</h1>
-          <p className="privacy-hero__lead">{content.lead}</p>
-          <p className="privacy-meta"><strong>{content.effectiveDateLabel}</strong> {content.effectiveDate}</p>
-        </header>
-
-        {content.sections.map((section) => (
-          <section className="privacy-section legal-section" key={section.heading}>
-            <h2>{section.heading}</h2>
-            {section.body}
-          </section>
-        ))}
-      </main>
-
-      <footer className="site-footer site-footer--privacy legal-footer">
-        <div className="site-footer__brand"><BrandMark /><p>{content.footerTagline}</p></div>
-        <div className="site-footer__links">
-          <a href="./index.html">{common.home}</a>
-          <a href="./privacy.html">{common.privacy}</a>
-          <a href="./terms.html">{common.terms}</a>
-          <a href="./trademark.html">{common.trademarks}</a>
-        </div>
-        <p className="site-footer__legal">© {new Date().getFullYear()} Noitis™. {common.rights}</p>
-      </footer>
-    </div>
+          <div className="legal-layout">
+            {content.sections.length > 3 ? (
+              <nav className="legal-toc" aria-label={tocLabel[language]}>
+                <p className="legal-toc__title">{tocLabel[language]}</p>
+                <ol>
+                  {content.sections.map((section, index) => (
+                    <li key={section.heading}><a href={`#section-${index + 1}`}>{section.heading.replace(/^\d+\.\s*/, '')}</a></li>
+                  ))}
+                </ol>
+              </nav>
+            ) : null}
+            <div className="legal-body">
+              {content.sections.map((section, index) => (
+                <section className="legal-section" id={`section-${index + 1}`} key={section.heading}>
+                  <h2>{section.heading}</h2>
+                  {section.body}
+                </section>
+              ))}
+            </div>
+          </div>
+        </main>
+      )}
+    </SiteLayout>
   )
 }

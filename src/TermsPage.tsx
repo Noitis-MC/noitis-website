@@ -4,5 +4,5 @@ import { termsContent } from './i18n/legalContent'
 
 export function TermsPage() {
   const { language } = useLanguage()
-  return <LegalPageLayout page="terms" mainId="terms-main" content={termsContent[language]} />
+  return <LegalPageLayout page="terms" content={termsContent[language]} />
 }

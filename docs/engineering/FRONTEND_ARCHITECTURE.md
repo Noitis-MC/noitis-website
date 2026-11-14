@@ -4,18 +4,24 @@
 
 The Noitis website remains intentionally small. Current React ownership is:
 
-- `App.tsx` — company-site composition, navigation/theme state, product rendering, and contact section;
-- `productCatalog.ts` — reviewed public product summaries and optional public/pricing link configuration;
-- `BrandMark.tsx` — shared Noitis brand rendering;
-- `PrivacyPage.tsx`, `TermsPage.tsx`, `TrademarkPage.tsx` — public legal-page presentation;
-- entry files (`main.tsx`, `privacy.tsx`, `terms.tsx`, `trademark.tsx`);
-- `styles.css` / `styles/site.css` / `styles/quality.css` — stable stylesheet boundary.
+- `components/SiteChrome.tsx` — the one shared header, footer, theme hook and page layout used by every page;
+- `App.tsx` — homepage composition;
+- `CompanyPage.tsx` — products directory, how-we-build, about and contact pages;
+- `ProductLandingPage.tsx` — the six product landing pages;
+- `components/LegalPageLayout.tsx` with `PrivacyPage.tsx`, `TermsPage.tsx`, `TrademarkPage.tsx` — legal pages;
+- `productCatalog.ts` — product names, landing paths, logos and approved public app URLs;
+- `i18n/chromeCopy.ts` — shared navigation/footer/status copy in English and Greek; page copy lives in `i18n/siteContent*.ts`, `companyPageContent.ts`, `productLandingContent.ts` and `i18n/legalContent.tsx`;
+- `lib/storage.ts` — safe access to saved preferences (never throws when storage is blocked);
+- entry files (`main.tsx`, `company.tsx`, `product.tsx`, `privacy.tsx`, `terms.tsx`, `trademark.tsx`);
+- `styles.css` imports `styles/site.css` (design tokens, base, header/footer, shared components), `styles/pages.css` (page layouts) and `styles/quality.css` (reduced motion, forced colours, print).
+
+Brand colours are defined once as tokens at the top of `styles/site.css`. Logos are optimized WebP files; their solid backgrounds are blended into the page surface with the `.blend-logo` class. Each HTML entry applies the saved theme in a tiny inline script before first paint.
 
 Do not split every section into components merely to mirror larger Noitis applications.
 
 ## Product catalogue boundary
 
-`productCatalog.ts` owns names, categories, conservative descriptions, `In development` status, safety notes, logos, and optional public/pricing destinations. It does **not** become authoritative for product business behavior; product repositories remain the implementation authority.
+`productCatalog.ts` owns names, landing paths, logos, and approved public app URLs. A product is shown as live exactly when it has a `publicUrl`; localized categories and descriptions live in the content files. It does **not** become authoritative for product business behavior; product repositories remain the implementation authority.
 
 Public URLs arrive through `VITE_*` variables. Development links are generated into ignored `.env.development.local`, so local convenience is isolated from production-mode configuration.
 

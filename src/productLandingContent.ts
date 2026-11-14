@@ -13,22 +13,12 @@ export type ProductLandingContent = {
 
 export type ProductLandingUiCopy = {
   back: string
-  products: string
-  how: string
-  about: string
-  contact: string
-  privacy: string
-  menuOpenAria: string
-  menuCloseAria: string
-  mainNavAria: string
-  switchToLight: string
-  switchToDark: string
-  light: string
-  dark: string
-  status: string
   accessEyebrow: string
   accessTitle: string
   accessText: string
+  liveAccessTitle: string
+  liveAccessText: string
+  earlyAccess: string
   problemEyebrow: string
   problemTitle: string
   capabilityEyebrow: string
@@ -40,29 +30,16 @@ export type ProductLandingUiCopy = {
   contactEyebrow: string
   contactTitle: string
   valueText: string
-  email: string
-  footerTagline: string
-  rights: string
 }
 
 export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
   en: {
     back: 'Back to Noitis products',
-    products: 'Products',
-    how: 'How we build',
-    about: 'About Noitis',
-    contact: 'Contact',
-    privacy: 'Privacy',
-    menuOpenAria: 'Open navigation',
-    menuCloseAria: 'Close navigation',
-    mainNavAria: 'Product navigation',
-    switchToLight: 'Switch to light theme',
-    switchToDark: 'Switch to dark theme',
-    light: 'Light',
-    dark: 'Dark',
-    status: 'In development',
     accessEyebrow: 'Current availability',
     accessTitle: 'The application is not public yet',
+    liveAccessTitle: 'The application is publicly available',
+    liveAccessText: 'Open the application with the button above. Personal workspaces stay protected by the application’s own sign-in.',
+    earlyAccess: 'Ask about early access',
     accessText: 'The product is under active development. This page explains the problem, the current product direction, and the public boundary without exposing operational customer data.',
     problemEyebrow: 'The problem',
     problemTitle: 'Why we are building it',
@@ -75,27 +52,14 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
     contactEyebrow: 'Interested?',
     contactTitle: 'Talk to Noitis about the product',
     valueText: 'For a use case, pilot, partnership, or product discussion, contact Noitis directly.',
-    email: 'Email Noitis',
-    footerTagline: 'Built in Greece. Designed for a wider world.',
-    rights: 'All rights reserved.',
   },
   el: {
     back: 'Πίσω στα προϊόντα της Noitis',
-    products: 'Προϊόντα',
-    how: 'Πώς δημιουργούμε',
-    about: 'Η Noitis',
-    contact: 'Επικοινωνία',
-    privacy: 'Απόρρητο',
-    menuOpenAria: 'Άνοιγμα μενού',
-    menuCloseAria: 'Κλείσιμο μενού',
-    mainNavAria: 'Πλοήγηση προϊόντος',
-    switchToLight: 'Μετάβαση σε φωτεινό θέμα',
-    switchToDark: 'Μετάβαση σε σκούρο θέμα',
-    light: 'Φωτεινό',
-    dark: 'Σκούρο',
-    status: 'Υπό ανάπτυξη',
     accessEyebrow: 'Τρέχουσα διαθεσιμότητα',
     accessTitle: 'Η εφαρμογή δεν είναι ακόμη διαθέσιμη δημόσια',
+    liveAccessTitle: 'Η εφαρμογή είναι διαθέσιμη στο κοινό',
+    liveAccessText: 'Ανοίξτε την εφαρμογή από το κουμπί παραπάνω. Οι προσωπικοί χώροι εργασίας προστατεύονται από τη σύνδεση της ίδιας της εφαρμογής.',
+    earlyAccess: 'Ρωτήστε για πρώιμη πρόσβαση',
     accessText: 'Το προϊόν βρίσκεται σε ενεργή ανάπτυξη. Η σελίδα εξηγεί το πρόβλημα, την κατεύθυνση του προϊόντος και τα όρια της δημόσιας πρόσβασης, χωρίς να εκθέτει λειτουργικά δεδομένα πελατών.',
     problemEyebrow: 'Το πρόβλημα',
     problemTitle: 'Γιατί το δημιουργούμε',
@@ -108,9 +72,6 @@ export const landingUiCopy: Record<NoitisLanguage, ProductLandingUiCopy> = {
     contactEyebrow: 'Σας ενδιαφέρει;',
     contactTitle: 'Μιλήστε με τη Noitis για το προϊόν',
     valueText: 'Για σενάριο χρήσης, πιλοτική εφαρμογή, συνεργασία ή συζήτηση γύρω από το προϊόν, επικοινωνήστε απευθείας με τη Noitis.',
-    email: 'Στείλτε email στη Noitis',
-    footerTagline: 'Χτίζεται στην Ελλάδα. Σχεδιάζεται για έναν ευρύτερο κόσμο.',
-    rights: 'Με επιφύλαξη παντός δικαιώματος.',
   },
 }
 

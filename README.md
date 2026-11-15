@@ -80,3 +80,22 @@ For company, product, privacy, legal, or brand enquiries:
 - [License](./LICENSE)
 
 Noitis™ and the Noitis product names, logos, and brand assets are protected under the repository's license and trademark terms. All rights are reserved except where an explicit written permission states otherwise.
+
+## Run with Docker Desktop
+
+Requirements: Docker Desktop only.
+
+```powershell
+docker compose up -d --build
+```
+
+Open http://localhost:5190.
+
+- This is a production build served by nginx, the same files GitHub Pages publishes; canonical links point at the local address.
+- For live editing with instant reload, keep using `npm run dev`.
+
+| Task | Command |
+|---|---|
+| Rebuild after `git pull` | `docker compose up -d --build` |
+| Logs | `docker compose logs -f` |
+| Stop | `docker compose down` |

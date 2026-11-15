@@ -1,0 +1,8 @@
+# Noitis website on Docker Desktop: `docker compose up -d --build`, then open http://localhost:5190
+name: noitis-website
+
+services:
+  website:
+    build: .
+    ports:
+      - "127.0.0.1:5190:80"
